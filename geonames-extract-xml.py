@@ -12,6 +12,7 @@ import re
 # import ujson
 
 
+filelist = ['schnitzler_anatol_1893.tcf.xml', 'schnitzler_else_1924.tcf.xml', 'schnitzler_liebelei_1896.tcf.xml', 'schnitzler_reigen_1903.tcf.xml', 'schnitzler_traumnovelle_1926.tcf.xml']
 places = dict()
 occurrences = dict()
 i = 0
@@ -52,15 +53,15 @@ with open('geonames.filtered', 'r') as dictfh:
 print (len(places))
 
 # search for places
-with open('/home/adrien/Arbeitsfläche/dta-all.txt', 'r') as inputfh:
-    splitted = inputfh.read().replace('\n', ' ').split()
+for filename in filelist:
+    tree = etree.parse(filename, hparser)
     # build frequency dict
     tokens = defaultdict(int)
-    for elem in splitted:
-        tokens[elem] += 1
+    for elem in tree.xpath('//token'):
+        tokens[elem.text] += 1
     numtokens = len(tokens)
     print (numtokens)
-    for elem in splitted:
+    for elem in tree.xpath('//token'):
         # reinitialize
         if tempstring.count(' ') >= 3:
             #try:
@@ -71,25 +72,25 @@ with open('/home/adrien/Arbeitsfläche/dta-all.txt', 'r') as inputfh:
             flag = False
         # flag test
         if flag is False:
-            #if elem == 'aus' or elem == 'bei' or elem == 'bis' or elem == 'durch' or elem == 'in' or elem == 'nach' or elem == u'über' or elem == 'von' or elem == 'zu':
-                # print (elem)
+            #if elem.text == 'aus' or elem.text == 'bei' or elem.text == 'bis' or elem.text == 'durch' or elem.text == 'in' or elem.text == 'nach' or elem.text == u'über' or elem.text == 'von' or elem.text == 'zu':
+                # print (elem.text)
                 # flag = True
             flag = True
         else:
-            if len(elem) > 3 and elem in places and not re.match(r'[a-z]', elem) and elem not in wiktionary and elem.lower() not in wiktionary and (tokens[elem]/numtokens) < threshold:
+            if len(elem.text) > 3 and elem.text in places and not re.match(r'[a-z]', elem.text) and elem.text not in wiktionary and elem.text.lower() not in wiktionary and (tokens[elem.text]/numtokens) < threshold:
                 # store in dict
-                if elem in occurrences:
-                    occurrences[elem][3] += 1
+                if elem.text in occurrences:
+                    occurrences[elem.text][3] += 1
                 else:
-                    occurrences[elem] = [places[elem][0], places[elem][1], '{0:.4f}'.format(tokens[elem]/numtokens), 1]
-                # print (elem, places[elem][0], places[elem][1], '{0:.4f}'.format(tokens[elem]/numtokens))
+                    occurrences[elem.text] = [places[elem.text][0], places[elem.text][1], '{0:.4f}'.format(tokens[elem.text]/numtokens), 1]
+                # print (elem.text, places[elem.text][0], places[elem.text][1], '{0:.4f}'.format(tokens[elem.text]/numtokens))
                 i += 1
                 flag = False
             else:
                 if tempstring:
-                    tempstring = tempstring + ' ' + elem
+                    tempstring = tempstring + ' ' + elem.text
                 else:
-                    tempstring = elem
+                    tempstring = elem.text
                 if tempstring.count(' ') > 0 and tempstring in places:
                     # store in dict
                     if tempstring in occurrences:
