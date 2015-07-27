@@ -5,7 +5,7 @@
 ## TODO:
 # FIX broken types!
 # filter pop
-
+# problem line 150
 
 
 from __future__ import print_function
@@ -63,6 +63,7 @@ lastcountry = ''
 threshold = 0.01 # was 0.001
 wiktionary = set()
 blacklist = set(['Alle', 'Aller', 'Alles', 'Amerika', 'Auch', 'Classe', 'Darum', 'Dich', 'Diesen', 'Drum', 'Ferdinand', 'Franz', 'Grade', 'Grazie', 'Großen', 'Gunsten', 'Hier', 'Ihnen', 'Jene', 'Jenen', 'Leuten', 'Meine', 'Noth', 'Ohne', 'Oskar', 'Sich', 'Sind', 'Weil'])
+
 if args.fackel is True:
     vicinity = set(['AT', 'BA', 'BG', 'CH', 'CZ', 'DE', 'HR', 'HU', 'IT', 'PL', 'RS', 'RU', 'SI', 'SK', 'UA'])
     reference = (float(48.2082), float(16.37169)) # Vienna
@@ -81,8 +82,6 @@ with open('wiktionary.json', 'r') as dictfh:
         # for d in dative:
         #    wiktionary.add(d)
 print ('length dictionary:', len(wiktionary))
-#for item in sorted(wiktionary):
-#    print (item)
 
 # load extended blacklists
 with open('vornamen-historisch', 'r') as dictfh:
@@ -93,29 +92,37 @@ with open('vor+nachnamen-aktuell', 'r') as dictfh:
         blacklist.add(line.strip())
 
 # load infos: combine?
-with open('geonames-codes.dict', 'r') as inputfh:
-    for line in inputfh:
-        line = line.strip()
-        columns = re.split('\t', line)
-        codesdict[columns[0]] = list()
-        for item in columns[1:]:
-            codesdict[columns[0]].append(item)
-print ('different names:', len(codesdict))
-
 with open('geonames-meta.dict', 'r') as inputfh:
     for line in inputfh:
         line = line.strip()
         columns = re.split('\t', line)
         # filter: skip elements
-        if filter_level == 1 and columns[3] != 'A':
-            continue
-        elif filter_level == 2 and columns[3] != 'A' and columns[3] != 'P':
-            continue
+        if filter_level == 1 :
+            if columns[3] != 'A':
+                continue
+        elif filter_level == 2:
+            if columns[3] != 'A' and columns[3] != 'P':
+                continue
         # process
         metainfo[columns[0]] = list()
         for item in columns[1:]:
             metainfo[columns[0]].append(item)
 print ('different codes:', len(metainfo))
+
+# load while implementing filter
+with open('geonames-codes.dict', 'r') as inputfh:
+    for line in inputfh:
+        line = line.strip()
+        columns = re.split('\t', line)
+        for item in columns[1:]:
+            # depends from filter level
+            if item in metainfo:
+                if columns[0] not in codesdict:
+                    codesdict[columns[0]] = list()
+                codesdict[columns[0]].append(item)
+print ('different names:', len(codesdict))
+
+
 
 # calculate distance
 def haversine(lat1, lon1, lat2, lon2):
@@ -133,85 +140,125 @@ def haversine(lat1, lon1, lat2, lon2):
     km = 6367 * c
     return "{0:.1f}".format(km)
 
+def find_winner(candidates, step):
+    # test if list
+    if not isinstance(candidates, list):
+        print ('ERROR: not a list', candidates)
+        return candidates
+    # points: distance, population, vicinity, last country seen
+    scores = dict()
+    distances = dict()
+    # step 2: filter places with no population
+    if step == 2:
+        for candidate in candidates:
+            try:
+                if int(metainfo[candidate][4]) == 0:
+                    candidates.remove(candidate)
+            except KeyError:
+                print ('ERROR, Key:', candidate)
+    # avoid single items
+    if len(candidates) == 1:
+        return candidates[0]
+    # double entries: place + administrative region
+    elif len(candidates) == 2:
+        if metainfo[candidates[0]][2] == 'A' and metainfo[candidates[1]][2] == 'P':
+            return candidates[1]
+        elif metainfo[candidates[0]][2] == 'P' and metainfo[candidates[1]][2] == 'A':
+
+            return candidates[0]
+    # last country code seen
+    #if lastcountry is not None:
+    #    if metainfo[item][3] == lastcountry:
+    #        scores[item] += 1
+
+    # tests
+    for candidate in candidates:
+        # init
+        scores[candidate] = 0
+        # distance: lat1, lon1, lat2, lon2
+        try:
+            distances[candidate] = haversine(reference[0], reference[1], float(metainfo[candidate][0]), float(metainfo[candidate][1]))
+        except KeyError:
+            # filter problem
+            print ('ERROR, Key:', candidate)
+        # population
+        if int(metainfo[candidate][4]) > 1000:
+            scores[candidate] += 1
+        # vicinity
+        if metainfo[candidate][3] in vicinity:
+            scores[candidate] += 1
+    # best distance
+    smallest_distance = min(distances.values())
+    for number in [k for k,v in distances.items() if v == smallest_distance]:
+        scores[number] += 1
+    # best score
+    best_score = max(scores.values())
+    best_ones = [k for k,v in scores.items() if v == best_score]
+    # analyze
+    if len(best_ones) == 1:
+        #if isinstance(best_ones, list):
+        return best_ones[0]
+        #else:
+        #    lastcountry = metainfo[best_ones][3]
+    if len(best_ones) == 2:
+        # double entries: place + administrative region
+        if metainfo[best_ones[0]][2] == 'A' and metainfo[best_ones[1]][2] == 'P':
+            return best_ones[1]
+        elif metainfo[best_ones[0]][2] == 'P' and metainfo[best_ones[1]][2] == 'A':
+            return best_ones[0]
+
 # dict search
 def filter_store(name, multiflag):
     global i, lastcountry
     # blacklist
     if name in blacklist:
         return True
-    # points: distance, population, vicinity, last country seen
     if name in codesdict:
-        scores = dict()
-        distances = dict()
-        # avoid single items
+        # single winner
         if len(codesdict[name]) == 1:
-            winning_id = codesdict[name]
-            #if isinstance(codesdict[name], list):
-            #    winner = str(codesdict[name][0])
-            #else:
-            #    winner = codesdict[name]
-            #scores[winner] = 10
+            winning_id = codesdict[name][0]
         else:
-            # tests
-            for item in codesdict[name]:
-                # init
-                scores[item] = 0
-                # distance: lat1, lon1, lat2, lon2
-                try:
-                    distances[item] = haversine(reference[0], reference[1], float(metainfo[item][0]), float(metainfo[item][1]))
-                except KeyError:
-                    # filter problem
-                    pass
-                    return True
-                # population
-                if int(metainfo[item][4]) > 1000:
-                    scores[item] += 1
-                # vicinity
-                if metainfo[item][3] in vicinity:
-                   scores[item] += 1
-               # last country code seen
-                if lastcountry is not None:
-                    if metainfo[item][3] == lastcountry:
-                        scores[item] += 1
-            # best distance
-            smallest_distance = min(distances.values())
-            for number in [k for k,v in distances.items() if v == smallest_distance]:
-                scores[number] += 1
-            # best score
-            best_score = max(scores.values())
-            best_ones = [k for k,v in scores.items() if v == best_score]
-            # analyze
-            if len(best_ones) == 1:
-                #if isinstance(best_ones, list):
-                winning_id = best_ones[0]
-                lastcountry = metainfo[winning_id][3]
-                #else:
-                #    lastcountry = metainfo[best_ones][3]
-
+            # 3-step filter, or while?
+            winners = find_winner(codesdict[name], 1)
+            if winners is not None and len(winners) == 1:
+                winning_id = winners[0]
             else:
-                print (name, item, scores[item], distances[item], str(metainfo[item]), sep='\t')
-                i += 1
-                # random choice to store...
-                winning_id = choice(best_ones)
+                winners = find_winner(winners, 2)
+                if winners is not None and len(winners) == 1:
+                    winning_id = winners[0]
+                else:
+                    winners = find_winner(winners, 3)
+                    if winners is not None and len(winners) == 1:
+                        winning_id = winners[0]
+                    else:
+                        # not found
+                        return True
+        # throw dice and record
+        #if len(winning_id) == 0:
+        #    for element in best_ones:
+        #        print (name, element, scores[element], distances[element], str(metainfo[element]), sep='\t')
+        #        i += 1
+            # random choice to store...
+        #    winning_id = choice(best_ones)
         if multiflag is False:
             freq = '{0:.4f}'.format(tokens[name]/numtokens)
         else:
             freq = '0'
-        if isinstance(winning_id, list):
-            winning_id = winning_id[0]
+        # store result
         if winning_id not in results:
-            templist = list()
+            results[winning_id] = list()
             try:
-                templist.append(metainfo[winning_id])
+                for element in metainfo[winning_id]:
+                    results[winning_id].append(element)
             except KeyError:
                 print ('ERROR not found:', winning_id)
                 return False
-            templist.append(name)
-            templist.append(freq)
-            templist.append(1)
-            results[winning_id] = templist
+            results[winning_id].append(name)
+            results[winning_id].append(freq)
+            results[winning_id].append(1)
         else:
             results[winning_id][-1] += 1
+        lastcountry = metainfo[winning_id][3]
         return False
     else:
         # not found
@@ -239,6 +286,7 @@ with open(args.inputfile, 'r') as inputfh:
         for elem in splitted:
             tokens[elem] += 1
 
+# 
 numtokens = len(tokens)
 print ('types:', numtokens)
 for elem in splitted:
@@ -285,6 +333,6 @@ with open(args.outputfile, 'w') as outputfh:
             if isinstance(item, list):
                 for subelement in item:
                     outputfh.write('\t' + str(subelement))
-                else:
-                    outputfh.write('\t' + str(item))
+            else:
+                outputfh.write('\t' + str(item))
         outputfh.write('\n')
