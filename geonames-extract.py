@@ -3,9 +3,9 @@
 
 
 ## TODO:
-# FIX broken types!
-# filter pop
-# problem line 150
+# lists of famous writers etc.
+# Countries > Regions > Cities
+# filter 3: check coordinates
 
 
 from __future__ import print_function
@@ -13,6 +13,7 @@ from __future__ import division
 
 import argparse
 from collections import defaultdict
+from heapq import nlargest
 from io import StringIO, BytesIO
 from lxml import etree, html
 from math import radians, cos, sin, asin, sqrt
@@ -62,7 +63,7 @@ tempstring = ''
 lastcountry = ''
 threshold = 0.01 # was 0.001
 wiktionary = set()
-blacklist = set(['Alle', 'Aller', 'Alles', 'Amerika', 'Auch', 'Classe', 'Darum', 'Dich', 'Diesen', 'Drum', 'Ferdinand', 'Franz', 'Grade', 'Grazie', 'Großen', 'Gunsten', 'Hier', 'Ihnen', 'Jene', 'Jenen', 'Leuten', 'Meine', 'Noth', 'Ohne', 'Oskar', 'Sich', 'Sind', 'Weil'])
+blacklist = set(['Alle', 'Aller', 'Alles', 'Amerika', 'Auch', 'Centrum', 'Classe', 'Darum', 'Dich', 'Diesen', 'Drum', 'Ferdinand', 'Franz', 'Grade', 'Grazie', 'Großen', 'Gunsten', 'Hier', 'Ihnen', 'Jene', 'Jenen', 'Leuten', 'Meine', 'Noth', 'Ohne', 'Oskar', 'Shaw', 'Sich', 'Sind', 'Weil'])
 
 if args.fackel is True:
     vicinity = set(['AT', 'BA', 'BG', 'CH', 'CZ', 'DE', 'HR', 'HU', 'IT', 'PL', 'RS', 'RU', 'SI', 'SK', 'UA'])
@@ -96,8 +97,12 @@ with open('geonames-meta.dict', 'r') as inputfh:
     for line in inputfh:
         line = line.strip()
         columns = re.split('\t', line)
+        # no empty places at filter levels 1 & 2
+        if filter_level == 1 or filter_level == 2:
+            if columns[5] == '0':
+                continue
         # filter: skip elements
-        if filter_level == 1 :
+        if filter_level == 1:
             if columns[3] != 'A':
                 continue
         elif filter_level == 2:
@@ -145,26 +150,37 @@ def find_winner(candidates, step):
     if not isinstance(candidates, list):
         print ('ERROR: not a list', candidates)
         return candidates
+    # avoid single items
+    if len(candidates) == 1:
+        return candidates[0]
+
+    # decisive argument: population
+    headcounts = list()
+    popdict = dict()
+    for candidate in candidates:
+        headcounts.append(metainfo[candidate][4])
+        popdict[metainfo[candidate][4]] = candidate
+    largest = nlargest(2, headcounts)
+    # all null but one
+    if largest[0] != 0 and largest[1] == 0:
+        return popdict[largest[0]]
+    # second-largest smaller by a factor of 1000
+    if largest[0] > 1000*largest[1]:
+        return popdict[largest[0]]
+
     # points: distance, population, vicinity, last country seen
     scores = dict()
     distances = dict()
     # step 2: filter places with no population
     if step == 2:
         for candidate in candidates:
-            try:
-                if int(metainfo[candidate][4]) == 0:
-                    candidates.remove(candidate)
-            except KeyError:
-                print ('ERROR, Key:', candidate)
-    # avoid single items
-    if len(candidates) == 1:
-        return candidates[0]
+            if int(metainfo[candidate][4]) == 0:
+                candidates.remove(candidate)
     # double entries: place + administrative region
-    elif len(candidates) == 2:
+    if len(candidates) == 2:
         if metainfo[candidates[0]][2] == 'A' and metainfo[candidates[1]][2] == 'P':
             return candidates[1]
         elif metainfo[candidates[0]][2] == 'P' and metainfo[candidates[1]][2] == 'A':
-
             return candidates[0]
     # last country code seen
     #if lastcountry is not None:
@@ -176,11 +192,7 @@ def find_winner(candidates, step):
         # init
         scores[candidate] = 0
         # distance: lat1, lon1, lat2, lon2
-        try:
-            distances[candidate] = haversine(reference[0], reference[1], float(metainfo[candidate][0]), float(metainfo[candidate][1]))
-        except KeyError:
-            # filter problem
-            print ('ERROR, Key:', candidate)
+        distances[candidate] = haversine(reference[0], reference[1], float(metainfo[candidate][0]), float(metainfo[candidate][1]))
         # population
         if int(metainfo[candidate][4]) > 1000:
             scores[candidate] += 1
@@ -210,29 +222,36 @@ def find_winner(candidates, step):
 # dict search
 def filter_store(name, multiflag):
     global i, lastcountry
-    # blacklist
-    if name in blacklist:
-        return True
+    winning_id = ''
     if name in codesdict:
         # single winner
-        if len(codesdict[name]) == 1:
+        if not isinstance(codesdict[name], list) or len(codesdict[name]) == 1:
             winning_id = codesdict[name][0]
         else:
-            # 3-step filter, or while?
-            winners = find_winner(codesdict[name], 1)
-            if winners is not None and len(winners) == 1:
-                winning_id = winners[0]
-            else:
-                winners = find_winner(winners, 2)
-                if winners is not None and len(winners) == 1:
-                    winning_id = winners[0]
+            # discard if too many
+            if len(codesdict[name]) >= 10:
+                print ('WARN, discarded:', name, codesdict[name])
+                return True
+            # 3-step filter
+            step = 1
+            while (step <= 3):
+                # launch function
+                if step == 1:
+                    winners = find_winner(codesdict[name], step)
                 else:
-                    winners = find_winner(winners, 3)
-                    if winners is not None and len(winners) == 1:
-                        winning_id = winners[0]
-                    else:
-                        # not found
-                        return True
+                    winners = find_winner(winners, step)
+                # analyze result
+                if winners is None:
+                    print ('ERROR, out of winners:', name, codesdict[name])
+                    return True
+                if not isinstance(winners, list):
+                    winning_id = winners
+                    break
+                # if len(winners) == 1
+            if winning_id is None:
+                print ('ERROR, too many winners:', name, winners)
+                return True
+
         # throw dice and record
         #if len(winning_id) == 0:
         #    for element in best_ones:
@@ -251,8 +270,8 @@ def filter_store(name, multiflag):
                 for element in metainfo[winning_id]:
                     results[winning_id].append(element)
             except KeyError:
-                print ('ERROR not found:', winning_id)
-                return False
+                print ('ERROR, not found:', winning_id)
+                return True
             results[winning_id].append(name)
             results[winning_id].append(freq)
             results[winning_id].append(1)
@@ -262,10 +281,11 @@ def filter_store(name, multiflag):
         return False
     else:
         # not found
+        # print ('ERROR, not found:', name)
         return True
 
 
-# search for places
+# load all tokens
 with open(args.inputfile, 'r') as inputfh:
     if args.text is True:
         splitted = inputfh.read().replace('\n', ' ').split()
@@ -285,37 +305,39 @@ with open(args.inputfile, 'r') as inputfh:
         tokens = defaultdict(int)
         for elem in splitted:
             tokens[elem] += 1
-
-# 
 numtokens = len(tokens)
 print ('types:', numtokens)
-for elem in splitted:
-    # reinitialize
-    if tempstring.count(' ') >= 3:
-        #try:
-        #    print (tempstring)
-        #except UnicodeEncodeError:
-        #    pass
+
+# search for places
+for token in splitted:
+    # skip and reinitialize:
+    if token == 'XXX' or token == '.' or token ==',' or token in blacklist:
         tempstring = ''
         flag = False
+        continue
+    # reinitialize
+    if tempstring.count(' ') >= 3:
+        tempstring = ''
+        flag = False
+
     # flag test
     #if args.prepositions is True:
     #if flag is False:
-    #    if elem == 'aus' or elem == 'bei' or elem == 'bis' or elem == 'durch' or elem == 'in' or elem == 'nach' or elem == u'über' or elem == 'von' or elem == 'zu':
-            # print (elem)
+    #    if token == 'aus' or token == 'bei' or token == 'bis' or token == 'durch' or token == 'in' or token == 'nach' or token == u'über' or token == 'von' or token == 'zu':
+            # print (token)
     #        flag = True
     #else:
     if True:
-        if len(elem) > 3 and not re.match(r'[a-z]', elem) and elem not in wiktionary and elem.lower() not in wiktionary and (tokens[elem]/numtokens) < threshold:
+        if len(token) > 3 and not re.match(r'[a-z]', token) and token not in wiktionary and token.lower() not in wiktionary and (tokens[token]/numtokens) < threshold:
             # filter and store
-            flagresult = filter_store(elem, False)
+            flagresult = filter_store(token, False)
             flag = flagresult
         else:
             if tempstring:
-                tempstring = tempstring + ' ' + elem
+                tempstring = tempstring + ' ' + token
             else:
-                if re.match(r'[A-ZÄÖÜ]', elem, re.UNICODE):
-                    tempstring = elem
+                if re.match(r'[A-ZÄÖÜ]', token, re.UNICODE):
+                    tempstring = token
             if tempstring.count(' ') > 0:
                 # filter and store
                 flagresult = filter_store(tempstring, True)

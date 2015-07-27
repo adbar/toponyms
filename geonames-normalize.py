@@ -41,14 +41,14 @@ for filename in listdir(directory):
             codesdict[columns[1]].add(columns[0])
             # alternatives
             alternatives = re.split(',', columns[3])
-            if alternatives is not None:
+            if len(alternatives) > 0:
                 for item in alternatives:
                     # filter non-German characters
-                    if re.match(r'[^\w -]+$', item, re.LOCALE):
+                    if len(item) > 2 or re.match(r'[^\w -]+$', item, re.LOCALE):
                         continue
                     if item not in codesdict:
                         codesdict[item] = set()
-                    codesdict[item].add(columns[0])
+                        codesdict[item].add(columns[0])
             metainfo[columns[0]] = (columns[4], columns[5], columns[6], columns[8], columns[14])
             seen_codes.add(columns[0])
  
