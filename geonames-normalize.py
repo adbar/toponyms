@@ -4,6 +4,7 @@
 
 ## TODO:
 # sort and uniq output (meta)
+# filter metadata with same values
 
 
 from __future__ import print_function

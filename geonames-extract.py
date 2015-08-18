@@ -3,7 +3,8 @@
 
 
 ## TODO:
-# lists of famous writers etc.
+# lists of celebrities
+# mehrwortausdrücken first
 # Countries > Regions > Cities
 # filter 3: check coordinates
 
@@ -63,7 +64,12 @@ tempstring = ''
 lastcountry = ''
 threshold = 0.01 # was 0.001
 wiktionary = set()
-blacklist = set(['Alle', 'Aller', 'Alles', 'Amerika', 'Auch', 'Centrum', 'Classe', 'Darum', 'Dich', 'Diesen', 'Drum', 'Ferdinand', 'Franz', 'Grade', 'Grazie', 'Großen', 'Gunsten', 'Hier', 'Ihnen', 'Jene', 'Jenen', 'Leuten', 'Meine', 'Noth', 'Ohne', 'Oskar', 'Shaw', 'Sich', 'Sind', 'Weil'])
+blacklist = set(['Alle', 'Aller', 'Alles', 'Amerika', 'Auch', 'Centrum', 'Classe', 'Darum', 'Dich', 'Diesen', 'Drum', 'Eine', 'Eines', 'Ferdinand', 'Franz', 'Gern', 'Grade', 'Grazie', 'Großen', 'Gunsten', 'Hatten', 'Hellen', 'Hier', 'Ihnen', 'Jene', 'Jenen', 'Leuten', 'Manche', 'Meine', 'Noth', 'Ohne', 'Oskar', 'Shaw', 'Sich', 'Sind', 'Weil'])
+# special modern
+blacklist.add('Coole')
+blacklist.add('Lasse')
+blacklist.add('Naja')
+blacklist.add('Sona')
 
 if args.fackel is True:
     vicinity = set(['AT', 'BA', 'BG', 'CH', 'CZ', 'DE', 'HR', 'HU', 'IT', 'PL', 'RS', 'RU', 'SI', 'SK', 'UA'])
@@ -84,15 +90,12 @@ with open('wiktionary.json', 'r') as dictfh:
         #    wiktionary.add(d)
 print ('length dictionary:', len(wiktionary))
 
-# load extended blacklists
-with open('vornamen-historisch', 'r') as dictfh:
-    for line in dictfh:
-        blacklist.add(line.strip())
-with open('vor+nachnamen-aktuell', 'r') as dictfh:
+# load extended blacklist
+with open('stoplist', 'r') as dictfh:
     for line in dictfh:
         blacklist.add(line.strip())
 
-# load infos: combine?
+# load infos
 with open('geonames-meta.dict', 'r') as inputfh:
     for line in inputfh:
         line = line.strip()
@@ -114,7 +117,7 @@ with open('geonames-meta.dict', 'r') as inputfh:
             metainfo[columns[0]].append(item)
 print ('different codes:', len(metainfo))
 
-# load while implementing filter
+# load codes (while implementing filter)
 with open('geonames-codes.dict', 'r') as inputfh:
     for line in inputfh:
         line = line.strip()
@@ -126,7 +129,6 @@ with open('geonames-codes.dict', 'r') as inputfh:
                     codesdict[columns[0]] = list()
                 codesdict[columns[0]].append(item)
 print ('different names:', len(codesdict))
-
 
 
 # calculate distance
@@ -243,6 +245,7 @@ def filter_store(name, multiflag):
                 # analyze result
                 if winners is None:
                     print ('ERROR, out of winners:', name, codesdict[name])
+                    i += 1
                     return True
                 if not isinstance(winners, list):
                     winning_id = winners
@@ -250,6 +253,7 @@ def filter_store(name, multiflag):
                 # if len(winners) == 1
             if winning_id is None:
                 print ('ERROR, too many winners:', name, winners)
+                i += 1
                 return True
 
         # throw dice and record
