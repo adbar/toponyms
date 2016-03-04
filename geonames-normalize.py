@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+# Copyright Adrien Barbaresi, 2015.
+# https://github.com/adbar/toponyms
+
 
 ## TODO:
 # sort and uniq output (meta)
