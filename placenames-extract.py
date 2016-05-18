@@ -6,9 +6,13 @@
 
 
 ## TODO:
+# multi-word expression logic
+# levels 1, 2, and 3: variants coding
+# year switch
 # lists of celebrities
 # mehrwortausdrücken first
-# Countries > Regions > Cities
+# memory
+# Genitiv
 # filter 3: check coordinates
 
 
@@ -18,7 +22,7 @@ from __future__ import division
 import argparse
 from collections import defaultdict
 from heapq import nlargest
-from io import StringIO, BytesIO
+from io import open, StringIO, BytesIO
 from lxml import etree, html
 from math import radians, cos, sin, asin, sqrt
 from random import choice
@@ -37,6 +41,7 @@ parser.add_argument('--tok', dest='tok', action='store_true', help='tokenized fl
 parser.add_argument('--xml', dest='xml', action='store_true', help='xml flag')
 # parser.add_argument('--prepositions', dest='prepositions', action='store_true', help='prepositions switch')
 parser.add_argument('--fackel', dest='fackel', action='store_true', help='Fackel switch')
+parser.add_argument('--year', dest='year', action='store_true', help='Year switch')
 args = parser.parse_args()
 
 if args.xml is True:
@@ -60,14 +65,19 @@ print ('## Fackel flag True by default')
 codesdict = dict()
 metainfo = dict()
 results = dict()
+level0 = dict()
+level1 = dict()
+level2 = dict()
+level3 = dict()
+level4 = dict()
 i = 0
 hparser = etree.HTMLParser(encoding='utf-8')
-flag = False
+multiword_flag = False
 tempstring = ''
 lastcountry = ''
-threshold = 0.01 # was 0.001
+threshold = 1 # was 0.1 was 0.01 was 0.001
 wiktionary = set()
-blacklist = set(['Alle', 'Aller', 'Alles', 'Amerika', 'Auch', 'Centrum', 'Classe', 'Darum', 'Dich', 'Diesen', 'Drum', 'Eine', 'Eines', 'Ferdinand', 'Franz', 'Gern', 'Grade', 'Grazie', 'Großen', 'Gunsten', 'Hatten', 'Hellen', 'Hier', 'Ihnen', 'Jene', 'Jenen', 'Leuten', 'Manche', 'Meine', 'Noth', 'Ohne', 'Oskar', 'Shaw', 'Sich', 'Sind', 'Weil'])
+blacklist = set(['Alle', 'Aller', 'Alles', 'Amerika', 'Auch', 'Beim', 'Beste', 'Centrum', 'Classe', 'Darum', 'Dich', 'Dies', 'Diesen', 'Doch', 'Drum', 'Eine', 'Einem', 'Einen', 'Eines', 'Ferdinand', 'Franz', 'Gern', 'Grade', 'Grazie', 'Großen', 'Gunsten', 'Hatten', 'Hellen', 'Hier', 'Ihnen', 'Ihren', 'Ihrer', 'Immer', 'Jene', 'Jenen', 'Leuten', 'Manche', 'Meine', 'Noth', 'Ohne', 'Oskar', 'Seit', 'Shaw', 'Sich', 'Sind', 'Weil'])
 # special modern
 blacklist.add('Coole')
 blacklist.add('Lasse')
@@ -79,7 +89,7 @@ if args.fackel is True:
     reference = (float(48.2082), float(16.37169)) # Vienna
 
 # load normal dictionary
-with open('wiktionary.json', 'r') as dictfh:
+with open('wiktionary.json', 'r', encoding='utf-8') as dictfh:
     for line in dictfh:
         forms = re.findall(r'"(.+?)"', line)
         for form in forms:
@@ -98,8 +108,109 @@ with open('stoplist', 'r') as dictfh:
     for line in dictfh:
         blacklist.add(line.strip())
 
-# load infos
-with open('geonames-meta.dict', 'r') as inputfh:
+
+# load infos level 0
+with open('rang0-makro.tsv', 'r', encoding='utf-8') as inputfh:
+    for line in inputfh:
+        line = line.strip()
+        columns = re.split('\t', line)
+        if len(columns) == 3 and columns[1] is not None and columns[2] is not None:
+            # strip
+            for item in columns:
+                item = item.strip()
+            # historical names
+            if re.search(r';', columns[0]):
+                variants = re.split(r';', columns[0])
+                standard = variants[0]
+                for item in variants:
+                    level0[item] = [columns[1], columns[2], standard]
+            else:
+                level0[columns[0]] = [columns[1], columns[2], columns[0]]
+            # genitive
+            # level1[columns[0] + 's'] = [columns[1], columns[2], 1]
+
+# load infos level 1
+with open('rang1-staaten.tsv', 'r', encoding='utf-8') as inputfh:
+    for line in inputfh:
+        line = line.strip()
+        columns = re.split('\t', line)
+        if len(columns) == 3 and columns[1] is not None and columns[2] is not None:
+            # strip
+            for item in columns:
+                item = item.strip()
+            # historical names
+            if re.search(r';', columns[0]):
+                variants = re.split(r';', columns[0])
+                standard = variants[0]
+                for item in variants:
+                    level1[item] = [columns[1], columns[2], standard]
+            else:
+                level1[columns[0]] = [columns[1], columns[2], columns[0]]
+            # genitive
+            # level1[columns[0] + 's'] = [columns[1], columns[2], 1]
+
+# load infos level 2
+with open('rang2-regionen.csv', 'r', encoding='utf-8') as inputfh:
+    for line in inputfh:
+        line = line.strip()
+        columns = re.split(',', line)
+        if len(columns) == 4 and columns[2] is not None and columns[3] is not None:
+            # strip
+            for item in columns:
+                item = item.strip()
+            # historical names
+            if re.search(r';', columns[0]):
+                variants = re.split(r';', columns[0])
+                standard = variants[0]
+                for item in variants:
+                    level2[item] = [columns[2], columns[3], standard]
+            else:
+                standard = columns[0]
+                level2[columns[0]] = [columns[2], columns[3], columns[0]]
+            # current names
+            if re.search(r';', columns[1]):
+                variants = re.split(r';', columns[1])
+                for item in variants:
+                    level2[item] = [columns[2], columns[3], standard]
+            else:
+                level2[columns[1]] = [columns[2], columns[3], standard]
+
+# load infos level 3
+with open('rang3-staedte.csv', 'r', encoding='utf-8') as inputfh:
+    for line in inputfh:
+        line = line.strip()
+        columns = re.split(',', line)
+        if len(columns) == 4 and columns[2] is not None and columns[3] is not None:
+            # strip
+            for item in columns:
+                item = item.strip()
+            # historical names
+            if re.search(r';', columns[0]):
+                variants = re.split(r';', columns[0])
+                standard = variants[0]
+                for item in variants:
+                    level3[item] = [columns[2], columns[3], standard]
+            else:
+                standard = columns[0]
+                level3[columns[0]] = [columns[2], columns[3], columns[0]]
+            # current names
+            if re.search(r';', columns[1]):
+                variants = re.split(r';', columns[1])
+                for item in variants:
+                    level3[item] = [columns[2], columns[3], standard]
+            else:
+                level3[columns[1]] = [columns[2], columns[3], standard]
+
+# load infos level 4
+with open('rang4-geographie.tsv', 'r', encoding='utf-8') as inputfh:
+    for line in inputfh:
+        line = line.strip()
+        columns = re.split('\t', line)
+        if len(columns) == 3 and columns[1] is not None and columns[2] is not None:
+            level4[columns[0]] = [columns[1], columns[2]]
+
+# geonames
+with open('geonames-meta.dict', 'r', encoding='utf-8') as inputfh:
     for line in inputfh:
         line = line.strip()
         columns = re.split('\t', line)
@@ -121,7 +232,7 @@ with open('geonames-meta.dict', 'r') as inputfh:
 print ('different codes:', len(metainfo))
 
 # load codes (while implementing filter)
-with open('geonames-codes.dict', 'r') as inputfh:
+with open('geonames-codes.dict', 'r', encoding='utf-8') as inputfh:
     for line in inputfh:
         line = line.strip()
         columns = re.split('\t', line)
@@ -226,7 +337,7 @@ def find_winner(candidates, step):
 
 # dict search
 def filter_store(name, multiflag):
-    global i, lastcountry
+    global i, lastcountry, results
     winning_id = ''
     if name in codesdict:
         # single winner
@@ -235,7 +346,10 @@ def filter_store(name, multiflag):
         else:
             # discard if too many
             if len(codesdict[name]) >= 10:
-                print ('WARN, discarded:', name, codesdict[name])
+                try:
+                    print ('WARN, discarded:', name, codesdict[name])
+                except UnicodeEncodeError:
+                    print ('WARN, discarded:', 'unicode error', codesdict[name])
                 return True
             # 3-step filter
             step = 1
@@ -247,7 +361,10 @@ def filter_store(name, multiflag):
                     winners = find_winner(winners, step)
                 # analyze result
                 if winners is None:
-                    print ('ERROR, out of winners:', name, codesdict[name])
+                    try:
+                        print ('ERROR, out of winners:', name, codesdict[name])
+                    except UnicodeEncodeError:
+                        print ('ERROR, out of winners:', 'unicode error', codesdict[name])
                     i += 1
                     return True
                 if not isinstance(winners, list):
@@ -255,7 +372,11 @@ def filter_store(name, multiflag):
                     break
                 # if len(winners) == 1
             if winning_id is None:
-                print ('ERROR, too many winners:', name, winners)
+                try:
+                    print ('ERROR, too many winners:', name, winners)
+                except UnicodeEncodeError:
+                    print ('ERROR, too many winners:', 'unicode error', winners)
+
                 i += 1
                 return True
 
@@ -266,6 +387,8 @@ def filter_store(name, multiflag):
         #        i += 1
             # random choice to store...
         #    winning_id = choice(best_ones)
+
+        # disable frequency count if multi-word on
         if multiflag is False:
             freq = '{0:.4f}'.format(tokens[name]/numtokens)
         else:
@@ -283,6 +406,7 @@ def filter_store(name, multiflag):
             results[winning_id].append(freq)
             results[winning_id].append(1)
         else:
+            # increment last element
             results[winning_id][-1] += 1
         lastcountry = metainfo[winning_id][3]
         return False
@@ -292,17 +416,67 @@ def filter_store(name, multiflag):
         return True
 
 
+## search in selected databases
+def selected_lists(name, multiflag):
+    # init
+    global results
+    templist = None
+
+    # search (+ genitive)
+    if name in level0:
+        templist = [level0[name][0], level0[name][1], '1', 'NULL', 'NULL', level0[name][2]]
+    elif name in level1:
+        templist = [level1[name][0], level1[name][1], '1', 'NULL', 'NULL', level1[name][2]]
+    elif name in level2:
+        templist = [level2[name][0], level2[name][1], '2', 'NULL', 'NULL', level2[name][2]]
+    elif name not in wiktionary and name.lower() not in wiktionary:
+        if name in level3:
+            templist = [level3[name][0], level3[name][1], '3', 'NULL', 'NULL', level3[name][2]]
+        elif name in level4:
+            templist = [level4[name][0], level4[name][1], '4', 'NULL', 'NULL', name]
+
+    # results
+    if templist is not None:
+        # store whole result or just count
+        if name not in results:
+            # disable frequency count if multi-word on
+            if multiflag is False:
+                freq = '{0:.4f}'.format(tokens[name]/numtokens)
+            else:
+                freq = '0'
+            results[name] = templist
+            results[name].append(freq)
+            results[name].append(1)
+        else:
+            # increment last element
+            results[name][-1] += 1
+        # store flag
+        return False
+    else:
+        return True
+
+            
+
+
 # load all tokens
-with open(args.inputfile, 'r') as inputfh:
+
+with open(args.inputfile, 'r', encoding='utf-8') as inputfh:
     if args.text is True:
-        splitted = inputfh.read().replace('\n', ' ').split()
+        # splitted = inputfh.read().replace('\n', ' ').split()
+        text = inputfh.read().replace('\n', ' ')
+        # very basic tokenizer
+        splitted = re.split(r'([^\w-]+)', text, flags=re.UNICODE) # [ .,;:]
         # build frequency dict
         tokens = defaultdict(int)
         for elem in splitted:
             tokens[elem] += 1
     elif args.tok is True:
+        i = 0
         splitted = list()
         for line in inputfh:
+            i += 1
+            if i % 10000000 == 0:
+                print (i)
             if re.search('\t', line):
                 token = re.split('\t', line)[0]
             else:
@@ -320,48 +494,69 @@ for token in splitted:
     # skip and reinitialize:
     if token == 'XXX' or token == '.' or token ==',' or token in blacklist:
         tempstring = ''
-        flag = False
+        multiword_flag = False
         continue
     # reinitialize
     if tempstring.count(' ') >= 3:
         tempstring = ''
-        flag = False
+        multiword_flag = False
+    # build tempstring
+    else:
+        tempstring = tempstring + ' ' + token
+        multiword_flag = True
 
     # flag test
     #if args.prepositions is True:
-    #if flag is False:
+    #if multiword_flag is False:
     #    if token == 'aus' or token == 'bei' or token == 'bis' or token == 'durch' or token == 'in' or token == 'nach' or token == u'über' or token == 'von' or token == 'zu':
             # print (token)
-    #        flag = True
-    #else:
-    if True:
-        if len(token) > 3 and not re.match(r'[a-z]', token) and token not in wiktionary and token.lower() not in wiktionary and (tokens[token]/numtokens) < threshold:
-            # filter and store
-            flagresult = filter_store(token, False)
-            flag = flagresult
-        else:
-            if tempstring:
-                tempstring = tempstring + ' ' + token
-            else:
-                if re.match(r'[A-ZÄÖÜ]', token, re.UNICODE):
-                    tempstring = token
-            if tempstring.count(' ') > 0:
-                # filter and store
-                flagresult = filter_store(tempstring, True)
-                flag = flagresult
-                if flag is False:
-                    tempstring = ''
+    #        multiword_flag = True
 
-print (i)
+    ## analyze tempstring first, then token if necessary
 
-with open(args.outputfile, 'w') as outputfh:
-    outputfh.write('id' + '\t' + 'latitude' + '\t' + 'longitude' + '\t' + 'type' + '\t' + 'country' + '\t' + 'population' + '\t' + 'place' + '\t' + 'frequency' + '\t' + 'occurrences' + '\n')
+    # name_s = re.sub(r's$', '', name)
+
+    if len(tempstring) > 0:
+        # selected lists first
+        multiword_flag = selected_lists(tempstring, True)
+        # if nothing has been found
+        if multiword_flag is True:
+            multiword_flag = filter_store(tempstring, True)
+    # just one token, if nothing has been found
+    if len(tempstring) == 0 or multiword_flag is True:
+        if len(token) > 3 and not re.match(r'[a-z]', token) and (tokens[token]/numtokens) < threshold:
+            multiword_flag = selected_lists(token, False)
+            if multiword_flag is True and token not in wiktionary and token.lower() not in wiktionary:
+                multiword_flag = filter_store(token, False)
+        
+    # final check whether to keep the multi-word scan running
+    if multiword_flag is False:
+        tempstring = ''
+
+
+    #    else:
+    #        if tempstring:
+    #            tempstring = tempstring + ' ' + token
+    #        else:
+    #            if re.match(r'[A-ZÄÖÜ]', token, re.UNICODE):
+    #                tempstring = token
+    #        if tempstring.count(' ') > 0:
+    #            # filter and store
+    #            multiword_flag = filter_store(tempstring, True)
+    #            if multiword_flag is False:
+    #                tempstring = ''
+
+# print (i)
+
+print ('results:', len(results))
+with open(args.outputfile, 'w', encoding='utf-8') as outputfh:
+    outputfh.write(u'id' + '\t' + u'latitude' + '\t' + u'longitude' + '\t' + u'type' + '\t' + u'country' + '\t' + u'population' + '\t' + u'place' + '\t' + u'frequency' + '\t' + u'occurrences' + '\n')
     for key in sorted(results):
-        outputfh.write(key)
+        outputfh.write(unicode(key))
         for item in results[key]:
             if isinstance(item, list):
                 for subelement in item:
-                    outputfh.write('\t' + str(subelement))
+                    outputfh.write(u'\t' + unicode(subelement))
             else:
-                outputfh.write('\t' + str(item))
-        outputfh.write('\n')
+                outputfh.write(u'\t' + unicode(item))
+        outputfh.write(u'\n')
