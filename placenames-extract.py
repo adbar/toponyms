@@ -14,10 +14,10 @@
 # memory
 # Genitiv
 # filter 3: check coordinates
+# ss/ß
 
 
-from __future__ import print_function
-from __future__ import division
+from __future__ import division, print_function, unicode_literals
 
 import argparse
 from collections import defaultdict
@@ -72,17 +72,13 @@ level3 = dict()
 level4 = dict()
 i = 0
 hparser = etree.HTMLParser(encoding='utf-8')
-multiword_flag = False
-tempstring = ''
+flag = False
+temp2 = ''
+temp3 = ''
 lastcountry = ''
 threshold = 1 # was 0.1 was 0.01 was 0.001
 wiktionary = set()
-blacklist = set(['Alle', 'Aller', 'Alles', 'Amerika', 'Auch', 'Beim', 'Beste', 'Centrum', 'Classe', 'Darum', 'Dich', 'Dies', 'Diesen', 'Doch', 'Drum', 'Eine', 'Einem', 'Einen', 'Eines', 'Ferdinand', 'Franz', 'Gern', 'Grade', 'Grazie', 'Großen', 'Gunsten', 'Hatten', 'Hellen', 'Hier', 'Ihnen', 'Ihren', 'Ihrer', 'Immer', 'Jene', 'Jenen', 'Leuten', 'Manche', 'Meine', 'Noth', 'Ohne', 'Oskar', 'Seit', 'Shaw', 'Sich', 'Sind', 'Weil'])
-# special modern
-blacklist.add('Coole')
-blacklist.add('Lasse')
-blacklist.add('Naja')
-blacklist.add('Sona')
+blacklist = set()
 
 if args.fackel is True:
     vicinity = set(['AT', 'BA', 'BG', 'CH', 'CZ', 'DE', 'HR', 'HU', 'IT', 'PL', 'RS', 'RU', 'SI', 'SK', 'UA'])
@@ -491,19 +487,35 @@ print ('types:', numtokens)
 
 # search for places
 for token in splitted:
-    # skip and reinitialize:
-    if token == 'XXX' or token == '.' or token ==',' or token in blacklist:
-        tempstring = ''
-        multiword_flag = False
+    if token == ' ':
         continue
-    # reinitialize
-    if tempstring.count(' ') >= 3:
-        tempstring = ''
-        multiword_flag = False
-    # build tempstring
+    # skip and reinitialize:
+    if token == 'XXX' or re.match(r'[.,;:–]', token): # or token in blacklist:
+        temp2 = ''
+        temp3 = ''
+        continue
+    ## grow or limit (delete first word)
+    # 2-gram
+    if len(temp2) == 0:
+       temp2 = token
+    elif temp2.count(' ') == 0:
+       temp2 = temp2 + ' ' + token
     else:
-        tempstring = tempstring + ' ' + token
-        multiword_flag = True
+       temp2 = re.sub(r'^.+? ', '', temp2)
+       temp2 = temp2 + ' ' + token
+    # 3-gram
+    if len(temp3) == 0:
+       temp3 = token
+    #elif temp3.count(' ') < 1:
+    #   temp3 = temp3 + ' ' + token
+    elif temp3.count(' ') < 2:
+       temp3 = temp3 + ' ' + token
+    else:
+       temp3 = re.sub(r'^.+? ', '', temp3)
+       temp3 = temp3 + ' ' + token
+
+    # control
+    print (token, temp2, temp3, sep=';')
 
     # flag test
     #if args.prepositions is True:
@@ -516,22 +528,31 @@ for token in splitted:
 
     # name_s = re.sub(r's$', '', name)
 
-    if len(tempstring) > 0:
+    # longest chain first
+    if len(temp3) > 0:
         # selected lists first
-        multiword_flag = selected_lists(tempstring, True)
+        flag = selected_lists(temp3, True)
         # if nothing has been found
-        if multiword_flag is True:
-            multiword_flag = filter_store(tempstring, True)
+        if flag is True:
+            flag = filter_store(temp3, True)
+    # longest chain first
+    if flag is True and len(temp2) > 0:
+        # selected lists first
+        flag = selected_lists(temp2, True)
+        # if nothing has been found
+        if flag is True:
+            flag = filter_store(temp2, True)
     # just one token, if nothing has been found
-    if len(tempstring) == 0 or multiword_flag is True:
+    if flag is True:
         if len(token) > 3 and not re.match(r'[a-z]', token) and (tokens[token]/numtokens) < threshold:
-            multiword_flag = selected_lists(token, False)
-            if multiword_flag is True and token not in wiktionary and token.lower() not in wiktionary:
-                multiword_flag = filter_store(token, False)
+            flag = selected_lists(token, False)
+            if flag is True and token not in wiktionary and token.lower() not in wiktionary:
+                flag = filter_store(token, False)
         
     # final check whether to keep the multi-word scan running
-    if multiword_flag is False:
-        tempstring = ''
+    if flag is False:
+        temp2 = ''
+        temp3 = ''
 
 
     #    else:
