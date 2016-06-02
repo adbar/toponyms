@@ -1,8 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# Copyright Adrien Barbaresi, 2015.
+# Copyright (C) Adrien Barbaresi, 2015-2016.
 # https://github.com/adbar/toponyms
+# GNU GPLv3 license
 
 
 ## TODO:

@@ -10,6 +10,8 @@ Prototype for toponym extraction in historical texts written in German, as seen 
 
 ## Files currently in the repository
 
+Code and development files released under GNU GPLv3 license.
+
 * Extraction of place names (work in progress!)
 * Manually curated historical lists: continental, state, and region levels
 * Semi-automatically completed list: cities and towns
