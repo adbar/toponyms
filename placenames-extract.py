@@ -7,21 +7,19 @@
 
 
 ## TODO:
-# multi-word expression logic
 # levels 1, 2, and 3: variants coding
 # year switch
 # lists of celebrities
 # mehrwortausdrücken first
 # memory
-# Genitiv
 # filter 3: check coordinates
-# ss/ß
 
 
 from __future__ import division, print_function, unicode_literals
 
 import argparse
 from collections import defaultdict
+import exrex # regex expansion
 from heapq import nlargest
 from io import open, StringIO, BytesIO
 from lxml import etree, html
@@ -74,8 +72,8 @@ level4 = dict()
 i = 0
 hparser = etree.HTMLParser(encoding='utf-8')
 flag = False
-temp2 = ''
-temp3 = ''
+slide2 = ''
+slide3 = ''
 lastcountry = ''
 threshold = 1 # was 0.1 was 0.01 was 0.001
 wiktionary = set()
@@ -105,26 +103,44 @@ with open('stoplist', 'r') as dictfh:
     for line in dictfh:
         blacklist.add(line.strip())
 
+def expand(expression):
+    expresults = list(exrex.generate(expression))
+    # no regex
+    if len(expresults) == 1:
+        results = list()
+        results.append(expression)
+        # genitive form if no s at the end
+        if not re.search(r's$', expression): 
+            temp = expression + 's'
+            results.append(temp)
+        return results
+    # serialize
+    else:
+        return expresults
+
 
 # load infos level 0
 with open('rang0-makro.tsv', 'r', encoding='utf-8') as inputfh:
     for line in inputfh:
         line = line.strip()
         columns = re.split('\t', line)
+        # sanity check
         if len(columns) == 3 and columns[1] is not None and columns[2] is not None:
+            expansions = list()
             # strip
             for item in columns:
                 item = item.strip()
             # historical names
             if re.search(r';', columns[0]):
                 variants = re.split(r';', columns[0])
-                standard = variants[0]
                 for item in variants:
-                    level0[item] = [columns[1], columns[2], standard]
+                    expansions.extend(expand(item))
             else:
-                level0[columns[0]] = [columns[1], columns[2], columns[0]]
-            # genitive
-            # level1[columns[0] + 's'] = [columns[1], columns[2], 1]
+                expansions.extend(expand(columns[0]))
+            # append
+            canonical = expansions[0]
+            for variant in expansions:
+                level0[variant] = [columns[1], columns[2], canonical]
 
 # load infos level 1
 with open('rang1-staaten.tsv', 'r', encoding='utf-8') as inputfh:
@@ -132,19 +148,22 @@ with open('rang1-staaten.tsv', 'r', encoding='utf-8') as inputfh:
         line = line.strip()
         columns = re.split('\t', line)
         if len(columns) == 3 and columns[1] is not None and columns[2] is not None:
+            expansions = list()
             # strip
             for item in columns:
                 item = item.strip()
             # historical names
             if re.search(r';', columns[0]):
                 variants = re.split(r';', columns[0])
-                standard = variants[0]
                 for item in variants:
-                    level1[item] = [columns[1], columns[2], standard]
+                    expansions.extend(expand(item))
             else:
-                level1[columns[0]] = [columns[1], columns[2], columns[0]]
-            # genitive
-            # level1[columns[0] + 's'] = [columns[1], columns[2], 1]
+                expansions.extend(expand(columns[0]))
+            # append
+            canonical = expansions[0]
+            for variant in expansions:
+                level0[variant] = [columns[1], columns[2], canonical]
+                print (variant, level0[variant])
 
 # load infos level 2
 with open('rang2-regionen.csv', 'r', encoding='utf-8') as inputfh:
@@ -419,7 +438,7 @@ def selected_lists(name, multiflag):
     global results
     templist = None
 
-    # search (+ genitive)
+    # search
     if name in level0:
         templist = [level0[name][0], level0[name][1], '1', 'NULL', 'NULL', level0[name][2]]
     elif name in level1:
@@ -429,7 +448,7 @@ def selected_lists(name, multiflag):
     elif name not in wiktionary and name.lower() not in wiktionary:
         if name in level3:
             templist = [level3[name][0], level3[name][1], '3', 'NULL', 'NULL', level3[name][2]]
-        elif name in level4:
+        elif name in level4: # level4[name][0]
             templist = [level4[name][0], level4[name][1], '4', 'NULL', 'NULL', name]
 
     # results
@@ -492,31 +511,31 @@ for token in splitted:
         continue
     # skip and reinitialize:
     if token == 'XXX' or re.match(r'[.,;:–]', token): # or token in blacklist:
-        temp2 = ''
-        temp3 = ''
+        slide2 = ''
+        slide3 = ''
         continue
     ## grow or limit (delete first word)
     # 2-gram
-    if len(temp2) == 0:
-       temp2 = token
-    elif temp2.count(' ') == 0:
-       temp2 = temp2 + ' ' + token
+    if len(slide2) == 0:
+       slide2 = token
+    elif slide2.count(' ') == 0:
+       slide2 = slide2 + ' ' + token
     else:
-       temp2 = re.sub(r'^.+? ', '', temp2)
-       temp2 = temp2 + ' ' + token
+       slide2 = re.sub(r'^.+? ', '', slide2)
+       slide2 = slide2 + ' ' + token
     # 3-gram
-    if len(temp3) == 0:
-       temp3 = token
-    #elif temp3.count(' ') < 1:
-    #   temp3 = temp3 + ' ' + token
-    elif temp3.count(' ') < 2:
-       temp3 = temp3 + ' ' + token
+    if len(slide3) == 0:
+       slide3 = token
+    #elif slide3.count(' ') < 1:
+    #   slide3 = slide3 + ' ' + token
+    elif slide3.count(' ') < 2:
+       slide3 = slide3 + ' ' + token
     else:
-       temp3 = re.sub(r'^.+? ', '', temp3)
-       temp3 = temp3 + ' ' + token
+       slide3 = re.sub(r'^.+? ', '', slide3)
+       slide3 = slide3 + ' ' + token
 
     # control
-    print (token, temp2, temp3, sep=';')
+    print (token, slide2, slide3, sep=';')
 
     # flag test
     #if args.prepositions is True:
@@ -525,24 +544,21 @@ for token in splitted:
             # print (token)
     #        multiword_flag = True
 
-    ## analyze tempstring first, then token if necessary
-
-    # name_s = re.sub(r's$', '', name)
-
+    ## analyze sliding window first, then token if necessary
     # longest chain first
-    if len(temp3) > 0:
+    if len(slide3) > 0:
         # selected lists first
-        flag = selected_lists(temp3, True)
+        flag = selected_lists(slide3, True)
         # if nothing has been found
         if flag is True:
-            flag = filter_store(temp3, True)
+            flag = filter_store(slide3, True)
     # longest chain first
-    if flag is True and len(temp2) > 0:
+    if flag is True and len(slide2) > 0:
         # selected lists first
-        flag = selected_lists(temp2, True)
+        flag = selected_lists(slide2, True)
         # if nothing has been found
         if flag is True:
-            flag = filter_store(temp2, True)
+            flag = filter_store(slide2, True)
     # just one token, if nothing has been found
     if flag is True:
         if len(token) > 3 and not re.match(r'[a-z]', token) and (tokens[token]/numtokens) < threshold:
@@ -552,33 +568,22 @@ for token in splitted:
         
     # final check whether to keep the multi-word scan running
     if flag is False:
-        temp2 = ''
-        temp3 = ''
+        slide2 = ''
+        slide3 = ''
 
-
-    #    else:
-    #        if tempstring:
-    #            tempstring = tempstring + ' ' + token
-    #        else:
     #            if re.match(r'[A-ZÄÖÜ]', token, re.UNICODE):
     #                tempstring = token
-    #        if tempstring.count(' ') > 0:
-    #            # filter and store
-    #            multiword_flag = filter_store(tempstring, True)
-    #            if multiword_flag is False:
-    #                tempstring = ''
 
-# print (i)
 
 print ('results:', len(results))
 with open(args.outputfile, 'w', encoding='utf-8') as outputfh:
-    outputfh.write(u'id' + '\t' + u'latitude' + '\t' + u'longitude' + '\t' + u'type' + '\t' + u'country' + '\t' + u'population' + '\t' + u'place' + '\t' + u'frequency' + '\t' + u'occurrences' + '\n')
+    outputfh.write('id' + '\t' + 'latitude' + '\t' + 'longitude' + '\t' + 'type' + '\t' + 'country' + '\t' + 'population' + '\t' + 'place' + '\t' + 'frequency' + '\t' + 'occurrences' + '\n')
     for key in sorted(results):
-        outputfh.write(unicode(key))
+        outputfh.write(key)
         for item in results[key]:
             if isinstance(item, list):
                 for subelement in item:
-                    outputfh.write(u'\t' + unicode(subelement))
+                    outputfh.write('\t' + str(subelement))
             else:
-                outputfh.write(u'\t' + unicode(item))
-        outputfh.write(u'\n')
+                outputfh.write('\t' + str(item))
+        outputfh.write('\n')
