@@ -86,8 +86,8 @@ Alt Grape,Stare Chrapowo,53.16666667,14.78333333
 Alt Gurkowschbruch,Górecko,52.7833,15.5667
 Althabendorf,Stráž nad Nisou,50.7910511,15.02693666
 Althagen,Brzózki,54.373198,12.417494
-Alt Hart,Staré Hobzí,49.00972222,15.45638889
 Althart,Staré Hobzí,49.00972222,15.45638889
+Alt Hart,Staré Hobzí,49.00972222,15.45638889
 Alt Harzdorf,Starý Harcov,50.778333,15.106667
 Alt Järshagen,Stary Jarosław,54.40111111,16.55083333
 Altkarbe,Stare Kurowo,52.85,15.65
@@ -818,7 +818,6 @@ Chrantschowitz,Chrančovice,49.8466667,13.1558333
 Chrästeirach,Hrastovlje,45.51061944,13.90008333
 Christdorf,Křišťanovice,49.85083333,17.51083333
 Christelschlag,Křišťanovice,49.85083333,17.51083333
-Christelschlag,Křišťanovice,49.85083333,17.51083333
 Christianberg,Křišťanov,48.91555556,14.03
 Christiansau,Kristiánov,50.767778,15.094722
 Christiansstadt,Kristiánov,50.767778,15.094722
@@ -969,8 +968,8 @@ Deutschpelsätz,Pliešovce,48.41666667,19.16666667
 Deutsch Piekar,Piekary Śląskie,50.38333333,18.95
 Deutschpilsen,Nagybörzsöny,47.93333333,18.83333333
 Deutsch Pribbernow,Przybiernówko,53.95333333,15.1325
-Deutsch Proben,Nitrianske Pravno,48.86666667,18.63333333
 Deutschproben,Nitrianske Pravno,48.86666667,18.63333333
+Deutsch Proben,Nitrianske Pravno,48.86666667,18.63333333
 Deutsch Reichenau bei Friedberg,Rychnůvek,48.6160677,14.0686497
 Deutsch Reichenau,Rychnov u Nových Hradů,48.75639343,14.67710876
 Deutsch Rudoletz,Rudolec,49.48694444,15.83972222
@@ -1749,13 +1748,13 @@ Groß Garde,Gardna Wielka,54.6375,17.16583333
 Groß Gardienen,Gardyny,53.41666667,20.18333333
 Großgeorgsdorf,Jerzykowice Wielkie,50.43611145,16.27000046
 Groß Gluschen,Głuszyno,54.49527778,17.42166667
-Groß Gropitzreith,Velký Rapotín,49.7675,12.6530556
 Großgropitzreith,Velký Rapotín,49.7675,12.6530556
+Groß Gropitzreith,Velký Rapotín,49.7675,12.6530556
 Groß Grünau,Velký Grunov,50.7036111,14.7130556
 Groß Gürsch,Krsy,49.92472222,13.05666667
 Großhaid,Velký Bor,49.36527778,13.70222222
-Groß Hammer,Velké Hamry,50.71666718,15.3166666
 Großhammer,Velké Hamry,50.71666718,15.3166666
+Groß Hammer,Velké Hamry,50.71666718,15.3166666
 Großhau,Veľká Lehota,48.46166667,18.56055556
 Großheilendorf,Postřelmov,49.90666667,16.915
 Groß Heinrichschlag,Velký Jindřichov,48.7125,14.6697222
@@ -1770,8 +1769,8 @@ Groß Jirna,Jirny,50.11972222,14.70194444
 Groß Jober,Velká Javorská,50.6705556,14.3591667
 Groß Justin,Gostyń,51.88333333,17.01666667
 Großkapeln,Veľká Paka,48.04166667,17.40833333
-Groß Karlowitz,Velké Karlovice,49.36381389,18.30371111
 Großkarlowitz,Velké Karlovice,49.36381389,18.30371111
+Groß Karlowitz,Velké Karlovice,49.36381389,18.30371111
 Großkarol,Carei;Nagykároly,47.68396667,22.46686944
 Groß Kaudern,Chuderov,50.69222222,14.04611111
 Großkikinda,Kikinda,45.82833333,20.46527778
@@ -1835,8 +1834,8 @@ Groß Pohlom,Velká Polom,49.86694444,18.09694444
 Großpopowitz,Velké Popovice,49.93333333,14.65
 Groß Poric,Velké Poříčí,50.46666667,16.18333333
 Großporitsch,Porajów,50.88444444,14.8325
-Groß Priesen,Velké Březno,50.65888889,14.13861111
 Großpriesen,Velké Březno,50.65888889,14.13861111
+Groß Priesen,Velké Březno,50.65888889,14.13861111
 Groß Pulitz,Pulice,50.2961111,16.1311111
 Groß Raddow,Radowo Wielkie,53.68638889,15.41916667
 Groß Raden,Radim,50.45888901,15.4286108
@@ -1859,8 +1858,8 @@ Großscharosch,Veľký Šariš,49.03833333,21.19166667
 Groß Schläfken,Sławka Wielka,53.35,20.26666667
 Großschlagendorf,Veľký Slavkov,49.1,20.28333333
 Groß Schlatikow,Słodkowo,53.29444444,15.31861111
-Groß Schönau,Velký Šenov,50.98333333,14.38333333
 Großschönau,Velký Šenov,50.98333333,14.38333333
+Groß Schönau,Velký Šenov,50.98333333,14.38333333
 Großschützen,Veľké Leváre,48.5,17
 Groß Schwadowitz,Velké Svatoňovice,50.5325,16.02833333
 Groß Seelowitz,Židlochovice,49.03944397,16.61888885
@@ -2224,8 +2223,8 @@ Hohenjamny,Vysoké Jamné,49.8822222,12.8444444
 Hohenkarzig,Gardzko,52.86666667,15.6
 Hohenmauth,Vysoké Mýto,49.95,16.16666667
 Hohen Schönau,Jenikowo,53.5775,15.13638889
-Hohen Seibersdorf,Vysoké Žibřidovice,50.1175,16.9227778
 Hohenseibersdorf,Vysoké Žibřidovice,50.1175,16.9227778
+Hohen Seibersdorf,Vysoké Žibřidovice,50.1175,16.9227778
 Hohenstadt an der March,Zábřeh,49.88194444,16.87472222
 Hohenstein,Olsztynek;Unčín,53.58333333,20.28333333
 Hohenstollen,Vysoká Štola,50.3219444,12.7647222
@@ -2696,8 +2695,8 @@ Klattau,Klatovy,49.39527778,13.29354167
 Klausenburg;Cluj;Kolozsvár,Cluj-Napoca,46.76666667,23.58333333
 Klautsch,Kolačkov,49.26666667,20.63333333
 Kleck,Kľak,48.58333333,18.65
-Klein Aicha,Dubice,50.59586111,14.01502778
 Kleinaicha,Dubice,50.59586111,14.01502778
+Klein Aicha,Dubice,50.59586111,14.01502778
 Klein Augezd,Újezdeček,50.64527778,13.78916667
 Kleinaupa,Malá Úpa,50.74444444,15.81972222
 Klein Aurim,Benátky,45.4333333,12.3166667
@@ -3983,8 +3982,8 @@ Neustadt in Oberschlesien,Prudnik,50.31666667,17.58333333
 Neustadt in Westpreußen,Wejherowo,54.6,18.23333333
 Neu Steglin,Szczeglino Nowe,54.18388889,16.40472222
 Neustettin,Szczecinek,53.71666667,16.68333333
-Neu Straschitz,Nové Strašecí,50.15333333,13.89916667
 Neustraschitz,Nové Strašecí,50.15333333,13.89916667
+Neu Straschitz,Nové Strašecí,50.15333333,13.89916667
 Neustuben,Horná Štubňa,48.82493,18.88423
 Neuteich,Nowy Staw,54.13333333,19
 Neuthal,Nové Údolí,48.816667,13.783333
@@ -4036,8 +4035,8 @@ Niedermarkt,Dunajská Streda,47.99444444,17.61944444
 Niedermohrau,Dolní Morava,50.11666667,16.8
 Nieder Mohrau,Dolní Moravice,49.98333333,17.33333333
 Niedermühl,Dolní Žďár,49.10111111,14.98805556
-Nieder Preschkau,Dolní Prysk,50.7963889,14.4677778
 Niederpreschkau,Dolní Prysk,50.7963889,14.4677778
+Nieder Preschkau,Dolní Prysk,50.7963889,14.4677778
 Niederrathen,Ratno Dolne,50.5,16.43333333
 Niederreuth,Dolní Paseky,50.23333333,12.23666667
 Nieder Rochlitz,Rokytnice nad Jizerou,50.73,15.45
@@ -4127,8 +4126,8 @@ Ober Lomna,Horní Lomná,49.52527778,18.63777778
 Obermedelzen,Horní Metelsko,49.5655556,12.8927778
 Ober Meseritschko,Horní Meziříčko,49.16444397,15.24555588
 Obermikesdorf,Horná Mičiná;Felsõmicsinya,48.7,19.21666667
-Ober Moldau,Horní Vltavice,48.96222222,13.79166667
 Obermoldau,Horní Vltavice,48.96222222,13.79166667
+Ober Moldau,Horní Vltavice,48.96222222,13.79166667
 Ober Neugrün,Horní Nivy,50.24833298,12.62277794
 Oberneustadel,Kysucké Nové Mesto,49.29833333,18.78666667
 Ober Niemtsch,Horní Němčí,48.9275,17.6325
@@ -4141,8 +4140,8 @@ Oberpill,Horný Pial,48.15,18.46666667
 Oberplan,Horní Planá,48.76736111,14.032575
 Oberporub,Horná Poruba,48.95,18.3
 Ober Potschernitz,Horní Počernice,50.114722,14.6125
-Ober Preschkau,Horní Prysk,50.79,14.5002778
 Oberpreschkau,Horní Prysk,50.79,14.5002778
+Ober Preschkau,Horní Prysk,50.79,14.5002778
 Ober Radaun,Horní Radouň,49.26111111,15.00194444
 Oberradkersburg,Gornja Radgona,46.67333333,15.99222222
 Ober Rapotitz,Horní Rápotice,49.58333333,15.31666667
@@ -5667,7 +5666,6 @@ Tarnowitz,Tarnowskie Góry,50.45,18.85
 Tartlau,Prejmer,45.71666667,25.76666667
 Tartschendorf,Dunajská Lužná,48.08333333,17.26666667
 Tarvis,Tarvisio,46.505,13.57833333
-Tarvis,Tarvisio,46.505,13.57833333
 Taschenberg,Brukalice,50.66361111,17.01194444
 Taschkent,Toshkent;Tashkent,41.26666667,69.21666667
 Taschowitz,Tažovice,49.2308333,13.7655556
@@ -5987,8 +5985,8 @@ Unterhammer,Hodruša-Hámre,48.46027756,18.74972153
 Unterhelbing,Krušovce,48.59166667,18.20555556
 Unterholz,Chrustenice,50,14.14999962
 Unter Hrachowitz,Dolní Hrachovice,49.48694444,14.79638889
-Unter Kralowitz,Dolní Kralovice,49.66666667,15.15
 Unterkralowitz,Dolní Kralovice,49.66666667,15.15
+Unter Kralowitz,Dolní Kralovice,49.66666667,15.15
 Unterkrupa,Dolná Krupá,48.48333333,17.55
 Unterkubin,Dolný Kubín,49.21055556,19.2975
 Unter Lukawitz,Dolní Lukavice,49.60277778,13.33388889
@@ -6018,8 +6016,8 @@ Unterschönborn,Schenborn,48.38916667,22.70944444
 Unterschwaben,Červený Kláštor,49.4,20.41666667
 Unterstadt,Dolní Město,49.62805557,15.38000011
 Untertannowitz,Dolní Dunajovice,48.85361111,16.58277778
-Unter Themenau,Poštorná,48.75,16.86333333
 Unterthemenau,Poštorná,48.75,16.86333333
+Unter Themenau,Poštorná,48.75,16.86333333
 Untervollmau,Dolní Folmava,49.35333252,12.85000038
 Unterwisternitz,Dolní Věstonice,48.88722222,16.64388889
 Unterzemming,Alsószölnök,46.92746,16.20254
@@ -6174,7 +6172,6 @@ Weinberge,Vinohrady,50.07555556,14.44583333
 Weindorf,Pilisborosjenő,47.61666667,19
 Weinitz,Bojnice,48.77916667,18.58333333
 Weipert,Vejprty,50.49166667,13.03277778
-Weismes,Waimes,50.41666667,6.11666667
 Weismes,Waimes,50.41666667,6.11666667
 Weißbrod,Niedźwiedna,50.28333282,16.63333321
 Weißbrunn,Veszprém,47.09296,17.91377

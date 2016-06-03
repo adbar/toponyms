@@ -8,7 +8,7 @@ Angola	-12.35000038	17.35000038
 Argentinien	-34.6	-58.38
 Armenien	40.3833	44.95
 Aserbaidschan	40.1	47.3167
-Assyrische Reich;Assyrischen Reich;Assyrien	36	43.3
+Assyrische(|[mns]) Reich(|es|s);Assyrien	36	43.3
 Äthiopien	8.3	39.11666667
 Australien	-25	135
 Babylonien
@@ -19,35 +19,35 @@ Benin	8.83333302	2.1833334
 Bhutan	27.45	90.5
 Bolivien	-16.71194444	-64.66611111
 Bosnien und Herzegowina	44.1	17.9667
-Bosporanisches Reich	45.26	37.04
+Bosporanische(|[mns]) Reich(|es|s)	45.26	37.04
 Botswana	-21.76666667	24.03333333
 Brasilien	-10.65	-52.95
 Brunei	4.4	114.56666667
 Bulgarien	42.65	25.4
-Burenrepubliken;Burenfreistaaten;südafrikanische Republiken
+Burenrepubliken;Burenfreistaaten;Südafrikanische(|n|r) Republiken
 Burkina Faso	12.26666667	2.06666667
 Burundi	-3.66666667	29.81666667
 Chile	-31.46666667	-70.9
 Cookinseln	-15	161
 Dagestan	43.085	46.835
 Dänemark	56.00	10.00
-Deutsche Demokratische Republik;DDR	52.052	12.389
-Deutsches Reich	51.00	10.00
+Deutsche(|n|r) Demokratische(|n|r) Republik;DDR	52.052	12.389
+Deutsche(|[mns]) Reich(|es|s)	51.00	10.00
 Deutschland	51.165	10.45527778
-Deutsch-Ostafrika
-Deutsch-Südwestafrika	-22.57	17.083611
-Deutsch-Westafrika
+Deutsch(-| )Ostafrika
+Deutsch(-| )Südwestafrika	-22.57	17.083611
+Deutsch(-| )Westafrika
 Dschibuti	11.8	42.43333333
 Ecuador	1.46527778	-78.81666667
 Elfenbeinküste	8	-6
-England;Großbritannien;Grossbritannien	52.00	-2.00
+England;Gro(ß|ss)britannien	52.00	-2.00
 Eritrea	15.48333333	38.25
 Estland	58.7	25.5167
 Fidschi	-18	179
 Finnland	63.4	25.85
-Föderierte Staaten von Mikronesien	-7.41666667	151.88333333
-Frankreich;France	46.00	3.00
-Französisch-Nordafrika		
+Föderierte(|n) Staaten von Mikronesien	-7.41666667	151.88333333
+Frankreich(|es|s);France	46.00	3.00
+Französisch(-| )Nordafrika		
 Gabun	0.68333298	11.5
 Gallien
 Gambia	13.5	-15.5
@@ -58,7 +58,7 @@ Grönland	70	-40
 Guinea	10.96666667	-10.76666667
 Guinea-Bissau	12.11666679	-14.91666698
 Guyana	5.73333333	-59.31666667
-Heiliges Römisches Reich	
+Heilige[mns] Römische(|[mns]) Reich(|es|s)	
 Hispanien	
 Holland;Niederlande	52.25	4.65
 Indien	21.12555556	78.31055556
@@ -76,7 +76,7 @@ Jugoslawien	44.00	19.50
 Kambodscha	12.73333333	105.66666667
 Kamerun	5.11667	11.9167
 Kanada	56	-109
-Kap Verde;Kapverden	15.91666667	-24.08333333
+Kap(-| )Verde;Kapverden	15.91666667	-24.08333333
 Kasachstan	48.95	66.2333
 Katar	25.26944444	51.21277778
 Kenia	0.4	37.85		
@@ -112,7 +112,6 @@ Marokko	31.00	-8.00
 Marshallinseln	7.06666667	171.26666667
 Mauretanien	19.56666667	-10.65
 Mauritius	-20.28333333	57.55
-Mazedonien	41.65	21.71666667
 Mexiko	23.31666667	-102.36666667
 Moldawien	47.25	28.51666667
 Monaco	43.73333333	7.41666667
@@ -132,11 +131,10 @@ Nordrhodesien
 Norwegen	63.00	9.00
 Nubien
 Numidien	35.5	7.3
-Numidien	35.5	7.3
 Oman	20.23333333	55.96666667
-Osmanisches Reich	39.00	37.00		
-Österreich	48.00	14.00
-Österreich-Ungarn;Habsburgermonarchie;Donaumonarchie;Habsburger Monarchie;Habsburgische Monarchie;österreichische Monarchie;Habsburgerreich;Oesterreich 	47.70	17.00
+Osmanische(|[mns]) Reich(|es|s)	39.00	37.00		
+(Ö|Oe)sterreich(|es|s)	48.00	14.00
+Österreich-Ungarn;Habsburgermonarchie;Donaumonarchie;Habsburger Monarchie;Habsburgische Monarchie;österreichische Monarchie;Habsburgerreich 	47.70	17.00
 Osttimor	-8.96666667	125.75
 Pakistan	29.4	69.18333333
 Palästina	31.6253	35.1453
@@ -147,14 +145,14 @@ Peru	-8.23333333	-76.01666667
 Philippinen	11.33333333	123.01666667
 Polen	52.00	21.00
 Portugal	39.00	-8.00
-Preußen;Preussen	52.00	13.00
-Reich von Akkade;Akkadien	33.1	44.1
+Preu(ß|ss)en	52.00	13.00
+Reich(|es|s) von Akkade;Akkadien	33.1	44.1
 Rhodesien
-Römisches Reich;Römische Reich; Römischen Reich	41.89	12.48
+Römische(|[mns]) Reich(|es|s)	41.89	12.48
 Ruanda	-1.98333335	29.71666718
 Rumänien	45.00	26.00
 Russland	58.65	70.11666667
-Rußland;Russland;Russisches Reich;Rußisches Reich	59.00	70.00
+Ru(ß|ss)land;Ru(ß|ss)ische(|[mns]) Reich(|es|s)	59.00	70.00
 Salomonen	8	159.18333333
 Sambia	-14.11666679	27.63333321
 Samoa	-13.83333302	171.75
@@ -191,7 +189,7 @@ Togo	8.25	1.18333328
 Tonga	-20.58777778	174.81027778
 Tripolitanien	32.9	13.1833
 Tschad	15.46666667	19.4
-Tschechien;Tschechische Republik	49.75	15.74972248
+Tschechien;Tschechische(|n|r) Republik	49.75	15.74972248
 Tschechoslowakei;Tschecho-Slowakei;Czecho-Slowakei	50.00	14.00
 Tunesien	33.3167	9.35
 Türkei	39.00	36.00
@@ -205,12 +203,12 @@ Usbekistan	41.6667	64.0667
 Vanuatu	-17	168
 Vatikanstadt;Vatikan	41.90250015	12.45166683
 Venezuela	7.66666651	-65.21666718
-Vereinigte Arabische Emirate	23.78333282	54
-Vereinigtes Königreich;Vereinigten Königreich	51.51666667	0.11666667
+Vereinigte(|n) Arabische(|n) Emirate(|n)	23.78333282	54
+Vereinigte(|[mns]) Königreich(|es|s)	51.51666667	0.11666667
 Vereinigte Staaten;Vereinigten Staaten	40	-100
 Vietnam	14.03333333	107.9
 Volksrepublik China;China	32.8	103.08333333
 Weißrussland	53.5167	28.7667
-Westgotenreich
-Zentralafrikanische Republik	6.9666667	20.61666679
-Zypern	35.1167	33.4
+Westgotenreich(|es|s)
+Zentralafrikanische(|n) Republik	6.9666667	20.61666679
+Zypern;Cypern	35.1167	33.4

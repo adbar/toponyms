@@ -1,5 +1,4 @@
 Adelieland	75	139
-Afrika
 Afrika	7.18805552	21.09361076
 Amerika
 Antarktis
@@ -7,11 +6,11 @@ Antarktis
 Arabien	24	45
 Arktis
 Asien
-Europa	50	20
+Europa;[Ee]uropäische[rnm] Kontinent(|[es]|e[sn])	50	20
 Himalaya	28	87
 Hinterindien	14.22	101.86
-Iberoamerika;Hispanoamerika;Lateinamerika
-Indischer Subkontinent
+(Latino|Ibero|Hispano)amerika
+Indische[rnm] Subkontinent(|[es]|e[sn])
 Karibik	14.52999973	-75.81999969
 Kleinasien	39	33
 Levante
@@ -20,15 +19,17 @@ Maschrek;Maschrik;Maschriq
 Melanesien	9	160
 Mesopotamien	33.7	43.5
 Mikronesien
-Mittelmeerraum	35	18
-Mittlerer Osten
+Mittelmeer;Mittelmeerraum;Mittelländische[mns] Meer	35	18
+Mittlere[mnr] Osten(|s)
 Morgenland;Orient
-Naher Osten	32.8	35.6
+Nahe[mnr] Osten(|s)	32.8	35.6
 Neuschwabenland	72	5
 Nordafrika
 Nordamerika
+Nordsee
 Ostafrika
 Ostasien
+Ostsee
 Ozeanien
 Patagonien
 Polynesien

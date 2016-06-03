@@ -361,6 +361,7 @@ Hvar;Pharina;Pharos;Lesina,,43.15138889,16.65694444
 Ibiza,,38.94861111,1.39277778
 Ikaria,,37.599,26.16634167
 Île-de-France,,48.7381,2.62833
+Illyrien,,,
 Inchbuie,,56.4625,-4.3175
 Inchcailloch,,56.0811,-4.55583
 Inchcolm,,56.0292,-3.3
@@ -488,7 +489,7 @@ Linlithgowshire,,55.92,-3.5
 Lipari,,38.47972222,14.955
 Liparische Inseln;Liparischen Inseln,,38.57555556,14.98972222
 Lippe;Fürstentum Lippe,,51.86,9
-Liptauer Gespanschaft,Liptó vármegye,49.083333,19.616667
+Liptau;Liptauer Gespanschaft,Liptó vármegye,49.083333,19.616667
 Lismore,,56.52,-5.5
 Litauen,,56,24
 Little Cumbrae,,55.7213,-4.95503
@@ -624,7 +625,7 @@ Oberösterreich;Österreich ob der Enns,,48,14
 Oberpfalz,,49.4283,12.1799
 Oberrhein,,49.32,8.43
 Oberrheinische Tiefebene,,48.965,8.234
-Oberschlesien,,50.56,17.88
+Oberschlesien,Górny Śląsk,50.56,17.88
 Oberschwaben,,47.99,10.18
 Obersteiermark,,47.33,15.03
 Ochsenfeld,,47.75,7.34
@@ -839,7 +840,7 @@ Stronsay,,59.1167,-2.6
 Südalpen,,46.38,11.42
 Südböhmen,,48.97,14.47
 Süddeutschland,,48.37,10.9
-Sudeten,,50.75,15.75
+Sudeten,Sudety,50.75,15.75
 Südholland,Zuid Holland,51.96,4.45
 Südmähren,,49.09,16.63
 Südostanatolien
@@ -986,7 +987,7 @@ Wigtownshire,,54.8333,-4.75
 Wiltshire,,51.3194,-2.20861
 Wirowitiz;Virovititz,Verőce;Verőcze,45.55,18.683333
 Woëvre,,49.117,5.5
-Wolhynien,,50.75,25.35
+Wolhynien;Wolynien,,50.75,25.35
 Worcestershire,,52.2,-2.16667
 Worm's Head,,51.5644,-4.32056
 Württemberg,,48.78,9.18
@@ -1000,3 +1001,7 @@ Zentralanatolien
 Zips,Szepes,49.02,20.58
 Zweibrücken-Bitsch,,49.05,7.43
 Zyklopeninseln,,37.56136111,15.16613889
+Kamtschatka,,,
+Niedere Tatra,Nizké Tatry,,
+Niederschlesien,Dolnośląsk,,
+Riesengebirge,Karkonosze,,

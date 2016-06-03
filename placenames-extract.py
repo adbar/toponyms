@@ -10,9 +10,9 @@
 # levels 1, 2, and 3: variants coding
 # year switch
 # lists of celebrities
-# mehrwortausdrücken first
 # memory
 # filter 3: check coordinates
+# collocates
 
 
 from __future__ import division, print_function, unicode_literals
@@ -41,6 +41,7 @@ parser.add_argument('--xml', dest='xml', action='store_true', help='xml flag')
 # parser.add_argument('--prepositions', dest='prepositions', action='store_true', help='prepositions switch')
 parser.add_argument('--fackel', dest='fackel', action='store_true', help='Fackel switch')
 parser.add_argument('--year', dest='year', action='store_true', help='Year switch')
+parser.add_argument('--verbose', dest='verbose', action='store_true', help='Verbosity switch')
 args = parser.parse_args()
 
 if args.xml is True:
@@ -59,7 +60,7 @@ else:
     filter_level = 0
 
 args.fackel = True
-print ('## Fackel flag True by default')
+print ('## Fackel flag True by default, nothing else implemented yet.')
 
 codesdict = dict()
 metainfo = dict()
@@ -118,52 +119,45 @@ def expand(expression):
     else:
         return expresults
 
+def load_tsv(filename):
+    d = dict()
+    with open(filename, 'r', encoding='utf-8') as inputfh:
+        for line in inputfh:
+            line = line.strip()
+            columns = re.split('\t', line)
+            # sanity check
+            if len(columns) == 3 and columns[1] is not None and columns[2] is not None:
+                expansions = list()
+                # strip
+                for item in columns:
+                    item = item.strip()
+                # historical names
+                if re.search(r';', columns[0]):
+                    variants = re.split(r';', columns[0])
+                    for item in variants:
+                        expansions.extend(expand(item))
+                else:
+                    expansions.extend(expand(columns[0]))
+                # append
+                canonical = expansions[0]
+                for variant in expansions:
+                    d[variant] = [columns[1], columns[2], canonical]
+                    if args.verbose is True:
+                        print (variant, d[variant])
+    return d
+
+## TO COMPLETE
+def load_csv(filename):
+    d = dict()
+    # ...
+    return d
+
 
 # load infos level 0
-with open('rang0-makro.tsv', 'r', encoding='utf-8') as inputfh:
-    for line in inputfh:
-        line = line.strip()
-        columns = re.split('\t', line)
-        # sanity check
-        if len(columns) == 3 and columns[1] is not None and columns[2] is not None:
-            expansions = list()
-            # strip
-            for item in columns:
-                item = item.strip()
-            # historical names
-            if re.search(r';', columns[0]):
-                variants = re.split(r';', columns[0])
-                for item in variants:
-                    expansions.extend(expand(item))
-            else:
-                expansions.extend(expand(columns[0]))
-            # append
-            canonical = expansions[0]
-            for variant in expansions:
-                level0[variant] = [columns[1], columns[2], canonical]
+level0 = load_tsv('rang0-makro.tsv')
 
 # load infos level 1
-with open('rang1-staaten.tsv', 'r', encoding='utf-8') as inputfh:
-    for line in inputfh:
-        line = line.strip()
-        columns = re.split('\t', line)
-        if len(columns) == 3 and columns[1] is not None and columns[2] is not None:
-            expansions = list()
-            # strip
-            for item in columns:
-                item = item.strip()
-            # historical names
-            if re.search(r';', columns[0]):
-                variants = re.split(r';', columns[0])
-                for item in variants:
-                    expansions.extend(expand(item))
-            else:
-                expansions.extend(expand(columns[0]))
-            # append
-            canonical = expansions[0]
-            for variant in expansions:
-                level0[variant] = [columns[1], columns[2], canonical]
-                print (variant, level0[variant])
+level1 = load_tsv('rang1-staaten.tsv')
 
 # load infos level 2
 with open('rang2-regionen.csv', 'r', encoding='utf-8') as inputfh:
@@ -535,7 +529,8 @@ for token in splitted:
        slide3 = slide3 + ' ' + token
 
     # control
-    print (token, slide2, slide3, sep=';')
+    if args.verbose is True:
+        print (token, slide2, slide3, sep=';')
 
     # flag test
     #if args.prepositions is True:
