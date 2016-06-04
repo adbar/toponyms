@@ -1,17 +1,14 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Copyright (C) Adrien Barbaresi, 2015-2016.
-# https://github.com/adbar/toponyms
-# GNU GPLv3 license
-
 
 ## TODO:
-# levels 1, 2, and 3: variants coding
-# year switch
+# dates
+# Sankt/St.
+# regex for levels 2 and 3
 # lists of celebrities
-# memory
 # filter 3: check coordinates
+# memory issues
 # collocates
 
 
@@ -40,7 +37,7 @@ parser.add_argument('--tok', dest='tok', action='store_true', help='tokenized fl
 parser.add_argument('--xml', dest='xml', action='store_true', help='xml flag')
 # parser.add_argument('--prepositions', dest='prepositions', action='store_true', help='prepositions switch')
 parser.add_argument('--fackel', dest='fackel', action='store_true', help='Fackel switch')
-parser.add_argument('--year', dest='year', action='store_true', help='Year switch')
+parser.add_argument('--dates', dest='dates', action='store_true', help='Dates switch')
 parser.add_argument('--verbose', dest='verbose', action='store_true', help='Verbosity switch')
 args = parser.parse_args()
 
@@ -59,12 +56,19 @@ if args.filter:
 else:
     filter_level = 0
 
+
+## OPTIONS
 args.fackel = True
 print ('## Fackel flag True by default, nothing else implemented yet.')
+
+maxcandidates = 3 # was 10
+threshold = 1 # was 0.1 was 0.01 was 0.001
 
 codesdict = dict()
 metainfo = dict()
 results = dict()
+if args.dates is True:
+    datestok = dict()
 level0 = dict()
 level1 = dict()
 level2 = dict()
@@ -76,9 +80,8 @@ flag = False
 slide2 = ''
 slide3 = ''
 lastcountry = ''
-threshold = 1 # was 0.1 was 0.01 was 0.001
 wiktionary = set()
-blacklist = set()
+stoplist = set()
 
 if args.fackel is True:
     vicinity = set(['AT', 'BA', 'BG', 'CH', 'CZ', 'DE', 'HR', 'HU', 'IT', 'PL', 'RS', 'RU', 'SI', 'SK', 'UA'])
@@ -102,7 +105,7 @@ print ('length dictionary:', len(wiktionary))
 # load extended blacklist
 with open('stoplist', 'r') as dictfh:
     for line in dictfh:
-        blacklist.add(line.strip())
+        stoplist.add(line.strip())
 
 def expand(expression):
     expresults = list(exrex.generate(expression))
@@ -149,7 +152,36 @@ def load_tsv(filename):
 ## TO COMPLETE
 def load_csv(filename):
     d = dict()
-    # ...
+    with open(filename, 'r', encoding='utf-8') as inputfh:
+        for line in inputfh:
+            line = line.strip()
+            columns = re.split(',', line)
+            if len(columns) == 4 and columns[2] is not None and columns[3] is not None:
+                expansions = list()
+                # strip
+                for item in columns:
+                    item = item.strip()
+                # historical names
+                if re.search(r';', columns[0]):
+                    variants = re.split(r';', columns[0])
+                    for item in variants:
+                        expansions.extend(expand(item))
+                else:
+                    expansions.extend(expand(columns[0]))
+                # current names
+                if re.search(r';', columns[1]):
+                    variants = re.split(r';', columns[1])
+                    for item in variants:
+                        expansions.extend(expand(item))
+                else:
+                    expansions.extend(expand(columns[1]))
+                # canonical form?
+                canonical = expansions[0]
+                # process variants
+                for variant in expansions:
+                    d[variant] = [columns[2], columns[3], canonical]
+                    if args.verbose is True:
+                        print (variant, d[variant])
     return d
 
 
@@ -160,56 +192,10 @@ level0 = load_tsv('rang0-makro.tsv')
 level1 = load_tsv('rang1-staaten.tsv')
 
 # load infos level 2
-with open('rang2-regionen.csv', 'r', encoding='utf-8') as inputfh:
-    for line in inputfh:
-        line = line.strip()
-        columns = re.split(',', line)
-        if len(columns) == 4 and columns[2] is not None and columns[3] is not None:
-            # strip
-            for item in columns:
-                item = item.strip()
-            # historical names
-            if re.search(r';', columns[0]):
-                variants = re.split(r';', columns[0])
-                standard = variants[0]
-                for item in variants:
-                    level2[item] = [columns[2], columns[3], standard]
-            else:
-                standard = columns[0]
-                level2[columns[0]] = [columns[2], columns[3], columns[0]]
-            # current names
-            if re.search(r';', columns[1]):
-                variants = re.split(r';', columns[1])
-                for item in variants:
-                    level2[item] = [columns[2], columns[3], standard]
-            else:
-                level2[columns[1]] = [columns[2], columns[3], standard]
+level2 = load_csv('rang2-regionen.csv')
 
 # load infos level 3
-with open('rang3-staedte.csv', 'r', encoding='utf-8') as inputfh:
-    for line in inputfh:
-        line = line.strip()
-        columns = re.split(',', line)
-        if len(columns) == 4 and columns[2] is not None and columns[3] is not None:
-            # strip
-            for item in columns:
-                item = item.strip()
-            # historical names
-            if re.search(r';', columns[0]):
-                variants = re.split(r';', columns[0])
-                standard = variants[0]
-                for item in variants:
-                    level3[item] = [columns[2], columns[3], standard]
-            else:
-                standard = columns[0]
-                level3[columns[0]] = [columns[2], columns[3], columns[0]]
-            # current names
-            if re.search(r';', columns[1]):
-                variants = re.split(r';', columns[1])
-                for item in variants:
-                    level3[item] = [columns[2], columns[3], standard]
-            else:
-                level3[columns[1]] = [columns[2], columns[3], standard]
+level3 = load_csv('rang3-staedte.csv')
 
 # load infos level 4
 with open('rang4-geographie.tsv', 'r', encoding='utf-8') as inputfh:
@@ -355,7 +341,7 @@ def filter_store(name, multiflag):
             winning_id = codesdict[name][0]
         else:
             # discard if too many
-            if len(codesdict[name]) >= 10:
+            if len(codesdict[name]) >= maxcandidates:
                 try:
                     print ('WARN, discarded:', name, codesdict[name])
                 except UnicodeEncodeError:
@@ -381,7 +367,7 @@ def filter_store(name, multiflag):
                     winning_id = winners
                     break
                 # if len(winners) == 1
-            if winning_id is None:
+            if winning_id is None: ## NEVER HAPPENS??
                 try:
                     print ('ERROR, too many winners:', name, winners)
                 except UnicodeEncodeError:
@@ -439,11 +425,12 @@ def selected_lists(name, multiflag):
         templist = [level1[name][0], level1[name][1], '1', 'NULL', 'NULL', level1[name][2]]
     elif name in level2:
         templist = [level2[name][0], level2[name][1], '2', 'NULL', 'NULL', level2[name][2]]
-    elif name not in wiktionary and name.lower() not in wiktionary:
-        if name in level3:
-            templist = [level3[name][0], level3[name][1], '3', 'NULL', 'NULL', level3[name][2]]
-        elif name in level4: # level4[name][0]
-            templist = [level4[name][0], level4[name][1], '4', 'NULL', 'NULL', name]
+    # filter here?
+    #elif name not in wiktionary and name.lower() not in wiktionary:
+    elif name in level3:
+        templist = [level3[name][0], level3[name][1], '3', 'NULL', 'NULL', level3[name][2]]
+    elif name in level4: # level4[name][0]
+        templist = [level4[name][0], level4[name][1], '4', 'NULL', 'NULL', name]
 
     # results
     if templist is not None:
@@ -487,6 +474,13 @@ with open(args.inputfile, 'r', encoding='utf-8') as inputfh:
             i += 1
             if i % 10000000 == 0:
                 print (i)
+            # consider dates
+            if args.dates is True:
+                columns = re.split('\t', line)
+                if columns[0] not in datestok:
+                    datestok[columns[0]] = set()
+                datestok[columns[0]].add(columns[1])
+            # take only first columns
             if re.search('\t', line):
                 token = re.split('\t', line)[0]
             else:
@@ -504,7 +498,7 @@ for token in splitted:
     if token == ' ':
         continue
     # skip and reinitialize:
-    if token == 'XXX' or re.match(r'[.,;:–]', token): # or token in blacklist:
+    if token == 'XXX' or re.match(r'[.,;:–]', token): # St.? -/–?
         slide2 = ''
         slide3 = ''
         continue
@@ -556,9 +550,11 @@ for token in splitted:
             flag = filter_store(slide2, True)
     # just one token, if nothing has been found
     if flag is True:
-        if len(token) > 3 and not re.match(r'[a-z]', token) and (tokens[token]/numtokens) < threshold:
+        if token not in stoplist and len(token) > 3:
+#  and not re.match(r'[a-z]', token) and (tokens[token]/numtokens) < threshold
+#  and token not in wiktionary and token.lower() not in wiktionary
             flag = selected_lists(token, False)
-            if flag is True and token not in wiktionary and token.lower() not in wiktionary:
+            if flag is True:
                 flag = filter_store(token, False)
         
     # final check whether to keep the multi-word scan running
@@ -572,13 +568,29 @@ for token in splitted:
 
 print ('results:', len(results))
 with open(args.outputfile, 'w', encoding='utf-8') as outputfh:
-    outputfh.write('id' + '\t' + 'latitude' + '\t' + 'longitude' + '\t' + 'type' + '\t' + 'country' + '\t' + 'population' + '\t' + 'place' + '\t' + 'frequency' + '\t' + 'occurrences' + '\n')
+    outputfh.write('id' + '\t' + 'latitude' + '\t' + 'longitude' + '\t' + 'type' + '\t' + 'country' + '\t' + 'population' + '\t' + 'place' + '\t' + 'frequency' + '\t' + 'occurrences')
+    if args.dates is True:
+        outputfh.write('\t' + 'dates' + '\n')
+    else:
+        outputfh.write('\n')
+    
     for key in sorted(results):
         outputfh.write(key)
         for item in results[key]:
             if isinstance(item, list):
                 for subelement in item:
                     outputfh.write('\t' + str(subelement))
+                # dates
+                if args.dates is True:
+                    if item[6] in datestok:
+                    # filter century
+                        dates = datestok[item[6]]
+                        if len(dates) == 1:
+                            outputfh.write('\t' + dates[0])
+                        else:
+                            outputfh.write('\t' + '|'.join(dates))
+                    else:
+                        outputfh.write('\t' + '0')
             else:
                 outputfh.write('\t' + str(item))
         outputfh.write('\n')
