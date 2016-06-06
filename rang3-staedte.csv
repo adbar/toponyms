@@ -41,6 +41,7 @@ Albern,Albeř,49.02583313,15.12749958
 Albersdörfer Brand,Milíře,49.79444444,12.55333333
 Albertirscha,Albertirsa,47.25,19.61666679
 Alexanderkirchen,Ivanovo,56.99666667,40.98194444
+Alexandria,Alexandria,31.2135,29.92766111
 Algersdorf,Valkeřice,50.70444444,14.32611111
 Algier,,36.76666667,3.05
 Alisbrunn,Alibunar,45.08055556,20.96555556
@@ -108,6 +109,7 @@ Altmiawa,Stará Myjava,48.7925,17.59277778
 Alt Mohrau,Stara Morawa,50.28333282,16.88333321
 Altoderberg,Starý Bohumín,49.91847229,18.33222198
 Altofen,Óbuda,47.55,19.03333333
+Altona,Altona,53.55,9.93
 Alt Ossegg,Osek,50.6225,13.685833
 Alt Paalow,Pałowo,54.44111111,16.80888889
 Altpaka,Stará Paka,50.50833333,15.49388889
@@ -154,6 +156,7 @@ Alzenau,Olcnava,48.93333333,20.75
 Amonsgrün,Úbočí,50.02916718,12.56527805
 Amschelberg,Kosova Hora,49.65,14.48333333
 Amselfeld,Kosovo Polje,42.63,21.12
+Amsterdam;Amsterdamm,Amsterdam,52.37019722,4.89044444
 Andelnach,Andelnans,47.6031,6.8694
 Anderdorf,Hrochoť,48.66666667,19.31666667
 Andersdorf,Ondřejov,49.904722,14.784167
@@ -183,6 +186,7 @@ Archangelsk;Archangeľsk,,64.55,40.53333333
 Arel,Arlon,49.68333333,5.81666667
 Arenhusen,Aarhus,56.14972222,10.22416667
 Arensburg;Kingissepp,Kuressaare,58.25,22.48333333
+Arezzo,Arezzo,43.46666718,11.88333321
 Argenau,Gniewkowo,52.9,18.41666667
 Arletzgrün,Arnoldov,50.36,12.9441667
 Armenheide,Grzepnica,53.51472222,14.40333333
@@ -198,6 +202,7 @@ Artitsch bei Rann,Artiče,45.95025833,15.58574722
 Arys,Orzysz,53.80555556,21.94583333
 Arzis,Arzys,45.99444444,29.43222222
 Asang,Jasánky,48.61722183,14.05027771
+Aschaffenburg,Aschaffenburg,49.97670278,9.14774722
 Asch;Ascj,Aš,50.21666667,12.18333333
 Aschchabad;Aschgabad;Aschgabat,Aşgabat,37.95,58.38333333
 Aschendorf,Okřešice,49.25833333,15.85444444
@@ -211,6 +216,7 @@ Atschau,Vértesacsa,47.36885,18.57893
 Atta,Áta,45.93631,18.29849
 Aucin,Ujčín,49.2858333,13.4208333
 Auern,Návary,48.9777778,15.2125
+Augsburg,Augsburg,48.37166667,10.89833333
 Augusta,Lastovo,42.75,16.86666679
 Augustendorf,Banyliw-Pidhirnyj,48.11,25.49277778
 Augusthof,Jedlice,48.744762,14.799384
@@ -283,6 +289,7 @@ Balken,Palkonya,45.89769,18.39137
 Balklhota,Balkova Lhota,49.45305634,14.6077776
 Ballenstein,Borinka,48.26666667,17.08333333
 Baltisch Port; Baltischport,Paldiski,59.35,24.05
+Bamberg,Bamberg,49.89166667,10.89166667
 Banater Neudorf,Banatsko Novo Selo,44.98972222,20.78361111
 Banat Topola,Banatska Topola,45.67027778,20.45944444
 Bandau,Bánd,47.1205,17.78247
@@ -296,6 +303,7 @@ Banweiler,Banvillars,47.5928,6.8156
 Bapskau,Bapska,45.197,19.262
 Baranowitsch,Baranawitschy,53.13333333,26.01666667
 Barau,Bavorov,49.12194444,14.07888889
+Barcelona;Barcellona,Barcelona,41.4,2.16666667
 Barchowek,Barchůvek,50.2094444,15.5455556
 Barchowitz,Barchovice,49.95,14.96666667
 Bäreneck,Pernek,48.36666667,17.15
@@ -325,6 +333,7 @@ Barzwitz,Barzowice,54.48055649,16.50749969
 Basberg,Hora Svatého Šebastiána,50.29527778,6.60916667
 Baschka,Baška,44.96666718,14.75
 Baschten,Holubovská Bašta,48.9961111,14.3
+Basel,Basel,47.55814,7.58769
 Basenthin,Bodzęcin,53.63722229,14.9286108
 Bast,Baška Voda,43.3575,16.94916667
 Bastnach,Bastogne,50.00416667,5.72
@@ -354,6 +363,8 @@ Bawanischte,Bavanište,44.81805556,20.87222222
 Bawarz,Babarc,46.00323,18.55403
 Bayerhof;Bayersdorf,Bajerov,48.95,21.11666667
 Bayershöhe,Steklinko,53.1787,14.5117
+Bayreuth,Bayreuth,49.94805556,11.57833333
+Beauvais,Beauvais,49.43416667,2.0875
 Bechin;Beching,Bechyně,49.29722222,14.47083333
 Beckow,Beckov,48.78333333,17.9
 Bedlin,Bydlino,54.53777778,16.97888889
@@ -408,6 +419,7 @@ Berkenbrügge,Brzeziny,51.8,19.75
 Berkenow,Berkanowo,53.81666667,15.56666667
 Berkina,Berkenye,47.89004,19.07083
 Berkisch,Berkesd,46.07531,18.40972
+Berlin,Berlin,52.51861111,13.40833333
 Berlinchen,Barlinek,52.98333333,15.2
 Bernabeck,Brnaze,43.67611111,16.65194444
 Berneck;Pernek,Pernek,48.36666667,17.15
@@ -445,6 +457,7 @@ Bialla,Biała Piska,53.61666667,22.06666667
 Bialutten,Białuty,53.2,20.4
 Bibersburg,Červený Kameň;Častá,49.08333333,18.18333333
 Biebersdorf,Bobrowniki,52.77666667,18.95722222
+Bielefeld,Bielefeld,52.02041667,8.53222222
 Bielenz,Bílence,50.42388916,13.50611115
 Bielitz;Bielitz-Biala,Bielsko-Biała,49.8225,19.04444444
 Bieloschitz,Bělušice,50.44944444,13.76166667
@@ -457,11 +470,13 @@ Biesen,Bledzew,52.51666667,15.4
 Bieskau,Nowa Cerekwia,50.08333333,17.91666667
 Bietsch,Biecz,49.73333333,21.26666667
 Bila,Bílá,49.44777778,18.47972222
+Bilbao,Bilbao,43.25,2.91666675
 Bilin,Bílina,50.54805556,13.77611111
 Billentz,Bílence,50.42388916,13.50611115
 Billerbeck,Nadrzyn,51.97916667,7.295
 Billowitz,Velké Bílovice,48.84916667,16.89222222
 Binaberg,Vinná,48.9272222,14.2752778
+Bingen,Bingen am Rhein,49.96694444,7.895
 Binow,Binowo,53.30666733,14.64777756
 Binowetz,Bíňovce,48.5,17.48333333
 Binsdorf,Bynovec,50.82083333,14.2775
@@ -542,6 +557,7 @@ Bödingen,Bodange,50.781667,7.340833
 Bodisch,Bohdašín,50.338611,16.225
 Bogdan,Dunabogdány,47.78333282,19.03333282
 Bogjani,Bođani,45.38333333,19.1
+Bogota,Bogota,4.59888887,74.08083344
 Bogumin,Bohumín,49.90361111,18.35444444
 Bohinj,Wochein,46.27111053,13.95194435
 Bohl,Bóly,45.96729,18.51825
@@ -594,10 +610,12 @@ Bölkau,Bielkowo,53.50678889,10.4595
 Bolkenhain,Bolków,50.93333333,16.1
 Bolkow,Bolkowo,53.85,16.06666667
 Böll;Boringen,Bourogne,47.5631,6.9186
+Bologna,Bologna,44.49388889,11.34277778
 Bölten,Bělotín,49.58888889,17.80055556
 Boltenhagen,Bełtno,53.78333282,15.63333321
 Bömisch Haidl,Zhůří,49.08361053,13.55638885
 Bomst,Babimost,52.16666667,15.81666667
+Bonn,Bonn,50.73399167,7.09981389
 Bonnhard,Bonyhád,46.30056,18.53092003
 Boonen,Boulogne-sur-Mer,50.7264,1.6147
 Bootsch,Pócsa,45.91666667,18.46666667
@@ -627,6 +645,7 @@ Boskowstein,Boskovštejn,48.97555556,15.94916667
 Botosch,Botoš,45.30500031,20.63500023
 Botschar,Bočar,45.76944444,20.27611111
 Botzdorf,Batizovce,49.075,20.2
+Boulogne,Boulogne,,
 Boyadel,Bojadła,51.95,15.81666667
 Bozen,Bolzano,46.5,11.35000038
 Brallentin,Bralęcin,53.23722222,15.22888889
@@ -653,6 +672,7 @@ Braunsberg,Braniewo;Brušperk,54.38333333,19.81666667
 Braunseifen,Rýžoviště,49.875278,17.358611
 Braunsforth,Bród,45.1625,18.03055556
 Bräx,Brest,48.4,4.483333
+Breda,Breda,51.59027778,4.7725
 Brederlow,Przydarłów,53.08333333,14.83333333
 Bredersdorf,Brdárka,48.76666667,20.33333333
 Breesen,Brzeźno,54.407618,18.63149
@@ -660,6 +680,7 @@ Brega,Brzeg Głogowski,51.69583333,15.91527778
 Breitenbach,Potůčky,50.41666667,12.71666667
 Breitenbrunn,Sološnica,48.46194444,17.23555556
 Breitenfelde,Sierpowo,53.6,10.63333333
+Bremen,Bremen,53.07587778,8.80731111
 Brenn,Brenná,50.6563889,14.6397222
 Brennporitschen,Spálené Poříčí,49.61486111,13.60502778
 Brenntenberg,Spálenec,48.90416718,13.96611118
@@ -762,6 +783,7 @@ Burgerberg,Sasad,47.47638889,19.00583333
 Bürgleins am Wlarapaß,Hrádek na Vlárské dráze,49.0763889,17.8913889
 Burglos,Dej,47.08722222,23.80527778
 Burgmünsterol,Montreux-Château,47.6111,7.0017
+Burgos,Burgos,42.35,3.7
 Burgsdorf,Podhradí,51.57805634,11.65138912
 Burgstadtl,Hradec u Kadaně,50.35861111,13.31638889
 Burgstädtl;Radwan,Radvaň,48.7144444,19.1366667
@@ -786,11 +808,15 @@ Butschin,Velká Bučina,50.27000046,14.24722195
 Butschowitz,Bučovice,49.14895556,17.00190556
 Buttkuhnen,Botkuny,54.3,22.35
 Byzanz;Ostrom,,41,28.966667
+Cadix,Cádiz,36.53333282,6.2833333
 Cakowitz,Čakovice,50.15111111,14.52472222
+Calais;Kales,Calais,50.9475,1.85555556
+Calvi,Calvi,42.56777778,8.75666667
 Cammin,Kamień Pomorski;Kamieniec Podolski,53.96666667,14.76666667
 Carolath,Siedlisko,51.76666667,15.81666667
 Caseburg,Karsibór,53.846,14.33
 Cattaro,Kotor,42.43,18.77
+Celle,Celle,52.62611111,10.08055556
 Cerhof über Hohenstadt,Crhov,49.54472222,16.43555556
 Charkow,Kharkov;Charkiw,50,36.25
 Charlottendorf,Karlín,50.09277778,14.45833333
@@ -799,6 +825,7 @@ Charlottenthal,Grabownica,50.79333333,18.51
 Charwatz,Charvatce,50.31944444,15.00222222
 Charwitz,Hrvace,43.76,16.62
 Chaustnik,Choustník,49.335,14.84277778
+Chemnitz,Chemnitz,50.83222198,12.92416668
 Chiesch,Chyše,50.1125,13.24805556
 Chinnow,Chynowo,53.95,14.65
 Chlenn,Chleny,50.08333333,16.25
@@ -845,6 +872,7 @@ Clerf,Clervaux,50.05,6.0333
 Cocceji-Neudorf,Krzyszczyna,52.64055634,15.08361149
 Cocceji-Neuwalde,Krzyszczynka,52.61666667,15.08333333
 Cölln,,52.51333333,13.40472222
+Colombo,Colombo,6.93366,79.8501
 Cosel,Koźle;Kozle,50.33527778,18.14583333
 Črnomelj,Tschernembl,45.57388889,15.18916667
 Crone an der Brahe,Koronowo,53.31666667,17.95
@@ -915,7 +943,9 @@ Deschna,Deštná,49.62055588,16.55666733
 Deschney,Deštné v Orlických horách,50.30361111,16.34805556
 Deschowitz,Zdzieszowice,50.41916656,18.12361145
 Despot-Sankt-Iwan,Despotovo,45.45,19.51666667
+Dessau,Dessau,51.83416748,12.23777771
 Dessendorf,Desná,50.759722,15.302778
+Detmold,Detmold,51.93333333,8.88333333
 Deuthin,Ducino,53.91666667,14.88333333
 Deutsch Beneschau,Benešov nad Černou,48.73083333,14.62277778
 Deutsch Biela,Bělá nad Svitavou,49.63694444,16.49055556
@@ -1124,6 +1154,7 @@ Dubowitz,Dubovice,49.43083333,15.17138889
 Dubschan,Dubčany,49.64555556,17.08916667
 Düdelingen,Dudelange,49.4833,6.0833
 Dudintze,Dudince,48.16666667,18.88277778
+Duisburg,Duisburg,51.43514722,6.76269167
 Dummadel,Tąpadły,53.92888889,15.32861111
 Dumzin,Domacyno,53.96666718,15.75
 Dünaburg,Daugavpils,55.875,26.53555556
@@ -1203,6 +1234,7 @@ Einsiedl,Mníšek v Krušných horách,50.62805557,13.50333309
 Eipelschlag,Šahy,48.06527778,18.95138889
 Eipel,Úpice,50.5125,16.01527778
 Eisdorf,Žakovce,49.08333333,20.4
+Eisenach,Eisenach,50.97458333,10.32455556
 Eisenberg an der March,Ruda nad Moravou,49.97972222,16.87416667
 Eisenberg,Jezeří,50.55527778,13.50444444
 Eisenbrod,Železný Brod,50.64166667,15.25666667
@@ -1239,6 +1271,7 @@ Elvershagen,Łagiewniki,50.79111111,16.84416667
 Elwa,Elva,58.23333333,26.41666667
 Emaus,Arnutovce,48.98333333,20.5
 Embach,Emajõgi,58.43928812,27.2454071
+Emden,Emden,53.36694444,7.20555556
 Emmasthal,Czerwięcino,54.06611111,15.80361111
 Emmyhütten,Krzesimowo,53.90972222,15.68777778
 Emrichsdorf,Dedinky,48.86666667,20.38333333
@@ -1276,6 +1309,7 @@ Esche,Eš,49.44138889,15.00083333
 Ese,Iž,44.03359985,15.1196003
 Espenthor,Olšová Vrata,50.20722198,12.91805553
 Esseg,Osijek;Eszék,45.55753056,18.67958889
+E(ß|ss)lingen,Esslingen,48.740556,9.310833
 Etschi,Ecseny,46.77596,18.02684
 Eugensinsel,Csepel-sziget,47.25,18.95
 Eulau,Ilava;Jílové,48.99361111,18.23444444
@@ -1310,6 +1344,7 @@ Fern,Permani,45.41666667,14.3
 Ferrara,Ferrara,44.83333333,11.61666667
 Fesch,Fêche-l’Église,47.50527778,6.95166667
 Festnitz,Besnica,46.03770278,14.64871389
+Fichtelberg,Fichtelberg,50.42861111,12.95472222
 Fichtenhöh,Fenyőfő,47.35054,17.76517
 Fiddichow,Widuchowa,53.12777778,14.38888889
 Fiessenen;Fuchsmeng,Foussemagne,47.635,7.0067
@@ -1378,6 +1413,7 @@ Frauenstuhl,Babiná,48.43333333,19.1
 Frauental,Pohled,49.605278,15.647778
 Frauenthal,Frantoly,48.9869444,14.0780556
 Fraustadt,Wschowa,51.8,16.31666667
+Freiberg,Freiberg,50.91194444,13.34277778
 Freiburg in Schlesien,Świebodzice,50.86666667,16.33333333
 Freidorf,Ostré,50.5844444,14.3716667
 Freienwalde,Chociwel,53.46666718,15.35000038
@@ -1428,6 +1464,7 @@ Fröllersdorf,Jevišovka,48.8375,16.45666667
 Frühbuss,Přebuz,50.38666667,12.62777778
 Fuchshöfen,Lisówka,54.23333333,20.9
 Fugau,Fukov,51.0429631,14.5010253
+Fulda,Fulda,50.55277778,9.6775
 Fünfhunden,Pětipsy,50.31861115,13.3591671
 Fünfkirchen,Pécs,46.07111111,18.23305556
 Fünfkirchenwardein,Pécsvárad,46.1581,18.42216
@@ -1438,6 +1475,7 @@ Fürstenberg,Svojanov,49.62472153,16.40999985
 Fürstenbruck,Kněžmost,50.48333333,15.05
 Fürstenhut,Knížecí Pláně,48.9563889,13.6311111
 Fürstenstein,Książ,50.842,16.292
+Fürth,Fürth,49.47833252,10.99027824
 Fuschine,Fužine,45.3,14.71666667
 Fußdorf,Rantířov,49.40361111,15.51666667
 Füssen,Somogyfajsz,46.51028,17.57348
@@ -1452,6 +1490,7 @@ Gafers;Capodistria,Koper,45.54764444,13.73034444
 Gahling,Máriakálnok,47.85989,17.32171
 Gaidel,Kľačno,48.9125,18.65833333
 Gaischwitz,Kýšovice,50.4733333,13.2538889
+Galata,Galata,41.02277778,28.97361111
 Gallandau,Galanta,48.18888889,17.72638889
 Gallian,Gračišče,45.50262778,13.87400556
 Galtenhof,Branka,49.82722222,12.52444444
@@ -1509,6 +1548,7 @@ Geppersdorf in Mähren,Kopřivná,50.05055556,16.94805556
 Geppersdorf in Schlesien,Linhartovy,50.13,17.6
 Geppersdorf,Lenarcice,50.13555556,17.62666667
 Geppertsau,Údolná,49.69777778,17.5575
+Gera,Gera,50.88055556,12.08333333
 Geralt,Geraltov,49.13333333,21.26666667
 Gerbetschlag,Herbertov,48.6069444,14.3527778
 Gerdshagen,Gardno,54.6538887,17.1119442
@@ -1536,6 +1576,7 @@ Geylich,Gouvy,50.18333333,5.93333333
 Gibian,Jivjany,49.63111115,12.97888851
 Giebau,Jívová,49.71166667,17.39916667
 Gieskow,Giżkowo,53.89388889,14.85888889
+Gießen,Gießen,50.58722222,8.66972222
 Gießhübel-Puchstein;Gießhübl-Sauerbrunn,Kyselka,50.2625,13
 Giglotz,Giglovce,49,21.73333333
 Gilgenburg,Dąbrówno,53.43333333,20.03333333
@@ -1549,6 +1590,7 @@ Girsig,Jiříkov,50.99444444,14.57083333
 Gist,Ist,44.266667,14.766667
 Gitschin,Jičín,50.43666667,15.35166667
 Gjargstedt,Đurđin,45.95333333,19.49
+Glarus,Glarus,47.04088,9.06728
 Glasau,Neblašov,54.05,10.51666667
 Glasberg,Sklená,50.3244444,12.5294444
 Glasenapp,Godzisław,53.89655556,16.4655
@@ -1625,10 +1667,12 @@ Gossau,Kosov,49.881389,16.806667
 Gossengrün,Krajková,50.21666667,12.53333333
 Gossow,Goszków,52.85,14.5
 Gostl,Podivín,48.81666667,16.83333333
+Gotha,Gotha,50.94888889,10.71833333
 Gothenberg,Hum,45.348611,14.05
 Gottberg,Boguszyny,53.08333333,15.35
 Gottesberg,Boguszów,50.75313889,16.20219444
 Gottesgab,Boží Dar;Bozi Dar,50.40973611,12.92445278
+Göttingen,Göttingen,51.53388889,9.93555556
 Gottmannsgrün,Trojmezí,50.3088805,12.1445848
 Gottowitz,Kotovice,49.67166667,13.15722222
 Gottschallings,Košťálkov,48.9632022,15.2443114
@@ -1694,6 +1738,7 @@ Gröditz-Neudorf,Hradec-Nová Ves,50.29027778,17.27777778
 Grodno;Hrodno,Hrodna,53.66666667,23.81666667
 Groisd,Gozd;Gojzd,45.89852524,13.96682167
 Gromaling,Kramolin,43.13333333,25.08333333
+Gröningen;Groningen,Groningen,53.21722222,6.57472222
 Gröschlmaut,Grešlové Mýto,48.98277778,15.89222222
 Großandrä,Fertőendréd,47.60618973,16.90859032
 Groß Aujezd,Velký Újezd,49.57861111,17.48277778
@@ -1925,6 +1970,7 @@ Großzitin,Veľký Cetín,48.21666667,18.2
 Grottau,Hrádek nad Nisou,50.85277778,14.84444444
 Grottkau,Grodków,50.7,17.38333333
 Grulich,Králiky;Králíky,48.73333333,19.03333333
+Grünberg in Schlesien,Zielona Góra,51.93333333,15.5
 Grünmahd,Otavožaty,49.5733333,15.2341667
 Grünrade,Grzymiradz,52.78722222,14.69166667
 Grunsruh,Bodzanowice,50.91666667,18.61666667
@@ -1967,6 +2013,7 @@ Guscht;Kuscht,Goszczanów,51.78916667,18.50472222
 Guschwitz,Goszczowice,50.57194444,17.61666667
 Güstebiese,Gozdowice,52.76444444,14.325
 Güstow,Ustowo,53.38472222,14.51916667
+Güstrow,Güstrow,53.79388889,12.17638889
 Gut Babin,Babin,49.33333333,19.38333333
 Gutendorf,Wrześno,53.56999969,15.17500019
 Gutenstein,Ravne na Koroškem,46.5437355,14.9642334
@@ -2023,6 +2070,7 @@ Hals,Halže,49.83444444,12.57666667
 Hammerdorf,Hamr,48.94833333,14.89722222
 Hammergut,Bożejewko,53.01666667,15.56666667
 Hammerhäuseln,Hamrníky,49.9519444,12.6861111
+Hanau,Hanau,50.13333333,8.91666667
 Hanfgut,Polski Konopat,53.4169,18.3509
 Hanfhausen,Odžaci,45.51666667,19.26666667
 Hankendorf,Hanková,48.75,20.31666667
@@ -2055,6 +2103,7 @@ Hasenpoth,Aizpute,56.71666718,21.60000038
 Haslau,Hazlov,50.15,12.26666667
 Haslicht,Varhošť,50.5902778,14.1005556
 Hasselbusch,Niesporowice,52.98222222,15.33416667
+Hasselt,Hasselt,50.93000031,5.3375001
 Hassendorf,Zólwino,53.11194444,9.27694444
 Hatzken,Hatín,49.10972214,14.86472225
 Hauersbirk,Habartov,50.18305556,12.55194444
@@ -2076,11 +2125,13 @@ Heidchen,Nieznań,53.31361111,14.83944444
 Heidebrink,Międzywodzie,54.00555556,14.69694444
 Heideburg,Borohrádek,50.09777778,16.09388889
 Heidekavel,Radachowo,53.06666667,15.85
+Heidelberg,Heidelberg,49.41222222,8.71
 Heidemühl,Břehyně,50.5758333,14.6919444
 Heidemühle,Prostki,53.69888889,22.43277778
 Heidenpiltsch,Bílčice,49.86666667,17.56666667
 Heidersdorf,Łagiewniki,50.79111111,16.84416667
 Heideschüte,Hajdučica,45.24277778,20.95444444
+Heilbronn,Heilbronn,49.14166667,9.22222222
 Heilbrunn,Hojná Voda,48.7297511,14.72754
 Heilenstein,Polzela,46.28333282,15.0666666
 Heiligelinde,Święta Lipka,54.03333282,21.21666718
@@ -2160,6 +2211,7 @@ Heydebreck,Potuliniec,53.76944351,15.20277786
 Heyde,Modrzewiec,53.82416667,15.92833333
 Hidasch,Hidas,46.2564,18.49179
 Hidikut,Pesthidegkút,47.55666733,18.95194435
+Hildesheim,Hildesheim,52.15,9.95
 Hilgersdorf,Severní,51.03333282,14.3166666
 Hillersdorf,Holčovice,50.15,17.48333333
 Himmelreich,Nebesa,50.19708633,12.22870731
@@ -2177,6 +2229,7 @@ Hintring,Záhvozdí,48.8330556,13.9530556
 Hirrekut,Keszőhidegkút,46.61111111,18.42055556
 Hirschau,Hyršov,49.33416748,13.02916718
 Hirschberg am See,Doksy,50.56471389,14.655525
+Hirschberg im Riesengebirge,Jelenia Góra,50.9,15.73333333
 Hirschdorf,Jelenice,47.76501667,10.29855833
 Hirschfeld,Polná,49.48333333,15.7
 Hirschmantel;Hirschmantel am Wilhoscht,Heřmánky,49.70722198,17.7705555
@@ -2329,6 +2382,7 @@ Hussinetz,Husinec,46.075,16.20555556
 Hussingen-Godbringen,Hussigny-Godbrange,49.4936,5.875
 Hußt,Chust,48.174167,23.289722
 Hustopetsch an der Betschwa,Hustopeče nad Bečvou,49.53,17.87444444
+Husum,Husum,54.477019,9.051147
 Hutberg,Hony,50.5813889,16.2377778
 Hut,Klobuky,50.29416667,13.98944444
 Hüttel,Chaloupky,49.79027778,13.87194444
@@ -2349,6 +2403,7 @@ Imlikau,Jimlíkov,50.25444412,12.78750038
 Imling,Jimlín,50.30833333,13.74166667
 Imotitz,Imotica,42.91666667,17.68333333
 Ingelsod,Angeot,47.6972,7.0144
+Ingolstadt,Ingolstadt,48.76555634,11.4244442
 Ingramsdorf,Imbramowice,50.901766,12.259313
 Innergefild,Horská Kvilda,49.05916667,13.55833333
 Innichen,Mchov,49.7241667,12.7169444
@@ -2360,9 +2415,11 @@ Insterburg;Cernjahovsk;Tschernjachowsk,Chernyakhovsk,54.63472222,21.81194444
 Irrgang,Bludná,50.4002778,12.8125
 Irritz,Jiřice u Miroslavi,48.92,16.39777778
 Irsieglern,Jiříčkov,50.70888901,14.99138927
+Ischia,Ischia,40.73130035,13.89570045
 Isel;Isel im Küstenländchen,Izola,45.53388889,13.65555556
 Isergebirge,Góry Izerskie,50.83333333,15.25
 Ismi,Izmény,46.31472222,18.41361111
+Isola,Izola,45.53388889,13.65555556
 Iwafa,Ibafa,46.15489,17.91649
 Iwanbottian,Ivánbattyán,45.9,18.41666667
 Iwandarde,Ivándárda,45.83333333,18.58333333
@@ -2441,6 +2498,7 @@ Jeine,Budajenő,47.55,18.8
 Jekaterinburg;Swerdlowsk;Katharinenburg,Dnipropetrowsk,56.83333333,60.58333333
 Jeltsch,Jelcz,51.037778,17.308333
 Jemo,Jilem,49.175,15.26305556
+Jena,Jena,50.92720556,11.58636111
 Jening,Baranyajenő,46.26666667,18.05
 Jenstein,Jenštejn,50.15222168,14.61166668
 Jentschitz,Jenčice,50.48805618,14.00222206
@@ -2573,6 +2631,7 @@ Karlsberg über Freudenthal,Karlovec,49.9277778,17.5005556
 Karlsbrunn bei Zwittau,Karle,49.76694444,16.36888889
 Karlsbrunn über Würbenthal,Karlova Studánka,50.07416667,17.30277778
 Karlsburg,Alba Iulia,46.06694412,23.56999969
+Karlsruhe,Karlsruhe,49.01399994,8.40429974
 Karlstadt,Karlovac,45.48333333,15.55
 Karlstein,Karlštejn,49.93222222,14.17527778
 Karnkewitz,Karnieszewice,54.2575,16.34888889
@@ -2654,6 +2713,7 @@ Kewling,Köblény,46.3,18.3
 Khaa,Kyjov,49.01019309,17.12253169
 Kieckow,Kikowo,53.88333333,16.26666667
 Kiefheide,Podborsko,53.93277778,16.13722222
+Kiel,Kiel,54.32527778,10.14055556
 Kienberg,Loučovice,48.62027778,14.2575
 Kienwald,Borovnice u Potštejna,50.05833333,16.24416667
 Kieselhof,Čkyně,49.11416667,13.82638889
@@ -2863,6 +2923,7 @@ Kloster,Klášter;Kloštar,49.501944,13.576667
 Klösterle an der Adler,Klášterec nad Orlicí,50.11666667,16.55
 Klösterle an der Eger,Klášterec nad Ohří,50.39027778,13.17194444
 Klostermühle,Klášterský Mlýn,49.14333344,13.51249981
+Kloten,Kloten,47.4487,8.58325
 Kluckenau,Kluknava,48.91666667,20.95
 Klumtschan,Petrohrad,50.12694444,13.44111111
 Klutschau,Klucek,50.4,18.35
@@ -2880,6 +2941,7 @@ Koberwitz,Kobierzyce,50.96666667,16.91666667
 Kobil,Kobyly,49.216667,21.3
 Kobilnitz,Kobylnice,49.3,21.566667
 Köblau,Keblov,49.68333333,15.06666667
+Koblenz,Koblenz,50.35666656,7.59388876
 Kočevje,Gottschee,45.63972222,14.86138889
 Kochseifen,Kojšov,48.81666667,21
 Kockrsch,Kakasd,46.34856,18.59105
@@ -2923,6 +2985,7 @@ Kolzig,Kolsko,51.96666667,15.96666667
 Kommern,Komořany,49.990278,14.410556
 Komorn,Komárom;Komárno,47.76361084,18.12527847
 Komotau,Chomutov,50.46111111,13.41666667
+Kongsberg,Kongsberg,59.665,9.64638889
 Königinhof,Dvůr Králové nad Labem,50.43305556,15.81222222
 Königkrätz;Königgrätz,Hradec Králové,50.20944444,15.83333333
 Königliche Weinberge,Vinohrady,50.07555556,14.44583333
@@ -2952,6 +3015,7 @@ Konstadt,Mlýnská,50.2875,12.4838889
 Konstantinopel;Byzanz,Istanbul,41.01361084,28.95499992
 Konstantinsbad,Konstantinovy Lázně,49.88,12.97611111
 Konstanza,Constanța,44.183333,28.65
+Konstanz,Konstanz,47.66333333,9.17527778
 Kopenhagen;Copenhagen,København,55.67570611,12.578745
 Köpferschlag,Hospříz,49.12583333,15.09472222
 Kopisch;Ruppertsberg;Ruppertsburg,Kaposvár,46.36383,17.78225
@@ -3172,6 +3236,7 @@ Labiau,Polessk,54.86666667,21.1
 Ladekopp,Nowy Dwór Gdański,54.21666718,19.11666679
 Ladowitz,Ledvice,50.58833333,13.76611111
 Lahowitz,Lahovice,49.994722,14.394722
+Lahr,Lahr,48.33333333,7.86666667
 Laibach,Ljubljana,46.05555556,14.50833333
 Laifs,Lavis,46.13333333,11.11666667
 Lammeldorf,Jehnědí,49.96666667,16.3
@@ -3182,6 +3247,7 @@ Landeshut,Kamienna Góra,50.78333282,16.03333282
 Landsberg an der Warthe,Gorzów Wielkopolski,52.73333333,15.23333333
 Landschau über Frain,Lančov,48.91666667,15.77083333
 Landshut in Mähren,Lanžhot,48.72443333,16.96694722
+Landshut,Landshut,48.53722222,12.15222222
 Landskron,Lanškroun,49.91222222,16.61222222
 Landstraß,Kostanjevica na Krki,45.846325,15.42486944
 Langeböse,Pogorzelice,54.49805556,17.63333333
@@ -3229,6 +3295,7 @@ Launau,Louňová,49.55861111,13.60777778
 Launiowitz,Louňovice pod Blaníkem,49.63333333,14.85
 Launitz,Lounice,50.6095833,13.5679167
 Laun,Louny,50.35722222,13.79694444
+Lausanne,Lausanne,46.51942,6.63448
 Lauschbrünn,Lovasberény,47.31226,18.54786
 Lausitzer Neiße,Nysa Łużycka,52.06956,14.7556
 Lautenburg,Lidzbark,53.26666667,19.81666667
@@ -3254,6 +3321,7 @@ Ledetsch an der Sasau,Ledeč nad Sázavou,49.69583333,15.275
 Ledkau,Letkov,49.72972222,13.46611111
 Lednitz,Lednica,52.530833,17.375
 Lednitz-Rowne,Lednické Rovne,49.06666667,18.28333333
+Leeds,Leeds,53.799722,-1.549167
 Legden,Lejdy,54.3356,20.7481
 Legenau,Legnava,49.33333333,20.85
 Legendel,Bartošova Lehôtka,48.6538887,18.91027832
@@ -3263,9 +3331,9 @@ Leibnik,Lipník nad Bečvou,49.52861111,17.58555556
 Leierwinkel,Háje,50.030833,14.528056
 Leifers,Laives,46.43333333,11.33333333
 Leifling,Libeliče,46.61953611,14.94687222
-Leignitz,Legnica,51.20833333,16.16027778
 Leimgruben,Hlinky,50.1275,12.8869444
 Leipnik,Lipník nad Bečvou,49.52861111,17.58555556
+Leipzig,Leipzig,51.34033333,12.37475
 Leitersdorf,Litultovice,49.9,17.75
 Leitmeritz,Litoměřice;Litomerice,50.53416667,14.13277778
 Leitomischl,Litomyšl,49.87027778,16.31138889
@@ -3277,6 +3345,7 @@ Lengenfeld,Dovje,46.47957222,13.93720556
 Lengwart,Dlhé Stráže,49.03333333,20.51666667
 Lenkau,Łąki Kozielskie,50.4,18.2
 Lentschütz,Łęczyca,52.05,19.2
+Leoben,Leoben,47.38166667,15.09722222
 Leobschütz,Głubczyce;Glubczyce,50.2,17.81666667
 Leopoldifeld,Lipótmező,47.53152222,18.97472222
 Leopold;Leopoldstadt;Leopoldneustadt;Leopoldsdorf,Leopoldov,48.44416667,17.7675
@@ -3360,6 +3429,7 @@ Linkau,Nynkov,49.76,12.8961111
 Linschen,Hlince,49.94833333,13.62416667
 Linsdorf,Těchonín,50.06666667,16.61666667
 Lintz,Licince,48.53333333,20.3
+Linz,Linz,48.30305556,14.29055556
 Lipen,Lipno nad Vltavou,48.63333333,14.23333333
 Lipholz,Lipovce,49.05,20.95
 Lipkau,Libkov,49.36611111,13.13166667
@@ -3393,6 +3463,8 @@ Littau,Litovel,49.70138931,17.0755558
 Littitsch,Litíč,50.38333333,15.85
 Littmannsau,Litmanová,49.36666667,20.63333333
 Littmitz,Lipnice,52.233333,20.059167
+Liverpool,Liverpool,53.40916667,-2.98555556
+Livorno,Livorno,43.55,10.31472222
 Lizenz,Lucenec;Losonc;Lučenec,48.32861111,19.66916667
 Lobendau,Lobendava,51.01944351,14.31527805
 Lobenstein,Úvalno,50.05,17.75
@@ -3416,6 +3488,7 @@ Lometz,Lomec,49.37,13.27111111
 Lomigsdorf,Dlouhomilov,49.90805556,16.99138889
 Lomnitz an der Lainsitz,Lomnice nad Lužnicí,49.08468333,14.71727222
 Lomnitz an der Popelka,Lomnice nad Popelkou,50.53333333,15.38333333
+London,London,51.50939,0.11832
 Loosch,Lahošť,50.62194444,13.76555556
 Loosdorf,Ludvíkovice,50.80222222,14.25833333
 Losau,Lažany,49.03333333,21.1
@@ -3452,6 +3525,7 @@ Ludikau,Ludíkov,49.45277786,16.73833275
 Luditz,Žlutice,50.09166718,13.16250038
 Lüdtkenkamp,Kępiec,54.02000046,16.77000046
 Ludwiga,Ljutovo,46.01670074,19.66670036
+Ludwigsburg,Ludwigsburg,48.8975,9.1922
 Ludwigsthal,Ludvíkov,50.10916667,17.3425
 Ludwigsthal über Würbenthal,Ludvíkov,50.10916667,17.3425
 Luggau,Lukov nad Dyjí,48.86138889,15.91055556
@@ -3465,6 +3539,7 @@ Lukowa,Lukova,39.983333,19.916667
 Lukowitz,Lukovica,46.175,14.77277778
 Lülfitz,Lulewice,54.04666667,15.95
 Lundenburg,Břeclav,48.75896944,16.88203056
+Lund,Lund,55.70277778,13.19305556
 Lünenstadt,Lunéville,48.5894,6.5017
 Luninitz,Luninez,52.25,26.8
 Lupinenhof,Łupiny,54.4022017,17.1135658
@@ -3487,7 +3562,9 @@ Machau,Machov,50.48888889,16.27055556
 Machendorf,Machnín,50.78333333,14.98333333
 Machowitz,Machovice,49.7538889,15.1983333
 Mackenhau,Makovce,49.26666667,21.75
+Madeira,Madeira,32.75,17
 Mader,Modrava,48.99944444,13.44638889
+Madrid,Madrid,40.4125,-3.70388889
 Magotsch,Mágocs,46.3473,18.2343
 Mahnwitz,Mianowice,54.46138889,17.21222222
 Mähring,Újezd,49.90833333,12.52805556
@@ -3507,6 +3584,7 @@ Mährisch Weißkirchen,Hranice na Moravě,49.55638885,17.73555565
 Maidelberg,Dívčí Hrad,50.25,17.63333321
 Maiesch,Majos,46.30138889,18.49222222
 Mailand,Milano,45.4625,9.18638889
+Mainz,Mainz,50,8.27111111
 Maisbrünn,Mezőberény,46.81666667,21.01666667
 Maisch,Majs,45.90946,18.59892
 Majdanek,Lublin,51.23333333,22.56666667
@@ -3607,6 +3685,7 @@ Mehleden,Melejdy,54.33916667,21.14388889
 Mehlsack,Pieniężno,54.23333333,20.13333333
 Meigelshof,Chodov,50.239167,12.748611
 Meinetschlag,Malonty,48.68138889,14.57444444
+Meiningen,Meiningen,50.56777778,10.41555556
 Meistern,Mojstrana,46.46093889,13.9349
 Meistersdorf,Mistrovice,50.02638889,16.57527778
 Meitzow,Mazów,54.44138889,16.65194444
@@ -3616,13 +3695,16 @@ Melhut,Chodská Lhota,49.34833333,13.08027778
 Melmitz,Melnice,44.96666667,15.01666667
 Melnik,Mělník,50.35194444,14.475
 Memel,Klaipėda;Klaipeda,55.71111111,21.13055556
+Memmingen,Memmingen,47.98777771,10.18111134
 Mengsdorf,Mengusovce,49.07444444,20.14111111
 Menhardsdorf,Vrbov,49.08333333,20.43333333
 Meran,Merano,46.66666667,11.16666667
 Meraschitz,Merašice,48.46666667,17.95
 Meronitz,Měrunice,50.47833333,13.81722222
+Merseburg,Merseburg,51.35472222,11.99916667
 Merzdorf,Marciszów,50.8425,16.0325
 Mesletsch,Mezilečí,50.4627778,15.9747222
+Messina,Messina,38.18333333,15.55
 Mestska Lhotka,Městská Lhotka,49.0327778,14.0213889
 Metschelad,Alsómocsolád,46.31666667,18.25
 Metschin,Měčín,49.48388889,13.40944444
@@ -3663,6 +3745,7 @@ Milotitz,Milotice u Kyjova,48.95333333,17.14416667
 Milowitz,Milovice,50.22888947,14.89055634
 Milsau,Milžany,50.39912033,13.30782032
 Miltschitz,Milčice,50.10805556,14.97361111
+Minden,Minden,52.28333282,8.91666698
 Miningen,Menoncourt,47.6711,6.9447
 Minischlag,Mnichovice,49.93666667,14.7125
 Minsk;Mensk,Minsk,53.9,27.56666667
@@ -3721,6 +3804,7 @@ Mollenburg,Molenburk,49.43305588,16.81416702
 Mollwitz,Małujowice,50.85,17.38333333
 Moltow,Mołtowo,54.05,15.68333333
 Mömpelgard;Montbéliard,Montbéliard,47.51,6.8
+Montpellier,Montpellier,43.61111069,3.87666678
 Moor,Mór,47.37166667,18.20861111
 Moosburg,Zalavár,46.66996002,17.15682983
 Morawetz,Moravec,49.44014146,16.14334086
@@ -3757,6 +3841,7 @@ Mühlenz,Mielec,50.28333333,21.41666667
 Mühlerchen,Mlynčeky,49.17416667,20.39444444
 Mühlessen,Milhostov,50.15602778,12.44886111
 Mühlfraun,Dyje,48.84946749,16.12020493
+Mühlhausen,Mulhouse,47.75,7.34
 Mühlhöfen,Milevo,49.6819444,12.9566667
 Mühlloch,Mílov,49.12027778,13.60305556
 Mühlnöd,Milná,48.69499969,14.14999962
@@ -3778,6 +3863,7 @@ Münsterberg,Ziębice,50.6,17.03333333
 Münster im Elsass,,48.041389,7.134167
 Munzifay,Smečno,50.18333333,14.03333333
 Mürau,Mírov,49.79361111,16.83861111
+Murcia,Murcia,37.98611069,1.13027775
 Murgau,Murga,46.46138889,18.48771944
 Murow,Murów,50.8667,17.95
 Muschaken,Muszaki,53.36666667,20.6
@@ -3810,6 +3896,7 @@ Namiescht in der Hanna,Náměšť na Hané,49.604444,17.064167
 Namslau,Namysłów,51.08333333,17.71666667
 Namür;Namurck,Namur,50.46388889,4.86027778
 Nannau,Bakonynána,47.27988,17.97112
+Nantes,Nantes,47.21722222,-1.55388889
 Nanzig,Nancy,48.683333,6.166667
 Nanzig,Nancy,48.69277778,6.18361111
 Napajedl,Napajedla,49.17222222,17.5175
@@ -3827,7 +3914,9 @@ Natztow,Nasutowo,53.97999954,15.86166668
 Naugard,Nowogard,53.65,15.11666667
 Naugard,Weliki Nowgorod,58.51666667,31.28333333
 Naumburg am Queis,Nowogrodziec,51.2,15.4
+Naumburg,Naumburg,51.15,11.81666667
 Nauseney,Ostra Góra,50.48333333,16.30833333
+Nazareth,Nazareth,32.70361111,35.29666667
 Neapel,Napoli,42.219444,78.895278
 Nebahau,Nebahovy,49.00861111,14.05638889
 Nebanitz,Nebanice,50.11666667,12.46666667
@@ -4011,6 +4100,7 @@ Neu Zerekwe,Nová Cerekev,49.41861111,15.11305556
 Neuzerne,Nova Crnja,45.66666667,20.6
 Neu Zezenow,Cecenówko,54.64277778,17.56055556
 Neu Zowen,Sowinko,54.18333333,16.5
+Newcastle,Newcastle,54.973889,-1.613333
 Neweklau,Neveklov,49.75305556,14.53583333
 Niedek,Nýdek,49.65583333,18.77388889
 Nieder-Assel,Auxelles-Bas,47.735,6.7811
@@ -4065,6 +4155,7 @@ Nimmersch,Himesháza,46.08333333,18.56666667
 Nimptsch,Niemcza;Miemcza,50.71666667,16.83333333
 Nimvorgut,Nuzarov,49.46866989,12.74219036
 Nimwegen,Nijmegen,51.85,5.86666667
+Ninive,Ninive,36.36666667,43.15
 Ninowitz,Jinonice,50.05,14.36666667
 Nipter,Nietoperek,52.4,15.53333333
 Nischni Nowgorod;Nishnij Nowgorod;Nishni Novgorod,Nizhni Novgorod,56.3112,43.9308
@@ -4191,6 +4282,7 @@ Oels,Olešnice;Oleśnica,49.557222,16.421389
 Oemau,Soběnov,48.76277778,14.54583333
 Ofen,Buda,47.46666667,19.05
 Offemundt,Offemont,47.6642,6.8783
+Offenburg,Offenburg,48.47083333,7.94083333
 Ogulun,Ogulin,45.266389,15.228889
 Ohfall,Ófalu,46.22027778,18.53083333
 Ohlau,Oława,50.93333333,17.3
@@ -4201,6 +4293,7 @@ Okenau,Okounov,50.36166667,13.11027778
 Okrouhlík,Mělník,50.35194444,14.475
 Olbersdorf,Stójków,50.31666667,16.88333333
 Olchowitz,Oldřichovice,49.18222222,17.5625
+Oldenburg,Oldenburg,53.15,8.216667
 Ölhütten,Lhota u Konice,49.5578906,16.8561911
 Olkusch,Olkusz,50.28333333,19.56666667
 Olkusz,Ilkenau,50.26666667,19.56666667
@@ -4222,6 +4315,7 @@ Oppeln,Opole,50.66666667,17.93333333
 Oppolz,Tichá,49.57055556,18.22083333
 Opsor,Osor,41.945556,2.555556
 Opus,Opuzen,43.017577,17.562321
+Oranienburg,Oranienburg,52.75444412,13.2369442
 Orasch,Diósd,47.40416718,18.94583321
 Orbin,Urbino,43.725,12.63777778
 Orebić,Sarabitsch,42.97438611,17.17866944
@@ -4235,6 +4329,7 @@ Oschelin,Ošelín,49.77555556,12.85111111
 Oschitz,Osečná,50.68333333,14.91666667
 Oskau,Oskava,49.90027778,17.135
 Oslawan,Oslavany,49.11666667,16.33333333
+Osnabrück,Osnabrück,52.27888889,8.04305556
 Osorkau,Ozorków,51.96666718,19.28333282
 Ossegg;Ossek,Osek,50.6225,13.685833
 Oßlipp,Bakonyoszlop,47.34436,17.92578
@@ -4262,6 +4357,7 @@ Pahl,Nagypall,46.14678,18.45505
 Pakoštane,Schantpag,43.90951667,15.50805833
 Pakratz,Pakrac,45.44,17.19
 Paksch,Paks,46.622047,18.855918
+Palermo,Palermo,38.11583328,13.36138916
 Palin,Široko Polje,45.4,18.46666667
 Palitz,Palič,50.01,12.4802778
 Palkan,Palkonya,45.89769,18.39137
@@ -4286,12 +4382,14 @@ Pardorf,Bavory,48.83111111,16.61555556
 Pardubitz,Pardubice,50.03861111,15.77916667
 Parenz,Poreč,45.22727203,13.59523869
 Pari,Pári,46.57971954,18.25778008
+Paris,Paris,48.85666667,2.35166667
 Parkan,Štúrovo,47.79916667,18.71805556
 Parpart,Paprotno;Paproty,54.29555556,16.5675
 Partschendorf,Bartošovice,49.66880798,18.0544529
 Paschtik,Paštiky,49.4416667,13.8980556
 Paskau,Paskov,49.73333333,18.3
 Passarowitz,Požarevac,44.61666667,21.18333333
+Passau,Passau,48.57333333,13.45694444
 Passeken,Paseka,49.801667,17.225833
 Passenheim,Pasym,53.64777756,20.79083252
 Passentin,Paszęcin,53.83944444,15.96388889
@@ -4360,6 +4458,7 @@ Pfefferhausen,Pérouse,47.633333,6.9
 Pfefferschlag,Libínské Sedlo,48.97722244,13.98888874
 Pfeffingen,Phaffans,47.6608,6.9353
 Pflanzen,Blatná,49.42472222,13.88194444
+Pforzheim,Pforzheim,48.89111111,8.69888889
 Pfraumberg,Přimda,49.67333333,12.67
 Phar,Hvar,43.13333333,16.73333333
 Philippopel;Plowdiw,Plovdiv,42.15,24.75
@@ -4388,6 +4487,7 @@ Pirken,Březenec,50.4952778,13.4163889
 Pirnitz,Brtnice,49.30833333,15.67611111
 Pirovac,Slosseln,43.81862,15.66833
 Pirsenstein,Hajnáčka,48.21666667,19.96666667
+Pisa,Pisa,43.71666718,10.39999962
 Pischel in Böhmen,Pyšely,49.875,14.67833333
 Pischel in Mähren,Pyšel,49.25027847,16.06222153
 Pischkowitz,Piszkowice,50.46888889,16.58944444
@@ -4420,6 +4520,7 @@ Plattner Kunstgraben,Blatenský příkop,50.3956604,12.77438545
 Plattorn,Platoř,49.1955556,13.5308333
 Platz an der Naser,Stráž nad Nežárkou,49.06833333,14.9
 Plaude,Plavno,50.4833333,12.1166667
+Plauen,Plauen,50.495,12.13833333
 Plaundia,Plavna,45.3469,19.1256
 Plawingen,Plavna,45.3469,19.1256
 Pleissnitz,Plešivec,48.547222,20.402778
@@ -4477,7 +4578,6 @@ Polaun,Polubný,50.7766667,15.3394444
 Polazk,Polozk,55.48333333,28.8
 Polchlep,Półchleb,53.72888947,15.7411108
 Polei,Pula,44.86487222,13.84019722
-Polen,Poland,52,20
 Polerad,Polerady,50.44166667,13.65972222
 Politschka,Polička,49.715,16.2675
 Politz an der Mettau,Police nad Metují,50.53361111,16.23138889
@@ -4516,6 +4616,7 @@ Poritschan,Poříčany,50.1,14.93333333
 Porschitz an der Sasau,Poříčí nad Sázavou,49.83333333,14.68333333
 Pörschken,Prośno,53.81805556,19.93388889
 Portenau,Pordenone,45.96444444,12.65055556
+Portsmouth,Portsmouth,50.79527778,1.08888889
 Porwa,Porva,47.311304,17.814589
 Poschegg,Požega,45.331385,17.674518
 Poschetzau,Božičany,50.26666667,12.78333333
@@ -4532,6 +4633,7 @@ Potok am Bodroch,Sárospatak,48.31896973,21.56636047
 Potschatek,Počátky,49.26305556,15.2425
 Potschendorf,Bečkov,50.63138889,16.00111111
 Pötsch,Máriapócs,47.88333333,22.03333333
+Potsdam,Potsdam,52.39583333,13.06138889
 Pottenstein,Potštejn,50.08209167,16.30891667
 Powitzko,Powidzko,51.45,16.96666667
 Prachatitz,Prachatice,49.01666667,14
@@ -4737,6 +4839,7 @@ Raudnitz,Roudnice,50.17972222,15.65055556
 Rauhau,Rachiw,48.05555556,24.20527778
 Rauschwitz,Ruszowice,50.97194444,11.80194444
 Rausenbrúck,Strachotice,48.79972222,16.17555556
+Ravenna,Ravenna,44.41666667,12.2
 Rawitsch,Rawicz,51.61666667,16.88333333
 Rebenberg,Kaluđerovo,44.89277778,21.55055556
 Reblin,Reblino,54.42833333,16.915
@@ -4855,9 +4958,10 @@ Romansdorf,Románd,47.44839,17.79108
 Romanvarasch;Romesmarkt,Románvásár,46.92222214,26.92972183
 Römerbad,Rimske Toplice,46.11612222,15.19484167
 Römerstadt,Rýmarov;Rýmařov,49.93333333,17.26666667
-Rom,Roma,41.88333333,12.48333333
+Rom;Roma,Roma,41.88333333,12.48333333
 Roms,Słoszów,50.40888889,16.36194444
 Rönneberg,Ronino,54.47277832,16.63249969
+Rønne,Rønne,55.10555649,14.70277786
 Ronow an der Doubrawa,Ronov nad Doubravou,49.88527778,15.53083333
 Ronsperg,Poběžovice,49.5,12.8
 Ropach,Roppe,47.6706,6.9194
@@ -4966,7 +5070,9 @@ Saharob,Záhrobí,49.5086111,13.8491667
 Saitz,Zaječí,48.87361145,16.77138901
 Sajestetz,Zájezdec,49.93333333,15.93333333
 Salak,Szalatnak,46.29032,18.28139
+Salamanca,Salamanca,40.97,5.67
 Saldenhofen,Vuzenica,46.6,15.16666667
+Salerno,Salerno,40.68333333,14.76666667
 Salesel,Dolní Zálezly,50.59722222,14.04305556
 Salka,Máthészalka,47.88777778,18.75555556
 Salkau,Szálka,46.27472222,18.63583333
@@ -4977,6 +5083,7 @@ Saloniki,Thessaloniki,40.65,22.9
 Saluschan,Zalužany,49.54444444,14.0875
 Salzberg,Bochnia,49.96666667,20.43333333
 Salzbrunn,Slatvina,48.96666718,20.85000038
+Salzburg,Salzburg,47.8,13.03333333
 Salz,Soľ;Sókút,48.93333333,21.6
 Salzweg,Solná Lhota,49.0294444,13.7641667
 Samara;Kuibyschew,Samara,53.18333333,50.11666667
@@ -5024,10 +5131,11 @@ Sankt Nikolaus an der Theiß,Ostojićevo,45.88805556,20.16666667
 Sankt Nikolaus in der Liptau,Liptovský Mikuláš,49.08416667,19.60222222
 Sankt Peter im Wald,Sveti Petar u Šumi,45.18333333,13.86666667
 Sankt Peter in Krain,Pivka,45.68333333,14.2
-Sankt Petersburg;Sankt-Peterburg;Leningrad,Sankt Petersburg,59.93333333,30.26666667
+Sankt Petersburg;Sankt-Peterburg;Leningrad;Petersburg,Sankt Petersburg,59.93333333,30.26666667
 Sankt Serff,Socerb,45.58858871,13.85857773
 Sankt Sirig,Sočerga,45.46466064,13.89330292
 Sankt-Wolfs,Balf,47.649084,16.663342
+Sanssouci,Sanssouci,52.40419444,13.03844444
 Saragossa,Zaragoza,41.65,0.88333333
 Sarajevo;Sarajewo;Serajewo,Sarajevo,43.86666667,18.41666667
 Sarasch,Szárazd,46.57472229,18.42583275
@@ -5062,6 +5170,7 @@ Schachersdorf,Šachotín,49.5461111,15.6847222
 Schachtelei,Povydří,49.0825,13.5110833
 Schächtitz,Čachtice,48.71666667,17.78333333
 Schäferei,Ovčárna,50.069972,17.241472
+Schaffhausen,Schaffhausen,47.69653,8.63386
 Schajkasch-Sentiwan,Šajkaš,45.26666667,20.08333333
 Schak,Žáky,49.88333333,15.36666667
 Schala,Šaľa,48.15027778,17.8775
@@ -5203,6 +5312,7 @@ Schönbankwitz,Szczepankowice,50.93333333,16.9
 Schönbrunn bei Mährisch Schönberg,Dolní Studénky,49.93416667,16.97527778
 Schönbrunn bei Politschka,Jedlová,49.65777778,16.32611111
 Schönbrunn bei Tachau,Studánka,49.77361111,12.59083333
+Schönbrunn,Schönbrunn,48.184516,16.311865
 Schöneck,Skarszewy,54.06666667,18.43333333
 Schönfeld,Žižkovo Pole,49.61055556,15.73583333
 Schönhof,Šenov,49.78416667,18.37972222
@@ -5265,6 +5375,7 @@ Schweidnitz,Swidnica;Świdnica,50.85,16.48333333
 Schweindorf,Svinia,49.01666667,21.13333333
 Schweine,Svinov,49.81611111,18.19777778
 Schweinetschlag,Sviňovice,48.9583333,13.9866667
+Schweinfurt,Schweinfurt,50.04555556,10.23166667
 Schweinsbach,Viničné,48.26666667,17.3
 Schweinschädel,Svinišťany,50.3922222,15.9863889
 Schweißing,Svojšín,49.77083333,12.9075
@@ -5290,6 +5401,7 @@ Sebastianhausen,Poproč;Gömörhegyvég,48.58416748,20.03333282
 Sebastiansberg,Hora Svatého Šebestiána,50.52777778,13.23583333
 Sechshard,Szekszárd,46.35597,18.70382
 Secksching,Kaposszekcső,46.32861111,18.12861111
+Sedan,Sedan,49.70194444,4.94027778
 Sedlnitz,Sedlnice,49.66666667,18.08333333
 Seeberg,Ostroh,50.33333333,26.51666667
 Seebrügge,Zeebrugge,51.33333333,3.2
@@ -5355,6 +5467,7 @@ Serownitz,Žirovnice,49.25555556,15.19138889
 Setschanfeld,Dužine,45.28666687,20.99222183
 Setzdorf,Vápenná,50.27861111,17.10388889
 Sewastopol’,Sevastopol,44.6,33.5333
+Sheffield,Sheffield,53.3824,-1.4719
 Shkodra;Scutari;Skutari,Shkodër,42.06666667,19.5
 Šibenik,Sibennig,43.73389435,15.89550018
 Sibyllenort,Szczodre,51.19527817,17.18388939
@@ -5376,6 +5489,7 @@ Siegelglashütte,Sihla,48.65,19.63333333
 Siegelsberg,Štiavnické Bane,48.43916667,18.87
 Siegersdorf,Horvátzsidány,47.41666667,16.61666667
 Siegertsau,Mastník,49.17527778,15.825
+Siena,Siena,43.31833333,11.33138889
 Sier,Szűr,46.1,18.58333333
 Sigmundsfeld,Lukićevo,45.33638889,20.49277778
 Siladj,Szilágy,46.10174,18.40637
@@ -5447,6 +5561,7 @@ Sobotischt,Sobotište,48.71666667,17.4
 Sobrusan,Zabrušany,50.60611111,13.78888889
 Sochorl,Suchohrdly,48.86861111,16.10027778
 Sodau,Sadov,50.26666667,12.9
+Soest,Soest,51.57111111,8.10916667
 Sofia;Sofija,Sofia,42.69722222,23.32333333
 Sofienthal,Černá Řeka,49.41166687,12.75638866
 Sohors,Žár,48.80611111,14.70833333
@@ -5482,6 +5597,7 @@ Sowinach,Sovinjak,45.36666667,13.91666667
 Spalato,Split,43.51388931,16.45583344
 Spatzendorf im Schildgebirge,Vereb,47.31867,18.61802
 Sperndorf,Iliašovce,48.98333333,20.53333333
+Speyer,Speyer,49.31722222,8.43416667
 Spieglitz,Nová Seninka,50.19944382,16.91083336
 Spiels,Splž,49.2811111,13.2491667
 Spinal;Spinneln,Épinal,48.1744,6.4512
@@ -5508,6 +5624,7 @@ Stallern,Stáj,49.45805556,15.80805556
 Stallupönen,Nesterov,54.63055556,22.57333333
 Stampfen,Stupava,48.271111,17.031667
 Standemin,Stanomino,53.9575,15.89833333
+St. Andreasberg,Sankt Andreasberg,51.71055556,10.51833333
 Stangendorf bei Zwittau,Vendolí,49.73611069,16.41250038
 Stanislau;Stanislawiw,Iwano-Frankiwsk,48.916667,24.7
 Stankau,Staňkov,49.553889,13.070833
@@ -5520,6 +5637,7 @@ Staschkenhau,Staškovce,49.27916667,21.75416667
 Staschow,Stašov,49.67694444,16.36638889
 Stauding,Studénka,49.71666667,18.06666667
 Staufen,Étueffont,47.7197,6.9225
+Stavanger,Stavanger,58.96944444,5.73194444
 Stebnik,Stebník,49.38333333,21.26666667
 Stecken,Štoky,49.49805556,15.58611111
 Stefanau,Štěpánov,49.678889,17.216389
@@ -5563,6 +5681,7 @@ Stimmersdorf im Buchenwald,Isztimér,47.27958,18.19466
 Stipoklas,Štipoklasy,49.82416667,15.21666667
 Stmelin,Čmelíny,49.48861111,13.65361111
 Stöcken,Štoky,49.49805556,15.58611111
+Stockholm,Stockholm,59.325,18.05
 Stockneudorf,Klátova Nová Ves,48.56666667,18.3
 Stögenwald,Pestřice,48.7003481,14.0169044
 Stojanowitz,Stojanovice,49.2491667,13.3702778
@@ -5615,6 +5734,7 @@ Studnitz bei Nachod,Studnice,51.721667,15.506667
 Stuhlweißenburg,Székesfehérvár,47.19555556,18.40888889
 Stuhm,Sztum,53.93333333,19.03333333
 Stupeschitz,Stupešice,48.9858333,16.075
+Stuttgart,Stuttgart,48.77555556,9.18277778
 Subbat,Subate,56.01666667,25.9
 Subnach,Zvoneće,45.40555556,14.27916667
 Subschitz,Zubčice,48.8,14.41666667
@@ -5653,6 +5773,7 @@ Tachau,Tachov,49.79527778,12.63305556
 Tadden,Tadzino,54.68277778,18.01888889
 Tadisdorf,Kemestaródfa,47,16.51666667
 Talsen,Talsi,57.25,22.60000038
+Tanger,Tanger,35.78472222,-5.8125
 Taningen,Taninges,46.1081,6.5922
 Tannawa,Ždánov,49.46611111,12.85305556
 Tannaweg,Jedlová,49.65777778,16.32611111
@@ -5742,11 +5863,13 @@ Tirschnitz,Tršnice,50.1091667,12.3916667
 Tirschtiegel,Trzciel,52.36666667,15.86666667
 Tisch,Ktiš,48.91805649,14.12388897
 Tischnowitz,Tišnov,49.33333333,16.41666667
+Tivoli,Tivoli,41.96666718,12.80000019
 Tobelhof,Moczkowo,52.9667,15.1833
 Todlau,Datelov,49.24861145,13.22694397
 Tofi,Tófű,46.31666667,18.36666667
 Tojitz,Tojice,49.49583333,13.63416667
 Tokio,Tokyo,35.68333333,139.68333333
+Toledo,Toledo,39.86666667,-4.03333333
 Tölleck,Telki,47.55,18.83333333
 Tollenstein,Rozhled,50.8633333,14.5747222
 Tolmein,Tolmin,46.18574722,13.73515
@@ -5772,6 +5895,8 @@ Tost,Toszek,50.45,18.51666667
 Totiserkolonie,Tatabánya,47.58616,18.39485
 Totis,Tata,47.65,18.3166667
 Totwaschon,Tótvázsony,47.00905991,17.78759003
+Toulon,Toulon,43.125,5.93055556
+Tours,Tours,47.39277778,0.68833333
 Trabschitz,Travčice,50.50305557,14.18999958
 Tracht,Strachotín,48.90305556,16.6675
 Traken,Trakai,54.63333333,24.93333333
@@ -5814,6 +5939,7 @@ Triesch,Třešť,49.29305556,15.48444444
 Triesenhof,Střížov,48.89,14.5275
 Triest,Trieste,45.63333333,13.8
 Trifail,Trbovlje,46.15,15.05
+Tripoli,Tripoli,32.90222168,13.18583298
 Trippischen,Trpěšice,49.1747222,13.4669444
 Trittschein,Třeština,49.80027771,16.95722198
 Trnowan,Trnovany,50.54083252,14.17777824
@@ -5911,7 +6037,7 @@ Turau,Turowo,53.9,22.7626
 Türchau,Turoszów,50.945,14.90222222
 Turdoschin;Thurdoschin,Tvrdošín,49.33694444,19.55027778
 Turetz,Torez,48.02194444,38.62638889
-Turin,Torino,45.06666667,7.66666667
+Turin;Turino,Torino,45.06666667,7.66666667
 Türkheim im Elsass,Turckheim,48.0872,7.2811
 Turkowitz,Dobrkovice,49.09027778,17.66944444
 Turku,Åbo,60.45,22.25
@@ -5949,6 +6075,7 @@ Ullitz,Úlice,49.75722222,13.13805556
 Ullrichsthal,Nový Oldřichov,50.76666667,14.43333333
 Ulma,Uljma,45.03805556,21.15361111
 Ulmbach,Jilmová,50.5249547,13.2109517
+Ulm,Ulm,48.40083333,9.98722222
 Ulrichsfelde,Zdunki,53.75,22.35000038
 Ungarisch-Altenburg,Mosonmagyaróvár,47.87371,17.26873
 Ungarisch-Biel,Veľký Biel,48.21666718,17.36666679
@@ -6024,6 +6151,7 @@ Unterzemming,Alsószölnök,46.92746,16.20254
 Unter Zetno,Dolní Cetno,50.405,14.8033333
 Untschin,Unčín,49.61472222,16.24111111
 Upidamischken,Tuniszki,54.27194444,22.62083333
+Uppsala,Uppsala,59.85972214,17.64111137
 Urbau,Vrbovec,45.88333333,16.43333333
 Urbrunn,Úrkút,47.08191,17.64456
 Ürmenhausen,Jermenovci,45.23611111,21.04194444
@@ -6038,6 +6166,7 @@ Utitz,Votice,49.65,14.65
 Utschendorf,Ocieszów,50.42705,16.421203
 Uttigsdorf,Útěchov,49.72833252,16.64444351
 Uttwa,Útvina,50.06666667,12.95
+Valencia,Valencia,39.47666667,0.37444444
 Valletta,La Valletta,35.89972222,14.51472222
 Valona,Vlorë,40.465,19.485
 Varzin,Warcino,54.22277832,16.8572216
@@ -6060,9 +6189,11 @@ Vietzker See,Jezioro Wicko,54.539,16.629
 Vietzkerstrand,Wicko Morskie,54.54888916,16.60333252
 Vietzow,Wicewo,53.88888889,16.12972222
 Vietz,Witnica,52.68333333,14.88333333
+Villingen,Villingen-Schwenningen,48.05694444,8.49166667
 Vimberg,Vimperk,49.05,13.78333333
 Vinjerac,Kastelwenier,44.25444412,15.46611118
 Virchowsee,Jezioro Wierzchowo,53.8623351,16.6594154
+Viterbo,Viterbo,42.41694444,12.10472222
 Vitin,Vidin,44,22.86666679
 Vitter See,Jezioro Kopań,54.48200674,16.45065308
 Vlora,Vlorë,40.465,19.485
@@ -6154,6 +6285,7 @@ Waschludt,Városlőd,47.14372,17.65034
 Wasser,Kisvaszar,46.27727,18.212
 Wassersuppen,Nemanice,49.43916702,12.7211113
 Wassertrompeten,Ostromeč,49.6119444,12.9605556
+Waterloo,Waterloo,50.7,4.383333
 Watislaw,Vlastislav,50.49722222,13.95555556
 Wattin,Vatin,45.23416667,21.23944444
 Watzau,Vacov,49.13695826,13.72912502
@@ -6168,6 +6300,7 @@ Wehowitz,Wiechowice,49.983333,17.866667
 Wehrau,Osiecznica,51.32722222,15.42
 Wehrkirchen,Żytkiejmy,54.33333333,22.68333333
 Weikersdorf,Vikýřovice,49.98333333,17.01666667
+Weimar,Weimar,50.97944444,11.32972222
 Weinberge,Vinohrady,50.07555556,14.44583333
 Weindorf,Pilisborosjenő,47.61666667,19
 Weinitz,Bojnice,48.77916667,18.58333333
@@ -6177,6 +6310,7 @@ Weißbrod,Niedźwiedna,50.28333282,16.63333321
 Weißbrunn,Veszprém,47.09296,17.91377
 Weißemburg;Weissemburg,Wissembourg,49.04,7.95
 Weißenbach;Weissenbach,Wisembach,48.2581,7.1069
+Weißenfels,Weißenfels,51.20111084,11.97222233
 Weißenstein,Paide,58.88555556,25.55694444
 Weißensulz,Bělá nad Radbuzou,49.59333333,12.71333333
 Weißgrün,Kamenec,49.87916667,13.59166667
@@ -6280,6 +6414,7 @@ Wiedrig,Vydrník,49.00111111,20.40416667
 Wiehall-Kleinturwall,Biatorbágy,47.47119,18.8252
 Wiekatsch,Bikács,46.68333333,18.66666667
 Wieland,Villány,45.86951,18.45562
+Wiesbaden,Wiesbaden,50.08208333,8.24136111
 Wieschowa,Wieszowa,50.4,18.76666667
 Wieselburg-Ungarisch Altenburg,Mosonmagyaróvár,47.86666667,17.26666667
 Wieselburg;Ungarisch Altenburg,Mosonmagyaróvár,47.87371,17.26873
@@ -6335,6 +6470,7 @@ Wischau,Vyškov,49.26666667,16.98333333
 Wischkowa,Výškov,50.39694444,13.68222222
 Wischkowitz,Viškovci,45.34,18.45
 Wischnau,Višňová,50.96666718,15.01666737
+Wismar,Wismar,53.88821411,11.46201706
 Wisowik,Bizovik,46.03477478,14.569561
 Wisowitz,Vizovice,49.22,17.85111111
 Wissek,Wysoka,53.17777778,17.08333333
@@ -6343,6 +6479,7 @@ Witkensdorf,Vítkovce,48.92777778,20.72083333
 Witoseß,Bitozeves,50.36972222,13.63611111
 Witschke,Bicske,47.49074,18.63625
 Witschkoberg,Halámky,48.85,14.91666667
+Wittenberg,Lutherstadt Wittenberg,51.86666667,12.64333333
 Wittig,Vítkov,49.766667,17.75
 Wittingau,Třeboň,49.00361111,14.77055556
 Wittingsreith,Vítkov,49.766667,17.75
@@ -6377,6 +6514,7 @@ Woleschko,Oleško,50.48638916,14.19722176
 Woleschna,Olešná,49.433333,18.65
 Wölfelsdorf,Wilkanów,50.2475,16.68916667
 Wölfelsgrund,Międzygórze,50.228635,16.765104
+Wolfenbüttel,Wolfenbüttel,52.16222222,10.53694444
 Wolfersdorf bei Böhmisch Leipa,Volfartice,50.73333333,14.45
 Wolfersdorf bei Plan,Olbramov,49.84416667,12.86138889
 Wolfers,Volfířov,49.10611111,15.36111111
@@ -6409,6 +6547,7 @@ Worcester,,52.1925,-2.22083
 Wörles,Ostrov,50.30805588,12.94972229
 Worlik,Orlík nad Vltavou,49.50555556,14.16722222
 Wormditt,Orneta,54.11666667,20.13333333
+Worms,Worms,49.63305556,8.36083333
 Worow,Borovo,45.375,18.96666718
 Wosek,Oseky,49.02583313,13.95944405
 Wossek,Osek,50.6225,13.685833
@@ -6441,6 +6580,7 @@ Würbenthal,Vrbno pod Pradědem,50.11666667,17.38333333
 Wurnberg,Brežice,45.90478611,15.592225
 Wurow,Worowo,53.69861111,15.64527778
 Würtringen,Vétrigne,47.6683,6.8942
+Würzburg,Würzburg,49.79444444,9.92944444
 Wurzelsdorf,Kořenov,50.76972198,15.36694431
 Wurzen,Podkoren,46.49494444,13.75601944
 Wurzmes,Vrskmaň,50.50194444,13.49861111
@@ -6502,6 +6642,7 @@ Zeidlweid,Brtná,49.50916672,15.21388912
 Zein,Sinj,43.7,16.63333333
 Zeislitz,Cejsice;Cejslice,49.0733333,13.7569444
 Zeißermühl,Sezemín,49.4997222,12.7383333
+Zeitz,Zeitz,51.04777778,12.13833333
 Zelebjen,Kelebija,46.1,19.5667
 Zelis,Želiezovce,48.04861111,18.66027778
 Zempelburg,Sępólno Krajeńskie,53.45,17.53333333
@@ -6589,7 +6730,9 @@ Zürau,Siřem,50.23444366,13.50444412
 Zürkow,Syrkowice,54.097297,15.861675
 Zutsch,Ivoševci,44.01666667,15.96666667
 Zuzech,Susek,45.21666718,19.53333282
+Zweibrücken,Zweibrücken,49.24944444,7.36083333
 Zwerenitz,Zvěřenice,48.9913889,13.9202778
+Zwickau,Zwickau,50.71888889,12.49222222
 Zwickowitz,Zvíkovec,49.95416667,13.68861111
 Zwischenwässern,Medvode,46.13333333,14.43333333
 Zwissenwässern;Zwischenwassern,Medvode,46.13333333,14.43333333

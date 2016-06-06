@@ -2,7 +2,7 @@ Abaujwar-Tornau,Abaúj-Torna,48.28,21.19
 Aberdeenshire,,57.151,-2.123
 Acharnes,,38.0925,23.7425
 Achill Island,,53.9639,-10.003
-Ägadische Inseln;Ägadischen Inseln,,37.96666718,12.19999981
+Ägadische(|n) Inseln,,37.96666718,12.19999981
 Ägäis;Ägäisches Meer,,39,25
 Ailsa Craig,,55.2519,-5.11639
 Akadien,,47.665278,-65.754167
@@ -105,6 +105,7 @@ Böhmen;Deutsch-Böhmen,,50,14
 Böhmerwald,,49.1125,13.1359
 Böotien,,38.42,23.08
 Bordelais,,44.84,-0.58
+Bornholm,Bornholm,55.127,14.914
 Borromäische Inseln;Borromäischen Inseln,,45.90333333,8.53055556
 Borschod,Borsod,48.1,20.78
 Bosnien,,44,18
@@ -112,14 +113,14 @@ Bosporus,,41.11944444,29.07527778
 Boulonnais,,50.7167,1.76667
 Bourbonnais,,46.57,3.33
 Bournemouth,,50.72,1.88
-Brabant,,50.78,4.63
-Brabant,,51,4
+Brabant;Braband,,51,4
 Brač;Bretia;Brazza;Bratz,,43.31111145,16.66555595
 Bracknell Forest,,51.417,0.7469
 Branau,Baranya,46.13,18.2
 Brandenburg,,52.3622,13.0078
 Brecknockshire,,52,-3.41667
 Breconshire,,52,-3.42
+Brenner;Brennerpass,Brennero,47.003333,11.5075
 Bressay,,60.15,-1.08333
 Bresse,,46.417,5.25
 Bretagne,,48,3
@@ -135,7 +136,6 @@ Budschak,,45.8,29.31
 Bugey,,45.9167,5.61667
 Bukowina,,48,25.5
 Burgh Island,,50.2797,-3.90028
-Burgund,,47.2475,4.15139
 Burgund,Bourgogne,47,4
 Burray,,58.8514,-2.935
 Burry Holms,,51.6095,-4.30773
@@ -177,6 +177,17 @@ Chester,,53.1903,-2.8916
 Chios,,38.4,26.16666667
 Chiswick Eyot,,51.4875,-0.245833
 Cisleithanien;Deutsch-Österreich,,47.72,15.6
+[CK]alabrien(|s),[CK]alabria,39,16.5
+[CK]astilien,,40.78,-4.2
+[CK]astilien-La Mancha,,39.58333333,-3.01666667
+[CK]astilien und León,,41.76666667,-4.71666667
+[CK]atalonien,,42,2
+[CK]ongobecken
+[CK]orfu,,39.62388889,19.82
+[CK]orinthia;[CK]orinthien,,37.9167,22.75
+[CK]ornwall;[CK]ornwales;[CK]ornwallis,,50.297261,-4.899737
+[CK]orsika,,42.14,9.08
+[CK]reta,,35.16,24.89
 Clackmannanshire,,56.1667,-3.75
 Clare,,52.83,-9
 Cochinchina;Kotschinchina;Cochinchine,,,
@@ -184,7 +195,7 @@ Coll,,56.6333,-6.55722
 Colonsay,,56.0667,-6.21667
 Combrailles,,45.8411,2.6331
 Comminges,,43.11,0.72
-Comtat Venaissin,,44.083,5
+Comtat Venaissin;Venaissin,,44.083,5
 Condomois,,43.96,0.37
 Connacht,,53.78,-9.05
 Connemara,,53.5,-9.75
@@ -198,9 +209,9 @@ Craigleith,,56.0734,-2.71885
 Cribinau,,53.1848,-4.49324
 Crim Rocks,,49.8967,-6.45
 Cromartyshire,,57.6,-4
-Cumberland,,54.75,3
+Cumberland,,54.75,-3
 Cumbria,,54.57,-2.91
-Dalmatien,,43.81,16.22
+Dalmatien;Dalmatia,Dalmacija,43.81,16.22
 Damaraland
 Damsay,,59.0086,-3.06306
 Darlington,,54.527,-1.5526
@@ -239,7 +250,7 @@ Eigg,,56.9,-6.16667
 Elba,,42.775,10.27972222
 Elginshire;Morayshire,,57.3,-3.3
 El Hierro,,27.73333333,-18.05
-Elsaß;Elsass,Alsace,48.2,7.5
+Elsaß;Elsass;Elsas,Alsace,48.2,7.5
 Elsaß-Lothringen,,48.67,7
 Embrunais,,44.6488,6.5784
 Emilia-Romagna,,44.43,10.97
@@ -281,6 +292,7 @@ Frankenwald,,50.2792,11.6433
 Franzien,,49.13,1.19
 Französisch-Flandern,,50.8,2.49
 Friaul,,46,13
+Frie[sß]land(|e),,53.1407,5.6815
 Fuerteventura,,28.4325,-14.00305556
 Galatien,,40,33.5
 Galicien,,43,-8
@@ -296,6 +308,7 @@ Gelderland,,52.06,5.92
 Gemer und Kleinhont,Gömör és Kis-hont,48.38,20.02
 Genevois,,45.75,6.29
 Gévaudan,,44.69,3.34
+Gibraltar,Gibraltar,36.138333,-5.353333
 Gipuzkoa;Guipúzcoa,,43.166667,-2.166667
 Glamorgan,,51.6667,-3.66667
 Glamorganshire,,51.67,-3.67
@@ -384,11 +397,13 @@ Istrien,,45.15,13.9
 Jaß-Großkumanien-Sollnock,Jász-Nagykun-Szolnok,47.17,20.18
 Jedisan,,47.2,30.42
 Jersey,,49.19,-2.11
+Jordan,Jordan,31.761284,35.558241
 Judäa,,31.779167,35.223611
 Julisch Venetien,,45.64,13.93
 Kabylei,,36.6,5
 Kalkalpen,,47.05,9.71
 Kampanien,Campania,40.74,14.78
+Kamtschatka,,57,160
 Kanalinseln,,49.41666667,2.33333333
 Kanarische Inseln;Kanarischen Inseln;Kanaren,,28.34306526,-15.77636719
 Kantabrien,Cantabria,43.3,-4.03333
@@ -401,10 +416,6 @@ Karpathos,,35.585278,27.128611
 Karpato-Ukraine;Karpatenukraine,,48.666667,23.233333
 Kaschubien;Kaschubei,Kaszuby,54.33,18.08
 Kasos,,35.387778,26.912778
-Kastilien,,40.78,-4.2
-Kastilien-La Mancha,,39.58333333,-3.01666667
-Kastilien und León,,41.76666667,-4.71666667
-Katalonien,,42,2
 Katzengebirge,,51.2833,17.05
 Kaukasien,,42.26,44.12
 Kaukasus,,42.5,45
@@ -427,18 +438,12 @@ Kleinpolen,Małopolska,50.42,21.3
 Kochersberg,,48.665,7.53056
 Kommagene
 Komorner Gespanschaft,Komárom vármegye,47.75,18.133333
-Kongobecken
 Korčula;Kurzel;Curzola,,42.93472222,16.85333333
-Korfu,,39.62388889,19.82
-Korinthia;Korinthien,,37.9167,22.75
 Kornaten,,43.78333282,15.33333302
-Kornwall;Cornwall;Kornwales;Cornwallis,,50.297261,-4.899737
-Korsika,,42.14,9.08
 Kos,,36.81527778,27.11027778
 Kosovo;Kosowo,,42.55,20.83
 Krain,,46,14.3
 Kreischgebiet;Kreischland;Sathmar,Crișana,46.9304,21.8009
-Kreta,,35.16,24.89
 Krim,,53.93,28.28
 Krk;Curicta;Vegl,,45.07888889,14.60083333
 Krummes Elsass,Alsace Bossue,48.87,7.19
@@ -482,7 +487,7 @@ Ligurien,,44.44,8.76
 Lika-Korbaw,Lika-Krbava,44.55,15.366667
 Limagne,,45.78,3.08
 Limerick,,52.6653,-8.6238
-Limousin,,45.8975,1.73306
+Limousin;Limoisin,,45.8975,1.73306
 Lincolnshire,,53.0667,-0.183333
 Linga Holm,,59.1325,-2.67417
 Linlithgowshire,,55.92,-3.5
@@ -505,7 +510,6 @@ Lorraine;Lothringen,,49,6
 Lošinj;Lötzing;Lussino,,44.58666667,14.40777778
 Lößnitz,,50.6214,12.7317
 Lothian,,55.9092,-3.08444
-Lothringen,,48.6,6.48722
 Louth,,53.83,-6.5
 Lundy,,51.1667,-4.66667
 Lydien,,40,30
@@ -518,6 +522,7 @@ Mainfranken,,50.05,10.23
 Maingau,,49.98,9.15
 Mallorca,,39.61666667,2.97583333
 Malta,,35.9,14.4
+Mancha,La Mancha,39.40111111,3.015
 Marais Poitevin,,46.33,0.67
 Maramuresch;Marmarosch,Máramaros,47.93,23.88
 Margeride,,44.66,3.54
@@ -587,11 +592,13 @@ Neuengland,,44.20555556,-70.306425
 Neustrien,,48.8,0.77
 Neutraer Gespanschaft,Nyitra vármegye,48.316667,18.083333
 Niederbayern,,48.6902,12.7479
+Niedere(|n|r) Tatra,Nizké Tatry,48.935,19.643889
 Niederhessen,,51.21,9.46
 Niederlausitz,,51.75,14.5
 Niederösterreich;Österreich unter der Enns,,48,16
 Niederrhein,,51.58,6.57
 Niedersachsen,,52.7562,9.39331
+Niederschlesien,Dolnośląsk,51.1134,17.3268
 Niortais,,46.33,-0.46
 Nivernais,,46.99,3.16
 Nordbayern,,49.79,9.93
@@ -702,6 +709,7 @@ Pommern,Pomorze,53.5,15.5
 Pontinische Inseln;Pontinischen Inseln,,40.88472222,13.15416667
 Porquerolles,,43.00055556,6.22722222
 Port-Cros,,43.00121944,6.39537222
+Porto Santo,Porto Santo,33.061944,-16.356389
 Portsea Island,,50.7924,-1.09194
 Powys,,52.3,-3.41667
 Pozega,Pozsega,45.333333,17.683333
@@ -710,6 +718,7 @@ Preußen,,52.45,14.25
 Prignitz,,53,12
 Provence,,43.54,6.47
 Punjab,,31,74
+Quebec,Québec,53.96666667,71.58333333
 Quercy,,44.2667,1.63333
 Queyras,,44.75,6.783
 Raaber Gespanschaft,Győr vármegye,47.683333,17.633333
@@ -731,6 +740,7 @@ Rheinland;Rheinprovinz,,50.4,6.96
 Rhodos,,36.18361111,27.96388889
 Rhön,,50.4981,9.93778
 Ribatejo,,39.23333333,-8.68333333
+Riesengebirge;Riesageberge;Riesegeberche,Karkonosze,50.736111,15.74
 Río de Oro,,23,-13
 Roche d'Oëtre,,48.8289,0.38102
 Romagna,,44.75,11
@@ -788,6 +798,7 @@ Schwaben,,48.25,9.45
 Schwarzburg-Rudolstadt,,50.78,11.27
 Schwarzburg-Sondershausen,,51.28,10.92
 Schwarzruthenien;Schwarzreußen;Schwarzreussen;Schwarzrußland,,52.81,29.33
+Schwarzwald,Schwarzwald,48,8
 Scilly;Scilly-Inseln,,49.9403,-6.31944
 Seeland;Zeeland,Zeeland,51.48,3.82
 Selkirkshire,,55.5,-3
@@ -799,6 +810,7 @@ Shapinsay,,59.05,-2.88333
 Shetland,,60.3,1.36666667
 Shetlandinseln;Shetland;Zetland,,60.3,-1.37
 Shropshire,,52.62,-2.72
+Sibirien,,61.804,95.202
 Sidobre,,43.6333,2.4
 Siebenbürgen,,46.5,25
 Siegerland,,50.85,7.96667
@@ -1001,7 +1013,3 @@ Zentralanatolien
 Zips,Szepes,49.02,20.58
 Zweibrücken-Bitsch,,49.05,7.43
 Zyklopeninseln,,37.56136111,15.16613889
-Kamtschatka,,,
-Niedere Tatra,Nizké Tatry,,
-Niederschlesien,Dolnośląsk,,
-Riesengebirge,Karkonosze,,
