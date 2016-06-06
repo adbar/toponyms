@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+# Copyright (C) Adrien Barbaresi, 2015-2016.
+# https://github.com/adbar/toponyms
+# GNU GPLv3 license
+
 
 ## TODO:
 # dates
 # Sankt/St.
-# regex for levels 2 and 3
 # lists of celebrities
 # filter 3: check coordinates
 # memory issues
@@ -37,6 +40,7 @@ parser.add_argument('--tok', dest='tok', action='store_true', help='tokenized fl
 parser.add_argument('--xml', dest='xml', action='store_true', help='xml flag')
 # parser.add_argument('--prepositions', dest='prepositions', action='store_true', help='prepositions switch')
 parser.add_argument('--fackel', dest='fackel', action='store_true', help='Fackel switch')
+parser.add_argument('--dta', dest='dta', action='store_true', help='DTA switch')
 parser.add_argument('--dates', dest='dates', action='store_true', help='Dates switch')
 parser.add_argument('--verbose', dest='verbose', action='store_true', help='Verbosity switch')
 args = parser.parse_args()
@@ -58,10 +62,11 @@ else:
 
 
 ## OPTIONS
-args.fackel = True
-print ('## Fackel flag True by default, nothing else implemented yet.')
+#args.fackel = True
+#print ('## Fackel flag True by default, nothing else implemented yet.')
 
-maxcandidates = 3 # was 10
+minlength = 4
+maxcandidates = 5 # was 10
 threshold = 1 # was 0.1 was 0.01 was 0.001
 
 codesdict = dict()
@@ -86,6 +91,9 @@ stoplist = set()
 if args.fackel is True:
     vicinity = set(['AT', 'BA', 'BG', 'CH', 'CZ', 'DE', 'HR', 'HU', 'IT', 'PL', 'RS', 'RU', 'SI', 'SK', 'UA'])
     reference = (float(48.2082), float(16.37169)) # Vienna
+elif args.dta is True:
+    vicinity = set(['AT', 'BE', 'CH', 'CZ', 'DK', 'FR', 'LU', 'NL', 'PL'])
+    reference = (float(51.86666667), float(12.64333333)) # Wittenberg
 
 # load normal dictionary
 with open('wiktionary.json', 'r', encoding='utf-8') as dictfh:
@@ -232,6 +240,10 @@ with open('geonames-codes.dict', 'r', encoding='utf-8') as inputfh:
     for line in inputfh:
         line = line.strip()
         columns = re.split('\t', line)
+        # length filter
+        if columns[0] < minlength:
+            continue
+        # add codes
         for item in columns[1:]:
             # depends from filter level
             if item in metainfo:
@@ -426,11 +438,11 @@ def selected_lists(name, multiflag):
     elif name in level2:
         templist = [level2[name][0], level2[name][1], '2', 'NULL', 'NULL', level2[name][2]]
     # filter here?
-    #elif name not in wiktionary and name.lower() not in wiktionary:
-    elif name in level3:
-        templist = [level3[name][0], level3[name][1], '3', 'NULL', 'NULL', level3[name][2]]
-    elif name in level4: # level4[name][0]
-        templist = [level4[name][0], level4[name][1], '4', 'NULL', 'NULL', name]
+    elif name not in wiktionary and name.lower() not in wiktionary:
+        if name in level3:
+            templist = [level3[name][0], level3[name][1], '3', 'NULL', 'NULL', level3[name][2]]
+        elif name in level4: # level4[name][0]
+            templist = [level4[name][0], level4[name][1], '4', 'NULL', 'NULL', name]
 
     # results
     if templist is not None:
@@ -550,11 +562,11 @@ for token in splitted:
             flag = filter_store(slide2, True)
     # just one token, if nothing has been found
     if flag is True:
-        if token not in stoplist and len(token) > 3:
-#  and not re.match(r'[a-z]', token) and (tokens[token]/numtokens) < threshold
-#  and token not in wiktionary and token.lower() not in wiktionary
+        if len(token) >= minlength and not re.match(r'[a-z]', token) and token not in stoplist:
+        # and (tokens[token]/numtokens) < threshold
             flag = selected_lists(token, False)
-            if flag is True:
+            # dict check before
+            if flag is True and token not in wiktionary and token.lower() not in wiktionary:
                 flag = filter_store(token, False)
         
     # final check whether to keep the multi-word scan running
