@@ -1,12 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Copyright (C) Adrien Barbaresi, 2015-2016.
-# https://github.com/adbar/toponyms
-# GNU GPLv3 license
-
 
 ## TODO:
+# bug: in some cases things are read twice (?)
 # dates
 # Sankt/St.
 # lists of celebrities
@@ -94,6 +91,9 @@ if args.fackel is True:
 elif args.dta is True:
     vicinity = set(['AT', 'BE', 'CH', 'CZ', 'DK', 'FR', 'LU', 'NL', 'PL'])
     reference = (float(51.86666667), float(12.64333333)) # Wittenberg
+else:
+    print ('Specify either Fackel or DTA as reference')
+    sys.exit(1)
 
 # load normal dictionary
 with open('wiktionary.json', 'r', encoding='utf-8') as dictfh:
@@ -113,7 +113,8 @@ print ('length dictionary:', len(wiktionary))
 # load extended blacklist
 with open('stoplist', 'r') as dictfh:
     for line in dictfh:
-        stoplist.add(line.strip())
+        line = line.strip()
+        stoplist.add(line)
 
 def expand(expression):
     expresults = list(exrex.generate(expression))
@@ -121,8 +122,8 @@ def expand(expression):
     if len(expresults) == 1:
         results = list()
         results.append(expression)
-        # genitive form if no s at the end
-        if not re.search(r's$', expression): 
+        # genitive form if no s at the end of one component
+        if not re.search(r's$', expression) and not re.search(r'\s', expression): 
             temp = expression + 's'
             results.append(temp)
         return results
@@ -157,7 +158,6 @@ def load_tsv(filename):
                         print (variant, d[variant])
     return d
 
-## TO COMPLETE
 def load_csv(filename):
     d = dict()
     with open(filename, 'r', encoding='utf-8') as inputfh:
@@ -187,9 +187,11 @@ def load_csv(filename):
                 canonical = expansions[0]
                 # process variants
                 for variant in expansions:
-                    d[variant] = [columns[2], columns[3], canonical]
-                    if args.verbose is True:
-                        print (variant, d[variant])
+                    # correction
+                    if len(variant) > 1:
+                        d[variant] = [columns[2], columns[3], canonical]
+                        if args.verbose is True:
+                            print (variant, d[variant])
     return d
 
 
@@ -241,7 +243,7 @@ with open('geonames-codes.dict', 'r', encoding='utf-8') as inputfh:
         line = line.strip()
         columns = re.split('\t', line)
         # length filter
-        if columns[0] < minlength:
+        if len(columns[0]) < minlength:
             continue
         # add codes
         for item in columns[1:]:
@@ -254,6 +256,7 @@ print ('different names:', len(codesdict))
 
 
 # calculate distance
+## source: http://stackoverflow.com/questions/4913349/haversine-formula-in-python-bearing-and-distance-between-two-gps-points#4913653
 def haversine(lat1, lon1, lat2, lon2):
     """
     Calculate the great circle distance between two points 
@@ -345,6 +348,10 @@ def find_winner(candidates, step):
 
 # dict search
 def filter_store(name, multiflag):
+    # double check for stoplist
+    if name in stoplist:
+        return True
+    # else
     global i, lastcountry, results
     winning_id = ''
     if name in codesdict:
@@ -432,17 +439,16 @@ def selected_lists(name, multiflag):
 
     # search
     if name in level0:
-        templist = [level0[name][0], level0[name][1], '1', 'NULL', 'NULL', level0[name][2]]
+        templist = [level0[name][0], level0[name][1], '0', 'NULL', 'NULL', level0[name][2]]
     elif name in level1:
         templist = [level1[name][0], level1[name][1], '1', 'NULL', 'NULL', level1[name][2]]
     elif name in level2:
         templist = [level2[name][0], level2[name][1], '2', 'NULL', 'NULL', level2[name][2]]
+    elif name in level3:
+        templist = [level3[name][0], level3[name][1], '3', 'NULL', 'NULL', level3[name][2]]
     # filter here?
-    elif name not in wiktionary and name.lower() not in wiktionary:
-        if name in level3:
-            templist = [level3[name][0], level3[name][1], '3', 'NULL', 'NULL', level3[name][2]]
-        elif name in level4: # level4[name][0]
-            templist = [level4[name][0], level4[name][1], '4', 'NULL', 'NULL', name]
+    elif name not in wiktionary and name.lower() not in wiktionary and name in level4:
+        templist = [level4[name][0], level4[name][1], '4', 'NULL', 'NULL', name] # level4[name][0]
 
     # results
     if templist is not None:
@@ -507,6 +513,7 @@ print ('types:', numtokens)
 
 # search for places
 for token in splitted:
+    flag = True
     if token == ' ':
         continue
     # skip and reinitialize:
@@ -547,14 +554,14 @@ for token in splitted:
 
     ## analyze sliding window first, then token if necessary
     # longest chain first
-    if len(slide3) > 0:
+    if len(slide3) > 0 and slide3.count(' ') == 2:
         # selected lists first
         flag = selected_lists(slide3, True)
         # if nothing has been found
         if flag is True:
             flag = filter_store(slide3, True)
     # longest chain first
-    if flag is True and len(slide2) > 0:
+    if flag is True and len(slide2) > 0 and slide2.count(' ') == 1:
         # selected lists first
         flag = selected_lists(slide2, True)
         # if nothing has been found
@@ -562,7 +569,7 @@ for token in splitted:
             flag = filter_store(slide2, True)
     # just one token, if nothing has been found
     if flag is True:
-        if len(token) >= minlength and not re.match(r'[a-z]', token) and token not in stoplist:
+        if len(token) >= minlength and not re.match(r'[a-zäöü]', token) and token not in stoplist:
         # and (tokens[token]/numtokens) < threshold
             flag = selected_lists(token, False)
             # dict check before
