@@ -1,15 +1,19 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
+# Copyright (C) Adrien Barbaresi, 2015-2016.
+# https://github.com/adbar/toponyms
+# GNU GPLv3 license
+
 
 ## TODO:
-# bug: in some cases things are read twice (?)
 # dates
+# lines
+# choice of canonical expression
 # Sankt/St.
 # lists of celebrities
 # filter 3: check coordinates
 # memory issues
-# collocates
 
 
 from __future__ import division, print_function, unicode_literals
@@ -28,6 +32,8 @@ import time
 # import ujson
 
 
+## ARGS
+
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--inputfile', dest='inputfile', help='input file', required=True)
 parser.add_argument('-o', '--outputfile', dest='outputfile', help='output file', required=True)
@@ -39,6 +45,7 @@ parser.add_argument('--xml', dest='xml', action='store_true', help='xml flag')
 parser.add_argument('--fackel', dest='fackel', action='store_true', help='Fackel switch')
 parser.add_argument('--dta', dest='dta', action='store_true', help='DTA switch')
 parser.add_argument('--dates', dest='dates', action='store_true', help='Dates switch')
+parser.add_argument('--lines', dest='lines', action='store_true', help='Lines switch')
 parser.add_argument('--verbose', dest='verbose', action='store_true', help='Verbosity switch')
 args = parser.parse_args()
 
@@ -58,13 +65,10 @@ else:
     filter_level = 0
 
 
-## OPTIONS
-#args.fackel = True
-#print ('## Fackel flag True by default, nothing else implemented yet.')
-
+## INIT
 minlength = 4
 maxcandidates = 5 # was 10
-threshold = 1 # was 0.1 was 0.01 was 0.001
+# threshold = 1 # was 0.1 was 0.01 was 0.001
 
 codesdict = dict()
 metainfo = dict()
@@ -82,7 +86,7 @@ flag = False
 slide2 = ''
 slide3 = ''
 lastcountry = ''
-wiktionary = set()
+dictionary = set()
 stoplist = set()
 
 if args.fackel is True:
@@ -100,15 +104,15 @@ with open('wiktionary.json', 'r', encoding='utf-8') as dictfh:
     for line in dictfh:
         forms = re.findall(r'"(.+?)"', line)
         for form in forms:
-            wiktionary.add(form)
+            dictionary.add(form)
         # print (re.search('"word":"(.+?)"', line).group(1))
         # nominative = re.findall('"NOMINATIVE":\["(.+?)"', line)
         # for n in nominative:
-        #     wiktionary.add(n)
+        #     dictionary.add(n)
         # dative = re.findall('"DATIVE":\["(.+?)"', line)
         # for d in dative:
-        #    wiktionary.add(d)
-print ('length dictionary:', len(wiktionary))
+        #    dictionary.add(d)
+print ('length dictionary:', len(dictionary))
 
 # load extended blacklist
 with open('stoplist', 'r') as dictfh:
@@ -404,10 +408,11 @@ def filter_store(name, multiflag):
         #    winning_id = choice(best_ones)
 
         # disable frequency count if multi-word on
-        if multiflag is False:
-            freq = '{0:.4f}'.format(tokens[name]/numtokens)
-        else:
-            freq = '0'
+        #if multiflag is False:
+        #    freq = '{0:.4f}'.format(tokens[name]/numtokens)
+        #else:
+        #    freq = '0'
+        freq = 'NULL'
         # store result
         if winning_id not in results:
             results[winning_id] = list()
@@ -437,7 +442,7 @@ def selected_lists(name, multiflag):
     global results
     templist = None
 
-    # search
+    # search + canonicalize
     if name in level0:
         templist = [level0[name][0], level0[name][1], '0', 'NULL', 'NULL', level0[name][2]]
     elif name in level1:
@@ -447,24 +452,29 @@ def selected_lists(name, multiflag):
     elif name in level3:
         templist = [level3[name][0], level3[name][1], '3', 'NULL', 'NULL', level3[name][2]]
     # filter here?
-    elif name not in wiktionary and name.lower() not in wiktionary and name in level4:
+    elif name not in dictionary and name.lower() not in dictionary and name in level4:
         templist = [level4[name][0], level4[name][1], '4', 'NULL', 'NULL', name] # level4[name][0]
+
+    # canonical result
+    if templist is not None:
+        canonname = templist[-1]
 
     # results
     if templist is not None:
         # store whole result or just count
-        if name not in results:
+        if canonname not in results:
             # disable frequency count if multi-word on
-            if multiflag is False:
-                freq = '{0:.4f}'.format(tokens[name]/numtokens)
-            else:
-                freq = '0'
-            results[name] = templist
-            results[name].append(freq)
-            results[name].append(1)
+            #if multiflag is False:
+            #    freq = '{0:.4f}'.format(tokens[canonname]/numtokens)
+            #else:
+            #    freq = '0'
+            freq = 'NULL'
+            results[canonname] = templist
+            results[canonname].append(freq)
+            results[canonname].append(1)
         else:
             # increment last element
-            results[name][-1] += 1
+            results[canonname][-1] += 1
         # store flag
         return False
     else:
@@ -482,9 +492,9 @@ with open(args.inputfile, 'r', encoding='utf-8') as inputfh:
         # very basic tokenizer
         splitted = re.split(r'([^\w-]+)', text, flags=re.UNICODE) # [ .,;:]
         # build frequency dict
-        tokens = defaultdict(int)
-        for elem in splitted:
-            tokens[elem] += 1
+        #tokens = defaultdict(int)
+        #for elem in splitted:
+        #    tokens[elem] += 1
     elif args.tok is True:
         i = 0
         splitted = list()
@@ -505,11 +515,12 @@ with open(args.inputfile, 'r', encoding='utf-8') as inputfh:
                 token = line.strip()
             splitted.append(token)
         # build frequency dict
-        tokens = defaultdict(int)
-        for elem in splitted:
-            tokens[elem] += 1
-numtokens = len(tokens)
-print ('types:', numtokens)
+        #tokens = defaultdict(int)
+        #for elem in splitted:
+        #    tokens[elem] += 1
+# numtokens = len(tokens)
+# print ('types:', numtokens)
+print ('tokens:', len(splitted))
 
 # search for places
 for token in splitted:
@@ -573,7 +584,7 @@ for token in splitted:
         # and (tokens[token]/numtokens) < threshold
             flag = selected_lists(token, False)
             # dict check before
-            if flag is True and token not in wiktionary and token.lower() not in wiktionary:
+            if flag is True and token not in dictionary and token.lower() not in dictionary:
                 flag = filter_store(token, False)
         
     # final check whether to keep the multi-word scan running
