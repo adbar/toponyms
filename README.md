@@ -10,13 +10,13 @@ Prototype for toponym extraction in historical texts written in German, as seen 
 
 ## Files currently in the repository
 
-Code and development files released under GNU GPLv3 license.
+* Scripts released under [GNU GPLv3](https://www.gnu.org/licenses/gpl.html) license
+   1. Extraction of place names (work in progress!)
+   2. Preparation of data from [Geonames](http://www.geonames.org/) (used as a fallback)
 
-1. Extraction of place names (work in progress!)
-2. Manually curated historical lists: continental, state, and region levels
-3. Semi-automatically completed list: cities and towns
-4. Preparation of data from [Geonames](http://www.geonames.org/) (used as a fallback)
-
+* Databases of place names released under [Creative Commons BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license
+   1. Manually curated historical lists: continental, state, and region levels
+   2. Semi-automatically completed list: cities and towns
 
 
 ## Sources
