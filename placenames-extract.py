@@ -8,7 +8,6 @@
 
 ## TODO:
 # dates
-# lines
 # choice of canonical expression
 # Sankt/St.
 # lists of celebrities
@@ -66,10 +65,14 @@ else:
 
 
 ## INIT
+
+# can be changed
 minlength = 4
 maxcandidates = 5 # was 10
 # threshold = 1 # was 0.1 was 0.01 was 0.001
+context_threshold = 20
 
+# standard
 codesdict = dict()
 metainfo = dict()
 results = dict()
@@ -88,6 +91,9 @@ slide3 = ''
 lastcountry = ''
 dictionary = set()
 stoplist = set()
+pair = list()
+lines = list()
+pair_counter = 0
 
 if args.fackel is True:
     vicinity = set(['AT', 'BA', 'BG', 'CH', 'CZ', 'DE', 'HR', 'HU', 'IT', 'PL', 'RS', 'RU', 'SI', 'SK', 'UA'])
@@ -350,6 +356,23 @@ def find_winner(candidates, step):
         elif metainfo[best_ones[0]][2] == 'P' and metainfo[best_ones[1]][2] == 'A':
             return best_ones[0]
 
+
+# draw lines
+def draw_line(lat, lon):
+    global pair, lines, pair_counter
+    if pair_counter <= context_threshold:
+        if len(pair) == 1:
+            pair.append((lat, lon))
+            lines.append((pair[0], pair[1]))
+            del pair[0]
+        else:
+            pair.append((lat, lon))
+    else:
+        pair = []
+        pair.append((lat, lon))
+    pair_counter = 0
+
+
 # dict search
 def filter_store(name, multiflag):
     # double check for stoplist
@@ -429,6 +452,12 @@ def filter_store(name, multiflag):
             # increment last element
             results[winning_id][-1] += 1
         lastcountry = metainfo[winning_id][3]
+
+        # lines flag
+        if args.lines is True:
+            draw_line(results[winning_id][0], results[winning_id][1])
+
+        # result
         return False
     else:
         # not found
@@ -475,6 +504,9 @@ def selected_lists(name, multiflag):
         else:
             # increment last element
             results[canonname][-1] += 1
+        # lines flag
+        if args.lines is True:
+            draw_line(templist[0], templist[1])
         # store flag
         return False
     else:
@@ -595,6 +627,9 @@ for token in splitted:
     #            if re.match(r'[A-ZÄÖÜ]', token, re.UNICODE):
     #                tempstring = token
 
+    pair_counter += 1
+
+
 
 print ('results:', len(results))
 with open(args.outputfile, 'w', encoding='utf-8') as outputfh:
@@ -624,3 +659,22 @@ with open(args.outputfile, 'w', encoding='utf-8') as outputfh:
             else:
                 outputfh.write('\t' + str(item))
         outputfh.write('\n')
+
+if args.lines is True:
+    with open('testlines.json', 'w') as outputfh:
+        outputfh.write('{"type": "FeatureCollection","features": [')
+        i = 1
+        for l in lines:
+            (lat1, lon1) = l[0]
+            (lat2, lon2) = l[1]
+            if i > 1:
+                outputfh.write(',')
+            outputfh.write('{"geometry": {"type": "LineString", "coordinates":[[')
+            outputfh.write(lon1 + ',' + lat1 + '],[' + lon2 + ',' + lat2 + ']]')
+            outputfh.write('},"type": "Feature", "properties": { "arc":' + str(i) + ',')
+            outputfh.write(' "start": "' + lon1 + ',' + lat1 + '", "end": "' + lon2 + ',' + lat2 + '", ' )
+            outputfh.write('"name": "' + 'I' + '→' + 'J' + '"}}')
+
+            i += 1
+
+        outputfh.write(']}')
