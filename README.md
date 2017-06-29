@@ -5,7 +5,7 @@ Prototype for toponym extraction in historical texts written in German, as seen 
 * Barbaresi, A., article to appear in book on *Visual Linguistics*.
 * Digital Humanities 2017 (Montréal, Canada): Barbaresi, A., [Toponyms as Entry Points into a Digital Edition: Mapping Die Fackel (1899-1936)](https://www.conftool.pro/dh2017/index.php?page=browseSessions&form_session=344&presentations=show), *Proceedings of Digital Humanities 2017*, to appear.
 * Digital Humanities 2016 (Cracow, Poland): Barbaresi, A. and Biber, H., [Extraction and Visualization of Toponyms in Diachronic Text Corpora](https://hal.archives-ouvertes.fr/hal-01348696/document), *Digital Humanities 2016  Conference Abstracts*, pp. 732-734.
-* CLARIN-D CA-3 Hands-On Session (Hamburg, Germany): Barbaresi, A., [Extraktion und Visualisierung von Ortsnamen im Deutschen Textarchiv](https://www.clarin-d.net/de/aktuelles/forum-ca3-2016/hands-on-poster-demos)
+* CLARIN-D CA-3 Hands-On Session (Hamburg, Germany): Barbaresi, A., [Extraktion und Visualisierung von Ortsnamen im Deutschen Textarchiv](https://www.clarin-d.net/de/aktuelles/forum-ca3-2016/hands-on-poster-demos).
 * DHd 2016 (Leipzig, Germany): Barbaresi, A., [Visualisierung von Ortsnamen im Deutschen Textarchiv](https://halshs.archives-ouvertes.fr/halshs-01287931/document), in *Proceedings of DHd 2016*, pp. 264-267.
 
 
@@ -16,7 +16,7 @@ Prototype for toponym extraction in historical texts written in German, as seen 
    1. Extraction of place names (work in progress! stable version only)
    2. Preparation of data from [Geonames](http://www.geonames.org/) (used as a fallback)
 
-* Curated registers containing place names released under [Creative Commons BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license, 2016 versions, update pending
+* Curated registers containing place names released under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license, 2016 versions, *update pending*
    1. Manually curated historical lists: continental, state, and region levels
    2. Semi-automatically completed list: cities and towns
    3. Data gathered from Wikipedia (CC-BY license), *to be cleared and uploaded*
@@ -68,4 +68,4 @@ Prototype for toponym extraction in historical texts written in German, as seen 
 
 To be expanded, please get in touch with me for further information.
 
-Thanks to Logan Pecinovsky (Berlin) and Judith Brottrager (Vienna) for helping with the curation of the lists. 
+Thanks to Logan Pecinovsky (BBAW, Berlin) and Judith Brottrager (ÖAW, Vienna) for helping with the curation of the lists. 
