@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Copyright (C) Adrien Barbaresi, 2015-2016.
+# Copyright (C) Adrien Barbaresi, 2015-2017.
 # https://github.com/adbar/toponyms
 # GNU GPLv3 license
 
@@ -9,8 +9,8 @@
 ## TODO:
 # dates
 # choice of canonical expression
-# Sankt/St.
-# lists of celebrities
+# abbrv file: Sankt/St.
+# lists of celebrities/other NEs
 # filter 3: check coordinates
 # memory issues
 
@@ -68,7 +68,11 @@ else:
 
 # can be changed
 minlength = 4
-maxcandidates = 5 # was 10
+if filter_level == 1:
+    maxcandidates = 5 # was 10
+elif filter_level == 2 or filter_level == 3:
+    maxcandidates = 10 # was 10
+
 # threshold = 1 # was 0.1 was 0.01 was 0.001
 context_threshold = 20
 
@@ -664,17 +668,28 @@ if args.lines is True:
     with open('testlines.json', 'w') as outputfh:
         outputfh.write('{"type": "FeatureCollection","features": [')
         i = 1
+        threshold = int(len(lines)/10) # https://github.com/alexpreynolds/colormaker
+        color = 1
+        #r = 0
+        #g = 255
+        #b = 255
         for l in lines:
             (lat1, lon1) = l[0]
             (lat2, lon2) = l[1]
+            # htmlcolor = "#%02x%02x%02x" % (r,g,b)
             if i > 1:
                 outputfh.write(',')
             outputfh.write('{"geometry": {"type": "LineString", "coordinates":[[')
             outputfh.write(lon1 + ',' + lat1 + '],[' + lon2 + ',' + lat2 + ']]')
             outputfh.write('},"type": "Feature", "properties": { "arc":' + str(i) + ',')
             outputfh.write(' "start": "' + lon1 + ',' + lat1 + '", "end": "' + lon2 + ',' + lat2 + '", ' )
-            outputfh.write('"name": "' + 'I' + '→' + 'J' + '"}}')
+            outputfh.write('"htmlcolor": "' + str(color) + '"}}')
 
             i += 1
+            # affect color spectrum
+            if i % threshold == 0:
+                color += 1
+                # g -= 1
+
 
         outputfh.write(']}')
