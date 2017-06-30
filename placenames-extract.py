@@ -106,29 +106,29 @@ elif args.dta is True:
     vicinity = set(['AT', 'BE', 'CH', 'CZ', 'DK', 'FR', 'LU', 'NL', 'PL'])
     reference = (float(51.86666667), float(12.64333333)) # Wittenberg
 else:
-    print ('Specify either Fackel or DTA as reference')
+    print ('Specify either "Fackel" or "DTA" as reference for disambiguation calculations')
     sys.exit(1)
 
 # load normal dictionary
-with open('wiktionary.json', 'r', encoding='utf-8') as dictfh:
-    for line in dictfh:
-        forms = re.findall(r'"(.+?)"', line)
-        for form in forms:
-            dictionary.add(form)
-        # print (re.search('"word":"(.+?)"', line).group(1))
-        # nominative = re.findall('"NOMINATIVE":\["(.+?)"', line)
-        # for n in nominative:
-        #     dictionary.add(n)
-        # dative = re.findall('"DATIVE":\["(.+?)"', line)
-        # for d in dative:
-        #    dictionary.add(d)
+try:
+    with open('wiktionary.json', 'r', encoding='utf-8') as dictfh:
+        for line in dictfh:
+            forms = re.findall(r'"(.+?)"', line)
+            for form in forms:
+                dictionary.add(form)
+except IOError:
+    print ('no dictionary file found')
 print ('length dictionary:', len(dictionary))
 
 # load extended blacklist
-with open('stoplist', 'r') as dictfh:
-    for line in dictfh:
-        line = line.strip()
-        stoplist.add(line)
+try:
+    with open('stoplist', 'r') as dictfh:
+        for line in dictfh:
+            line = line.strip()
+            stoplist.add(line)
+except IOError:
+    print ('no stoplist file found')
+print ('length stoplist:', len(stoplist))
 
 def expand(expression):
     expresults = list(exrex.generate(expression))
@@ -170,6 +170,7 @@ def load_tsv(filename):
                     d[variant] = [columns[1], columns[2], canonical]
                     if args.verbose is True:
                         print (variant, d[variant])
+    print (len(d), 'entries found in registry', filename)
     return d
 
 def load_csv(filename):
@@ -206,66 +207,81 @@ def load_csv(filename):
                         d[variant] = [columns[2], columns[3], canonical]
                         if args.verbose is True:
                             print (variant, d[variant])
+    print (len(d), 'entries found in registry', filename)
     return d
 
 
 # load infos level 0
-level0 = load_tsv('rang0-makro.tsv')
+level0 = load_tsv('registers/rang0-makro.tsv')
 
 # load infos level 1
-level1 = load_tsv('rang1-staaten.tsv')
+level1 = load_tsv('registers/rang1-staaten.tsv')
 
 # load infos level 2
-level2 = load_csv('rang2-regionen.csv')
+level2 = load_csv('registers/rang2-regionen.csv')
 
 # load infos level 3
-level3 = load_csv('rang3-staedte.csv')
+level3 = load_csv('registers/rang3-staedte.csv')
 
 # load infos level 4
-with open('rang4-geographie.tsv', 'r', encoding='utf-8') as inputfh:
-    for line in inputfh:
-        line = line.strip()
-        columns = re.split('\t', line)
-        if len(columns) == 3 and columns[1] is not None and columns[2] is not None:
-            level4[columns[0]] = [columns[1], columns[2]]
+try:
+    with open('registers/rang4-geographie.tsv', 'r', encoding='utf-8') as inputfh:
+        for line in inputfh:
+            line = line.strip()
+            columns = re.split('\t', line)
+            if len(columns) == 3 and columns[1] is not None and columns[2] is not None:
+                level4[columns[0]] = [columns[1], columns[2]]
+except IOError:
+    # not released yet
+    pass
 
 # geonames
-with open('geonames-meta.dict', 'r', encoding='utf-8') as inputfh:
-    for line in inputfh:
-        line = line.strip()
-        columns = re.split('\t', line)
-        # no empty places at filter levels 1 & 2
-        if filter_level == 1 or filter_level == 2:
-            if columns[5] == '0':
-                continue
-        # filter: skip elements
-        if filter_level == 1:
-            if columns[3] != 'A':
-                continue
-        elif filter_level == 2:
-            if columns[3] != 'A' and columns[3] != 'P':
-                continue
-        # process
-        metainfo[columns[0]] = list()
-        for item in columns[1:]:
-            metainfo[columns[0]].append(item)
+### FILE MUST EXIST, use the preprocessing script provided
+try:
+    with open('geonames-meta.dict', 'r', encoding='utf-8') as inputfh:
+        for line in inputfh:
+            line = line.strip()
+            columns = re.split('\t', line)
+            # no empty places at filter levels 1 & 2
+            if filter_level == 1 or filter_level == 2:
+                if columns[5] == '0':
+                    continue
+            # filter: skip elements
+            if filter_level == 1:
+                if columns[3] != 'A':
+                    continue
+            elif filter_level == 2:
+                if columns[3] != 'A' and columns[3] != 'P':
+                    continue
+            # process
+            metainfo[columns[0]] = list()
+            for item in columns[1:]:
+                metainfo[columns[0]].append(item)
+except IOError:
+    print ('geonames data required at this stage')
+    sys.exit(1)
 print ('different codes:', len(metainfo))
 
 # load codes (while implementing filter)
-with open('geonames-codes.dict', 'r', encoding='utf-8') as inputfh:
-    for line in inputfh:
-        line = line.strip()
-        columns = re.split('\t', line)
-        # length filter
-        if len(columns[0]) < minlength:
-            continue
-        # add codes
-        for item in columns[1:]:
-            # depends from filter level
-            if item in metainfo:
-                if columns[0] not in codesdict:
-                    codesdict[columns[0]] = list()
-                codesdict[columns[0]].append(item)
+### FILE MUST EXIST, use the preprocessing script provided
+try:
+    with open('geonames-codes.dict', 'r', encoding='utf-8') as inputfh:
+        for line in inputfh:
+            line = line.strip()
+            columns = re.split('\t', line)
+            # length filter
+            if len(columns[0]) < minlength:
+                continue
+            # add codes
+            for item in columns[1:]:
+                # depends from filter level
+                if item in metainfo:
+                    if columns[0] not in codesdict:
+                        codesdict[columns[0]] = list()
+                    codesdict[columns[0]].append(item)
+except IOError:
+    print ('geonames data required at this stage')
+    sys.exit(1)
 print ('different names:', len(codesdict))
 
 
@@ -517,8 +533,6 @@ def selected_lists(name, multiflag):
         return True
 
             
-
-
 # load all tokens
 
 with open(args.inputfile, 'r', encoding='utf-8') as inputfh:
@@ -690,6 +704,5 @@ if args.lines is True:
             if i % threshold == 0:
                 color += 1
                 # g -= 1
-
 
         outputfh.write(']}')
