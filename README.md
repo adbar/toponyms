@@ -1,3 +1,6 @@
+**Outdated code base, development now takes place on [geokelone package](https://github.com/adbar/geokelone)**
+
+
 ## Project basics
 
 Prototype for toponym extraction in historical texts written in German, as seen in:
@@ -9,12 +12,11 @@ Prototype for toponym extraction in historical texts written in German, as seen 
 * DHd 2016 (Leipzig, Germany): Barbaresi, A., [Visualisierung von Ortsnamen im Deutschen Textarchiv](https://halshs.archives-ouvertes.fr/halshs-01287931/document), in *Proceedings of DHd 2016*, pp. 264-267.
 
 
-
 ## Files currently in the repository
 
-* Scripts released under [GNU GPLv3](https://www.gnu.org/licenses/gpl.html) license
-   1. Extraction of place names (work in progress! stable version only)
-   2. Preparation of data from [Geonames](http://www.geonames.org/) (used as a fallback)
+* ~~Scripts released under [GNU GPLv3](https://www.gnu.org/licenses/gpl.html) license~~
+   1. ~~Extraction of place names (work in progress! stable version only)~~
+   2. ~~Preparation of data from [Geonames](http://www.geonames.org/) (used as a fallback)~~
 
 * Curated registers containing place names released under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) license, 2016 versions, *update pending*
    1. Manually curated historical lists: continental, state, and region levels
@@ -55,7 +57,6 @@ Prototype for toponym extraction in historical texts written in German, as seen 
 * https://de.wikisource.org/wiki/Liste_der_Autoren
 
 
-
 ### Method
 
 * https://www.mediawiki.org/wiki/Extension:GeoData#API
@@ -63,9 +64,8 @@ Prototype for toponym extraction in historical texts written in German, as seen 
 * https://github.com/asciimoo/exrex
 
 
-
 ## Additional infos
 
-To be expanded, please get in touch with me for further information.
+Thanks to Logan Pecinovsky (BBAW, Berlin) and Judith Brottrager (ÖAW, Vienna) for helping with the curation of the lists.
 
-Thanks to Logan Pecinovsky (BBAW, Berlin) and Judith Brottrager (ÖAW, Vienna) for helping with the curation of the lists. 
+**Outdated code base, development now takes place on [geokelone package](https://github.com/adbar/geokelone)**
